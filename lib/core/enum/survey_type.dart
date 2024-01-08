@@ -1,0 +1,1 @@
+enum SurveyType { vote, survey }

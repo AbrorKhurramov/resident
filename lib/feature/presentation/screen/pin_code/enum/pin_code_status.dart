@@ -1,0 +1,1 @@
+enum PinCodeStatus { enter, security, setup }
