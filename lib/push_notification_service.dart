@@ -44,7 +44,7 @@ class PushNotificationService {
   final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
       FlutterLocalNotificationsPlugin();
 
-  AndroidNotificationChannel channel = AndroidNotificationChannel(
+  AndroidNotificationChannel channel = const AndroidNotificationChannel(
       'high_importance_channel', 'High Importance Notifications',
       description: 'This channel is used for important notifications.',
       importance: Importance.high,

@@ -110,6 +110,7 @@ class NewVersion {
       debugPrint(
           'The target platform "${Platform.operatingSystem}" is not yet supported by this package.');
     }
+    return null;
   }
 
   /// This function attempts to clean local version strings so they match the MAJOR.MINOR.PATCH
@@ -121,7 +122,7 @@ class NewVersion {
   /// JSON document.
   Future<VersionStatus?> _getiOSStoreVersion(PackageInfo packageInfo) async {
     final id = iOSId ?? packageInfo.packageName;
-    final parameters = {"bundleId": "$id"};
+    final parameters = {"bundleId": id};
     if (iOSAppStoreCountry != null) {
       parameters.addAll({"country": iOSAppStoreCountry!});
     }
@@ -151,7 +152,7 @@ class NewVersion {
       PackageInfo packageInfo) async {
     final id = androidId ?? packageInfo.packageName;
     final uri =
-    Uri.https("play.google.com", "/store/apps/details", {"id": "$id", "hl": "en"});
+    Uri.https("play.google.com", "/store/apps/details", {"id": id, "hl": "en"});
     final response = await http.get(uri);
     if (response.statusCode != 200) {
       debugPrint('Can\'t find an app in the Play Store with the id: $id');
@@ -226,22 +227,22 @@ class NewVersion {
     );
 
     final updateButtonTextWidget = Text(updateButtonText);
-    final updateAction = () {
+    updateAction() {
       launchAppStore(versionStatus.appStoreLink);
       if (allowDismissal) {
         Navigator.of(context, rootNavigator: true).pop();
       }
-    };
+    }
 
     List<Widget> actions = [
       Platform.isAndroid
           ? TextButton(
-        child: updateButtonTextWidget,
         onPressed: updateAction,
+        child: updateButtonTextWidget,
       )
           : CupertinoDialogAction(
-        child: updateButtonTextWidget,
         onPressed: updateAction,
+        child: updateButtonTextWidget,
       ),
     ];
 
@@ -252,12 +253,12 @@ class NewVersion {
       actions.add(
         Platform.isAndroid
             ? TextButton(
-          child: dismissButtonTextWidget,
           onPressed: dismissAction,
+          child: dismissButtonTextWidget,
         )
             : CupertinoDialogAction(
-          child: dismissButtonTextWidget,
           onPressed: dismissAction,
+          child: dismissButtonTextWidget,
         ),
       );
     }
@@ -286,8 +287,8 @@ class NewVersion {
   /// Launches the Apple App Store or Google Play Store page for the app.
   Future<void> launchAppStore(String appStoreLink) async {
     debugPrint(appStoreLink);
-    if (await canLaunch(appStoreLink)) {
-      await launch(appStoreLink);
+    if (await canLaunchUrl(Uri.parse(appStoreLink))) {
+      await launchUrl(Uri.parse(appStoreLink));
     } else {
       throw 'Could not launch appStoreLink';
     }

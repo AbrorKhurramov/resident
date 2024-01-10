@@ -9,9 +9,9 @@ class PaymentHistoryCubit extends RepositoryCubit<PaymentHistoryState> {
   late final PaymentHistoryUseCase _paymentHistoryUseCase;
 
   PaymentHistoryCubit(PaymentHistoryUseCase paymentHistoryUseCase)
-      : super(PaymentHistoryState(
+      : super(const PaymentHistoryState(
           stateStatus: StateStatus.initial,
-          sortedPayment: const {},
+          sortedPayment: {},
         )) {
     _paymentHistoryUseCase = paymentHistoryUseCase;
   }

@@ -9,7 +9,7 @@ class SupportCubit extends RepositoryCubit<SupportState> {
   final GetSupportUseCase getSupportUseCase;
 
   SupportCubit({required this.getSupportUseCase})
-      : super(SupportState(stateStatus: StateStatus.initial));
+      : super(const SupportState(stateStatus: StateStatus.initial));
 
   void getSupport(String apartmentId) {
     emit(state.copyWith(stateStatus: StateStatus.loading));

@@ -15,7 +15,7 @@ import 'package:pinput/pinput.dart';
 
 class ConfirmationCardBottomSheet extends StatefulWidget {
   final SmsCardResponse smsCardResponse;
-  BuildContext subContext;
+   BuildContext subContext;
    ConfirmationCardBottomSheet({Key? key, required this.smsCardResponse,required this.subContext}) : super(key: key);
 
   @override
@@ -74,14 +74,14 @@ bool isFocus = true;
                         AppDimension.verticalSize_16,
                         Text(
                           _appLocalization.confirm_action.capitalize(),
-                          style: Theme.of(context).textTheme.headline2!.copyWith(color: AppColor.c4000, fontSize: 17.sf(context)),
+                          style: Theme.of(context).textTheme.displayMedium!.copyWith(color: AppColor.c4000, fontSize: 17.sf(context)),
                         ),
                         AppDimension.verticalSize_32,
                         Text(
                           _appLocalization.sms_number_info(widget.smsCardResponse.phoneNumber != null
                               ? _formatPhoneNumber(widget.smsCardResponse.phoneNumber!)
                               : ''),
-                          style: Theme.of(context).textTheme.headline3!.copyWith(color: AppColor.c3000, fontSize: 14.sf(context)),
+                          style: Theme.of(context).textTheme.displaySmall!.copyWith(color: AppColor.c3000, fontSize: 14.sf(context)),
                           textAlign: TextAlign.center,
                         ),
                         AppDimension.verticalSize_32,
@@ -92,7 +92,7 @@ bool isFocus = true;
                           defaultPinTheme: PinTheme(
                             width: 40,
                             height: 48,
-                            textStyle: Theme.of(context).textTheme.headline4!.copyWith(
+                            textStyle: Theme.of(context).textTheme.headlineMedium!.copyWith(
                                   fontSize: 20.sf(context),
                                   color: AppColor.c4000,
                                 ),
@@ -147,7 +147,7 @@ bool isFocus = true;
                             builder: (context, confirmationState) {
                               return ElevatedButton(
                                   style: ElevatedButton.styleFrom(
-                                      onSurface: AppColor.c6000.withOpacity(0.15), primary: AppColor.c6000),
+                                      backgroundColor: AppColor.c6000, disabledForegroundColor: AppColor.c6000.withOpacity(0.15).withOpacity(0.38), disabledBackgroundColor: AppColor.c6000.withOpacity(0.15).withOpacity(0.12)),
                                   onPressed: _validate(confirmationState.smsCode) && internetState ? _onConfirm : null,
                                   child: state.stateStatus == StateStatus.loading
                                       ? const CupertinoActivityIndicator(radius: 12)
@@ -242,7 +242,7 @@ bool isFocus = true;
             isAdd: 1,
           );
         }).then((value) {
-          print("value"+value.toString());
+          print("value$value");
       Navigator.pop(context, value);
     });
   }

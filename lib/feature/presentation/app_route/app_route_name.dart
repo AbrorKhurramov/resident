@@ -9,6 +9,8 @@ class AppRouteName {
 
   static const eventsScreen = 'EVENTS_SCREEN';
 
+  static const mobileProvidersScreen = 'MOBILE_PROVIDERS_SCREEN';
+
   static const notInternetScreen = 'NOT_INTERNET_SCREEN';
 
   static const otherCategoryScreen = 'OTHER_CATEGORY_SCREEN';

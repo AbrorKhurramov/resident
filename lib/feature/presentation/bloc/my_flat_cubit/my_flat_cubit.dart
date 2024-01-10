@@ -6,7 +6,7 @@ import 'package:either_dart/either.dart';
 class MyFlatCubit extends RepositoryCubit<MyFlatState> {
   final ChangeApartmentUseCase changeApartmentUseCase;
 
-  MyFlatCubit({required this.changeApartmentUseCase}) : super(MyFlatState(stateStatus: StateStatus.initial));
+  MyFlatCubit({required this.changeApartmentUseCase}) : super(const MyFlatState(stateStatus: StateStatus.initial));
 
   void changeActiveApartment(String apartmentId) {
     emit(state.copyWith(stateStatus: StateStatus.loading));

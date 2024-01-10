@@ -16,21 +16,21 @@ extension DateTimeExtension on DateTime {
 
   String getDay() {
     if (day < 10) {
-      return '0' + day.toString();
+      return '0$day';
     }
     return day.toString();
   }
 
   String getMinuteFormat() {
     if (minute < 10) {
-      return '0' + minute.toString();
+      return '0$minute';
     }
     return minute.toString();
   }
 
   String getHourFormat() {
     if (hour < 10) {
-      return '0' + hour.toString();
+      return '0$hour';
     }
     return hour.toString();
   }

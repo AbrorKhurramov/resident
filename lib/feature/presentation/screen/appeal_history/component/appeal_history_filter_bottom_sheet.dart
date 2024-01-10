@@ -44,7 +44,7 @@ class AppealHistoryFilterBottomSheetState extends State<AppealHistoryFilterBotto
       width: AppConfig.screenWidth(context),
       height: AppConfig.screenHeight(context) * 0.7,
       child: Container(
-        padding: EdgeInsets.symmetric(vertical: 16, horizontal: 12),
+        padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 12),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.start,
@@ -54,7 +54,7 @@ class AppealHistoryFilterBottomSheetState extends State<AppealHistoryFilterBotto
             Center(
               child: Text(
                 _appLocalization.filter.capitalize(),
-                style: Theme.of(context).textTheme.headline2!.copyWith(fontSize: 17.sf(context), color: AppColor.c4000),
+                style: Theme.of(context).textTheme.displayMedium!.copyWith(fontSize: 17.sf(context), color: AppColor.c4000),
               ),
             ),
             AppDimension.verticalSize_24,
@@ -62,7 +62,7 @@ class AppealHistoryFilterBottomSheetState extends State<AppealHistoryFilterBotto
               alignment: Alignment.centerLeft,
               child: Text(
                 _appLocalization.date.capitalize(),
-                style: Theme.of(context).textTheme.headline3!.copyWith(fontSize: 14.sf(context), color: AppColor.c3000),
+                style: Theme.of(context).textTheme.displaySmall!.copyWith(fontSize: 14.sf(context), color: AppColor.c3000),
               ),
             ),
             AppDimension.verticalSize_12,
@@ -90,7 +90,7 @@ class AppealHistoryFilterBottomSheetState extends State<AppealHistoryFilterBotto
               alignment: Alignment.centerLeft,
               child: Text(
                 _appLocalization.status.capitalize(),
-                style: Theme.of(context).textTheme.headline3!.copyWith(fontSize: 14.sf(context), color: AppColor.c3000),
+                style: Theme.of(context).textTheme.displaySmall!.copyWith(fontSize: 14.sf(context), color: AppColor.c3000),
               ),
             ),
             AppDimension.verticalSize_12,
@@ -109,11 +109,11 @@ class AppealHistoryFilterBottomSheetState extends State<AppealHistoryFilterBotto
                     },
                     child: Container(
                       height: 36,
-                      padding: EdgeInsets.symmetric(horizontal: 15,vertical: 5),
+                      padding: const EdgeInsets.symmetric(horizontal: 15,vertical: 5),
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(20),
                           border: index==widget.selectedStatusIndex?null: Border.all(color: Colors.black),
-                          color: index==widget.selectedStatusIndex?Color.fromRGBO(56, 145, 250, 1):Colors.white
+                          color: index==widget.selectedStatusIndex?const Color.fromRGBO(56, 145, 250, 1):Colors.white
                       ),
                       child: Center(child: Text(status[index],style: TextStyle(fontSize: 12.sf(context),fontWeight: FontWeight.w500,color: index==widget.selectedStatusIndex?Colors.white:Colors.black),)),
                     ),
@@ -127,7 +127,7 @@ class AppealHistoryFilterBottomSheetState extends State<AppealHistoryFilterBotto
               alignment: Alignment.centerLeft,
               child: Text(
                 _appLocalization.appeal_type.capitalize(),
-                style: Theme.of(context).textTheme.headline3!.copyWith(fontSize: 14.sf(context), color: AppColor.c3000),
+                style: Theme.of(context).textTheme.displaySmall!.copyWith(fontSize: 14.sf(context), color: AppColor.c3000),
               ),
             ),
             AppDimension.verticalSize_12,
@@ -144,11 +144,11 @@ class AppealHistoryFilterBottomSheetState extends State<AppealHistoryFilterBotto
                       });
                     },
                     child: Container(
-                     padding: EdgeInsets.symmetric(horizontal: 12,vertical: 12),
+                     padding: const EdgeInsets.symmetric(horizontal: 12,vertical: 12),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20),
                         border: index==widget.selectedTypeIndex?null: Border.all(color: Colors.black),
-                        color: index==widget.selectedTypeIndex?Color.fromRGBO(56, 145, 250, 1):Colors.white
+                        color: index==widget.selectedTypeIndex?const Color.fromRGBO(56, 145, 250, 1):Colors.white
                       ),
                       child: Text(index==0?_appLocalization.all.capitalize(): widget.appealTypes![index-1].name.translate(context.read<LanguageCubit>().state.languageCode)??"",style: TextStyle(fontSize: 12.sf(context),fontWeight: FontWeight.w500,color: index==widget.selectedTypeIndex?Colors.white:Colors.black),),
                     ),
@@ -161,11 +161,11 @@ class AppealHistoryFilterBottomSheetState extends State<AppealHistoryFilterBotto
               children: [
                 Expanded(
                   child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(primary: AppColor.c60000, onPrimary: Colors.black),
+                      style: ElevatedButton.styleFrom(foregroundColor: Colors.black, backgroundColor: AppColor.c60000),
                       onPressed: () {
                         setState(() {
                           widget.fromDate = DateTime(DateTime.now().month>6?DateTime.now().year:DateTime.now().year-1, DateTime.now().month-6,1);
-                          widget.toDate = DateTime.now().add(Duration(days: 1));
+                          widget.toDate = DateTime.now().add(const Duration(days: 1));
                           widget.selectedStatusIndex = 0;
                           widget.selectedTypeIndex = 0;
                         });

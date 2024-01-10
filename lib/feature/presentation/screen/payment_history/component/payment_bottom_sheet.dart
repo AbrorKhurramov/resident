@@ -36,7 +36,7 @@ class _PaymentBottomSheetState extends State<PaymentBottomSheet> {
             _appLocalization.detailing.capitalize(),
             style: Theme.of(context)
                 .textTheme
-                .headline2!
+                .displayMedium!
                 .copyWith(color: AppColor.c4000, fontSize: 17.sf(context)),
           ),
           const SizedBox(height: 40),
@@ -60,7 +60,7 @@ class _PaymentBottomSheetState extends State<PaymentBottomSheet> {
               widget.payment.confirmType!=2? _appLocalization.successfully.toUpperCase():_appLocalization.canceled.toUpperCase()),
           const Divider(thickness: 1, color: AppColor.c40000),
           _initRowItem('${_appLocalization.top_up_amount.capitalize()}:',
-              '${(widget.payment.amount!/100).toInt().currencyFormat()} ${_appLocalization.sum}'),
+              '${(widget.payment.amount!~/100).currencyFormat()} ${_appLocalization.sum}'),
           const Divider(thickness: 1, color: AppColor.c40000),
           AppDimension.verticalSize_24,
           ElevatedButton(
@@ -83,7 +83,7 @@ class _PaymentBottomSheetState extends State<PaymentBottomSheet> {
             label,
             style: Theme.of(context)
                 .textTheme
-                .headline3!
+                .displaySmall!
                 .copyWith(color: AppColor.c3000, fontSize: 13.sf(context)),
           ),
           SizedBox(
@@ -92,7 +92,7 @@ class _PaymentBottomSheetState extends State<PaymentBottomSheet> {
               desc,
               style: Theme.of(context)
                   .textTheme
-                  .headline2!
+                  .displayMedium!
                   .copyWith(color: AppColor.c4000, fontSize: 13.sf(context)),
               textAlign: TextAlign.end,
               overflow: TextOverflow.ellipsis,
@@ -113,7 +113,7 @@ class _PaymentBottomSheetState extends State<PaymentBottomSheet> {
             label,
             style: Theme.of(context)
                 .textTheme
-                .headline3!
+                .displaySmall!
                 .copyWith(color: AppColor.c3000, fontSize: 13.sf(context)),
           ),
           const Spacer(),
@@ -126,7 +126,7 @@ class _PaymentBottomSheetState extends State<PaymentBottomSheet> {
               desc.toUpperCase(),
               style: Theme.of(context)
                   .textTheme
-                  .headline2!
+                  .displayMedium!
                   .copyWith(fontSize: 12.sf(context), color: Colors.white),
             ),
           )

@@ -24,10 +24,10 @@ class _SurveyEmptyComponent extends State<SurveyEmptyComponent> {
         return Column(
           mainAxisSize: MainAxisSize.max,
           children: [
-            SurveyHeaderComponent(),
+            const SurveyHeaderComponent(),
             Container(
               width: AppConfig.screenWidth(context),
-              padding: EdgeInsets.symmetric(horizontal: 20),
+              padding: const EdgeInsets.symmetric(horizontal: 20),
               child: AppEmptyCard(
                   path: 'assets/icons/empty_survey.svg',
                   description: _appLocalization.empty_survey_description),

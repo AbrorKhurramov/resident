@@ -5,7 +5,6 @@ import 'package:resident/app_package/domain/use_case_package.dart';
 import 'package:either_dart/either.dart';
 import 'package:resident/feature/domain/use_case/appeal_use_case/appeal_history_by_id_use_case.dart';
 
-import '../../../domain/entity/param/appeal_history_param.dart';
 import 'appeal_history_state.dart';
 
 class AppealHistoryCubit extends RepositoryCubit<AppealHistoryState> {
@@ -13,9 +12,9 @@ class AppealHistoryCubit extends RepositoryCubit<AppealHistoryState> {
   late final AppealHistoryByIDUseCase _appealHistoryByIDUseCase;
 
   AppealHistoryCubit(AppealHistoryUseCase appealTypesUseCase,AppealHistoryByIDUseCase appealHistoryByIDUseCase)
-      : super(AppealHistoryState(
+      : super(const AppealHistoryState(
           stateStatus: StateStatus.initial,
-          sortedAppeal: const {},
+          sortedAppeal: {},
         )) {
     _appealTypesUseCase = appealTypesUseCase;
     _appealHistoryByIDUseCase = appealHistoryByIDUseCase;

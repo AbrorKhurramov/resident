@@ -2,7 +2,6 @@ import 'package:dio/dio.dart';
 import 'package:either_dart/either.dart';
 import 'package:resident/app_package/core_package.dart';
 import 'package:resident/app_package/domain/entity_package.dart';
-import 'package:resident/feature/domain/entity/response/replenishment_details_response.dart';
 
 mixin PaymentRemoteSourceMixin implements BaseRequest {
   Future<Either<Exception, BasePaginationListResponse<Payment>>> getPayments({

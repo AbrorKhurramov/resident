@@ -10,8 +10,8 @@ import 'package:resident/feature/presentation/component/survey_item.dart';
 import 'package:resident/feature/presentation/screen/survey/component/survey_bottom_dialog/survey_bottom_dialog.dart';
 
 class SurveyComponent extends StatefulWidget {
-   SurveyComponent({Key? key,required this.surveyContext}) : super(key: key);
-BuildContext surveyContext;
+   const SurveyComponent({Key? key,required this.surveyContext}) : super(key: key);
+final BuildContext surveyContext;
   @override
   State<SurveyComponent> createState() => _SurveyComponentState();
 }
@@ -64,7 +64,7 @@ class _SurveyComponentState extends State<SurveyComponent> {
     return Container(
       height: 56,
       color: Colors.transparent,
-      child: Center(
+      child: const Center(
         child: CircularProgressIndicator(),
       ),
     );

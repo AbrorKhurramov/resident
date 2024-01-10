@@ -1,5 +1,4 @@
 
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
@@ -23,7 +22,7 @@ import 'component/invoice_filter_bottom_sheet.dart';
 
 class InvoiceListScreen extends StatefulWidget {
   static Route<dynamic> route(String? id) {
-    return MaterialPageRoute(settings: RouteSettings(name: AppRouteName.invoiceScreen),  builder: (context) {
+    return MaterialPageRoute(settings: const RouteSettings(name: AppRouteName.invoiceScreen),  builder: (context) {
       return  BlocProvider(
   create: (_) =>  getIt<ProfileCubit>(),
   child: InvoiceListScreen(id: id),
@@ -136,7 +135,7 @@ class _InvoiceListScreenState extends State<InvoiceListScreen> with TickerProvid
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             image: DecorationImage(
               image: AssetImage('assets/images/part_third_gradient.png'),
               fit: BoxFit.fill,
@@ -157,9 +156,9 @@ class _InvoiceListScreenState extends State<InvoiceListScreen> with TickerProvid
                           child: Column(
                             children: <Widget>[
                               Container(
-                                constraints: BoxConstraints.expand(height: 50),
+                                constraints: const BoxConstraints.expand(height: 50),
                                 child: TabBar(
-                                  labelPadding: EdgeInsets.symmetric(horizontal: 5),
+                                  labelPadding: const EdgeInsets.symmetric(horizontal: 5),
                                   controller: _tabController,
                                   isScrollable: true,
                                   indicatorColor: Colors.transparent,
@@ -198,7 +197,7 @@ class _InvoiceListScreenState extends State<InvoiceListScreen> with TickerProvid
                   padding: const EdgeInsets.symmetric(horizontal: 30),
                   child: Container(
                     height: 36,
-                    padding: EdgeInsets.symmetric(horizontal: 10),
+                    padding: const EdgeInsets.symmetric(horizontal: 10),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(18),
                       color: Colors.white
@@ -208,7 +207,7 @@ class _InvoiceListScreenState extends State<InvoiceListScreen> with TickerProvid
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(_appLocalization.filter_date("${dateFrom.parseFilterData().day}.${dateFrom.parseFilterData().month}.${dateFrom.parseFilterData().year}", "${dateTo.parseFilterData().day}.${dateTo.parseFilterData().month}.${dateTo.parseFilterData().year}"),style: TextStyle(fontSize: 14.sf(context)),),
-                        SizedBox(width: 5),
+                        const SizedBox(width: 5),
                         GestureDetector(
                             onTap: (){
                               setState((){
@@ -219,7 +218,7 @@ class _InvoiceListScreenState extends State<InvoiceListScreen> with TickerProvid
                                 isFilter = false;
                               });
                             },
-                            child: Icon(Icons.cancel,color: Colors.black)),
+                            child: const Icon(Icons.cancel,color: Colors.black)),
                       ],
                     ),
                   ),
@@ -277,7 +276,7 @@ class _InvoiceListScreenState extends State<InvoiceListScreen> with TickerProvid
             selectedStatusIndex: status,
             selectedTypeIndex: type,
             fromDate: dateFrom!=""?dateFrom.parseFilterData(): DateTime(DateTime.now().month>6?DateTime.now().year:DateTime.now().year-1, DateTime.now().month-6,1),
-            toDate: dateTo!=""?dateTo.parseFilterData(): DateTime.now().add(Duration(days: 1)),
+            toDate: dateTo!=""?dateTo.parseFilterData(): DateTime.now().add(const Duration(days: 1)),
           );
         }).then((value) => {
           if(value!=null){
@@ -289,7 +288,7 @@ class _InvoiceListScreenState extends State<InvoiceListScreen> with TickerProvid
              status =  value.selectedStatusIndex ;
              type =  value.selectedTypeIndex ;
            }),
-            print("status"+ value.selectedStatusIndex.toString()+" type"+value.selectedTypeIndex.toString()),
+            print("status${value.selectedStatusIndex} type${value.selectedTypeIndex}"),
 
           }
       else print ("nulll")

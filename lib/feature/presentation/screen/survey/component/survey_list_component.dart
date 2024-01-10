@@ -24,7 +24,7 @@ class _SurveyListComponentState extends State<SurveyListComponent>
       return NestedScrollView(
         headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
           return [
-            SliverToBoxAdapter(
+            const SliverToBoxAdapter(
               child: SurveyHeaderComponent(),
             )
           ];

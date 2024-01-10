@@ -12,7 +12,7 @@ class Company extends Equatable {
   @HiveField(1)
   final String name;
 
-  Company({required this.id, required this.name});
+  const Company({required this.id, required this.name});
 
   factory Company.fromJson(Map<String, dynamic> json) {
     return _$CompanyFromJson(json);

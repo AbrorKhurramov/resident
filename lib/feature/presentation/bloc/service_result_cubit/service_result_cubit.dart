@@ -8,7 +8,7 @@ class ServiceResultCubit extends RepositoryCubit<ServiceResultState> {
   final GetServiceResultUseCase getServiceResultUseCase;
 
   ServiceResultCubit({required this.getServiceResultUseCase})
-      : super(ServiceResultState(stateStatus: StateStatus.initial));
+      : super(const ServiceResultState(stateStatus: StateStatus.initial));
 
 
   void getServiceList(int type , String apartmentId) {

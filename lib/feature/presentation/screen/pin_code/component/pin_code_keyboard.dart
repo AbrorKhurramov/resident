@@ -6,9 +6,9 @@ import 'package:resident/feature/presentation/bloc/pin_code/pin_code_cubit.dart'
 import 'package:provider/src/provider.dart';
 
 class PinCodeKeyboard extends StatefulWidget {
-  PinCodeKeyboard({Key? key,required this.onTapBiometrics,required this.isVisible}) : super(key: key);
- void Function()  onTapBiometrics;
- bool isVisible;
+ const PinCodeKeyboard({Key? key,required this.onTapBiometrics,required this.isVisible}) : super(key: key);
+ final void Function()  onTapBiometrics;
+ final bool isVisible;
   @override
   State<PinCodeKeyboard> createState() => _PinCodeKeyboardState();
 }
@@ -77,17 +77,15 @@ class _PinCodeKeyboardState extends State<PinCodeKeyboard> {
         context.read<PinCodeCubit>().onKeyboardPressed(number);
       },
       style: ElevatedButton.styleFrom(
-        shape: CircleBorder(),
-        fixedSize: Size(72, 72),
-        primary: Colors.white,
-        onPrimary: Theme.of(context).primaryColor, // <-- Splash color
+        foregroundColor: Theme.of(context).primaryColor, shape: const CircleBorder(), backgroundColor: Colors.white,
+        fixedSize: const Size(72, 72), // <-- Splash color
       ),
       child: Center(
         child: Text(
           number,
           style: Theme.of(context)
               .textTheme
-              .headline5!
+              .headlineSmall!
               .copyWith(color: AppColor.c4000, fontSize: 26.sf(context)),
         ),
       ),
@@ -102,7 +100,7 @@ class _PinCodeKeyboardState extends State<PinCodeKeyboard> {
           onPressed: () {
             context.read<PinCodeCubit>().onRemovePressed();
           },
-          icon: Icon(
+          icon: const Icon(
             Icons.backspace_sharp,
             color: Colors.white,
           ),

@@ -19,7 +19,6 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:resident/feature/presentation/screen/security/component/profile_bottom_sheet.dart';
 
 import '../../../../injection/params/permission_param.dart';
-import '../../bloc/by_biometrics_permission_cubit/by_biometrics_permission_cubit.dart';
 
 class SecurityScreen extends StatefulWidget {
   const SecurityScreen({Key? key}) : super(key: key);
@@ -51,7 +50,7 @@ class _SecurityScreenState extends State<SecurityScreen> {
         body: Container(
             width: AppConfig.screenWidth(context),
             height: AppConfig.screenHeight(context),
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               image: DecorationImage(
                 image: AssetImage(
                   'assets/images/part_first_gradient.png',
@@ -71,7 +70,7 @@ class _SecurityScreenState extends State<SecurityScreen> {
                   AppDimension.verticalSize_16,
                   Flexible(
                     child: Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 20),
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
                       child: AppArrowCard(
                           label: _appLocalization.change_password.capitalize(),
                           onPressed: _onPressedChangePassword),
@@ -80,21 +79,21 @@ class _SecurityScreenState extends State<SecurityScreen> {
                   AppDimension.verticalSize_16,
                   Flexible(
                     child: Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 20),
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
                       child: AppArrowCard(
                           label: _appLocalization.set_up_pin_code.capitalize(),
                           onPressed: _onPressedSetupPinCode),
                     ),
                   ),
                   AppDimension.verticalSize_16,
-                  Flexible(
+                  const Flexible(
                       child: Padding(
                           padding: EdgeInsets.symmetric(horizontal: 20),
                           child: PermissionComponent())),
                   AppDimension.verticalSize_16,
                   Flexible(
                     child: Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 20),
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
                       child: AppArrowCard(
                           label: _appLocalization.personal_data.capitalize(),
                           onPressed: () {
@@ -119,15 +118,13 @@ class _SecurityScreenState extends State<SecurityScreen> {
         _onPressedPermission(!state);
       } ,
       style: ElevatedButton.styleFrom(
-          fixedSize: Size(double.infinity, 64),
+          foregroundColor: Colors.blue, fixedSize: const Size(double.infinity, 64), backgroundColor: Colors.white,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(16),
           ),
-          onPrimary: Colors.blue,
-          primary: Colors.white,
           elevation: 0),
       child: Padding(
-        padding: EdgeInsets.symmetric(vertical: 24, horizontal: 16),
+        padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 16),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -138,7 +135,7 @@ class _SecurityScreenState extends State<SecurityScreen> {
                 maxLines: 1,
                 style: Theme.of(context)
                     .textTheme
-                    .headline3!
+                    .displaySmall!
                     .copyWith(color: AppColor.c4000, fontSize: 14.sf(context)),
               ),
             ),
@@ -160,7 +157,7 @@ class _SecurityScreenState extends State<SecurityScreen> {
         builder: (context) {
           return BlocProvider(
             create: (_) => getIt<ChangePasswordCubit>(),
-            child: ChangePasswordBottomSheet(),
+            child: const ChangePasswordBottomSheet(),
           );
         });
   }
@@ -191,7 +188,7 @@ class _SecurityScreenState extends State<SecurityScreen> {
             BlocProvider(
               create: (_) => getIt<ProfileCubit>(),
             ),
-          ], child: ProfileBottomSheet());
+          ], child: const ProfileBottomSheet());
         }).then((value) {
       if (value != null && value == true) {
         isChangedProfile = true;

@@ -128,7 +128,7 @@ class _InvoiceScreenState extends State<InvoiceScreen> {
         Expanded(
           child: ElevatedButton(
               style: ElevatedButton.styleFrom(
-                  primary: AppColor.c60000, onPrimary: Colors.black),
+                  foregroundColor: Colors.black, backgroundColor: AppColor.c60000),
               onPressed: () {
                 Navigator.pop(context);
               },

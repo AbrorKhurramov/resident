@@ -39,7 +39,7 @@ class _CounterChooserComponentState extends State<CounterChooserComponent> {
           _getCounterLabel(item),
           style: Theme.of(context)
               .textTheme
-              .headline4!
+              .headlineMedium!
               .copyWith(fontSize: 17, color: Colors.black),
         ),
       );
@@ -47,8 +47,8 @@ class _CounterChooserComponentState extends State<CounterChooserComponent> {
     return widget.counters.length > 1
         ? Container(
             width: AppConfig.screenWidth(context),
-            padding: EdgeInsets.all(16),
-            decoration: BoxDecoration(
+            padding: const EdgeInsets.all(16),
+            decoration: const BoxDecoration(
               borderRadius: BorderRadius.all(Radius.circular(16)),
               color: AppColor.c6000,
             ),
@@ -60,7 +60,7 @@ class _CounterChooserComponentState extends State<CounterChooserComponent> {
                   _appLocalization.counter.toUpperCase(),
                   style: Theme.of(context)
                       .textTheme
-                      .headline2!
+                      .displayMedium!
                       .copyWith(color: Colors.white, fontSize: 12),
                 ),
                 BlocBuilder<CreateInvoiceCubit, CreateInvoiceState>(
@@ -70,8 +70,8 @@ class _CounterChooserComponentState extends State<CounterChooserComponent> {
                       items: items,
                       iconEnabledColor: Colors.white,
                       iconDisabledColor: Colors.white,
-                      borderRadius: BorderRadius.all(Radius.circular(16)),
-                      underline: SizedBox(),
+                      borderRadius: const BorderRadius.all(Radius.circular(16)),
+                      underline: const SizedBox(),
                       isExpanded: true,
                       selectedItemBuilder: (BuildContext ctx) {
                         return items.map<Widget>((item) {
@@ -81,7 +81,7 @@ class _CounterChooserComponentState extends State<CounterChooserComponent> {
                                 "${item.value}",
                                 style: Theme.of(context)
                                     .textTheme
-                                    .headline4!
+                                    .headlineMedium!
                                     .copyWith(
                                         fontSize: 17, color: Colors.white),
                               ));
@@ -98,7 +98,7 @@ class _CounterChooserComponentState extends State<CounterChooserComponent> {
               ],
             ),
           )
-        : SizedBox();
+        : const SizedBox();
   }
 
   String _getCounterLabel(Counter counter) {

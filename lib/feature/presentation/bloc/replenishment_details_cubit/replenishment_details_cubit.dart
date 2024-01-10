@@ -10,7 +10,7 @@ class ReplenishmentDetailsCubit extends RepositoryCubit<ReplenishmentDetailsStat
  final ReplenishmentDetailsUseCase replenishmentDetailsUseCase;
 
  ReplenishmentDetailsCubit({required this.replenishmentDetailsUseCase})
-     : super(ReplenishmentDetailsState(stateStatus: StateStatus.initial));
+     : super(const ReplenishmentDetailsState(stateStatus: StateStatus.initial));
 
  void getReplenishmentDetails( String apartmentId) {
   emit(state.copyWith(stateStatus: StateStatus.loading,));

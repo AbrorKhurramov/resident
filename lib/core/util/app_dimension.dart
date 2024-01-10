@@ -6,6 +6,7 @@ class AppDimension {
   static const verticalSize_8 = SizedBox(height: 8);
   static const verticalSize_12 = SizedBox(height: 12);
   static const verticalSize_16 = SizedBox(height: 16);
+  static const verticalSize_18 = SizedBox(height: 18);
   static const verticalSize_20 = SizedBox(height: 20);
   static const verticalSize_24 = SizedBox(height: 24);
   static const verticalSize_32 = SizedBox(height: 32);

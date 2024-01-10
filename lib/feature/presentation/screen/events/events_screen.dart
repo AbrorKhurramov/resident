@@ -4,9 +4,6 @@ import 'package:resident/app_package/core_package.dart';
 import 'package:resident/core/extension/size_extension.dart';
 import 'package:resident/feature/presentation/component/custom_app_bar.dart';
 
-import '../../../../core/util/app_color.dart';
-import '../../../../core/util/app_dimension.dart';
-import '../../component/app_empty_card.dart';
 
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
@@ -23,7 +20,7 @@ class EventsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    AppLocalizations _appLocalization = AppLocalizations.of(context)!;
+    AppLocalizations appLocalization = AppLocalizations.of(context)!;
     return Scaffold(
       body: Container(
         decoration: const BoxDecoration(
@@ -37,7 +34,7 @@ class EventsScreen extends StatelessWidget {
             child: Column(
               mainAxisSize: MainAxisSize.max,
               children: [
-                CustomAppBar(label: _appLocalization.doings.capitalize()),
+                CustomAppBar(label: appLocalization.doings.capitalize()),
                 AppDimension.verticalSize_64,
                 Container(
                   width: 104,
@@ -52,10 +49,10 @@ class EventsScreen extends StatelessWidget {
                 ),
                 AppDimension.verticalSize_24,
                 Text(
-                  _appLocalization.empty_document,
+                  appLocalization.empty_document,
                   style: Theme.of(context)
                       .textTheme
-                      .headline3!
+                      .displaySmall!
                       .copyWith(fontSize: 15.sf(context), color: AppColor.c3000),
                   textAlign: TextAlign.center,
                 )

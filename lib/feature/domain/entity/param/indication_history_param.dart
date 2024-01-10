@@ -21,6 +21,7 @@ class IndicationHistoryParam extends FilterRequestParam{
     return _$IndicationHistoryParamFromJson(json);
   }
 
+  @override
   Map<String, dynamic> toJson() => _$IndicationHistoryParamToJson(this);
 
   @override

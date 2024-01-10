@@ -80,7 +80,7 @@ class _AppChosenFlatCardState extends State<AppChosenFlatCard> {
         Text(complex.name,
             style: Theme.of(context)
                 .textTheme
-                .headline3!
+                .displaySmall!
                 .copyWith(color: Colors.white.withOpacity(0.5), fontSize: 12.sf(context))),
         Text(
           widget.apartment.getApartmentInfo(
@@ -88,7 +88,7 @@ class _AppChosenFlatCardState extends State<AppChosenFlatCard> {
               type==1?  _appLocalization.flat.capitalize():_appLocalization.office.capitalize()),
           style: Theme.of(context)
               .textTheme
-              .headline2!
+              .displayMedium!
               .copyWith(color: Colors.white, fontSize: 16.sf(context)),
           overflow: TextOverflow.ellipsis,
           maxLines: 1,
@@ -130,7 +130,7 @@ class _AppChosenFlatCardState extends State<AppChosenFlatCard> {
             children: [
               Flexible(
                 child: Text(_appLocalization.apartment_balance.capitalize(),
-                    style: Theme.of(context).textTheme.headline3!.copyWith(
+                    style: Theme.of(context).textTheme.displaySmall!.copyWith(
                         color: Colors.white.withOpacity(0.5), fontSize: 12.sf(context))),
               ),
               AppDimension.verticalSize_4,
@@ -165,7 +165,7 @@ class _AppChosenFlatCardState extends State<AppChosenFlatCard> {
                     '${balance.currencyFormat()} ${_appLocalization.sum}',
                     style: Theme.of(context)
                         .textTheme
-                        .headline2!
+                        .displayMedium!
                         .copyWith(color: Colors.white, fontSize: 25.sf(context)),
                     overflow: TextOverflow.ellipsis,
                     maxLines: 1,
@@ -198,14 +198,14 @@ class _AppChosenFlatCardState extends State<AppChosenFlatCard> {
               '${_appLocalization.personal_account.capitalize()}:',
               style: Theme.of(context)
                   .textTheme
-                  .headline3!
+                  .displaySmall!
                   .copyWith(color: Colors.white.withOpacity(0.5), fontSize: 12.sf(context)),
             ),
             AppDimension.horizontalSize_8,
             Text(state,
                 style: Theme.of(context)
                     .textTheme
-                    .headline1!
+                    .displayLarge!
                     .copyWith(color: Colors.white, fontSize: 12.sf(context))),
           ],
         ),

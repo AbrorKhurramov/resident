@@ -1,4 +1,3 @@
-import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -51,7 +50,7 @@ class _ProfileImageComponentState extends State<ProfileImageComponent> {
 
   Widget _initAddImageContainer() {
     return InkWell(
-      borderRadius: BorderRadius.all(Radius.circular(16)),
+      borderRadius: const BorderRadius.all(Radius.circular(16)),
       onTap: () {
         _picker.pickImage(source: ImageSource.gallery, imageQuality: 25).then((value) {
           if (value != null) context.read<AppImageCubit>().addImage(value);
@@ -63,11 +62,11 @@ class _ProfileImageComponentState extends State<ProfileImageComponent> {
             width: 90,
             height: 90,
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.all(Radius.circular(16)),
+              borderRadius: const BorderRadius.all(Radius.circular(16)),
               color: AppColor.c6000.withOpacity(0.1),
             ),
             child: state.stateStatus == StateStatus.loading
-                ? SizedBox(
+                ? const SizedBox(
                     height: 24,
                     width: 24,
                     child: Center(
@@ -107,14 +106,14 @@ class _ProfileImageComponentState extends State<ProfileImageComponent> {
                 top: 4,
                 right: 4,
                 child: InkWell(
-                  borderRadius: BorderRadius.all(Radius.circular(10)),
+                  borderRadius: const BorderRadius.all(Radius.circular(10)),
                   onTap: () {
                     context.read<AppImageCubit>().removeImage(index);
                   },
                   child: Container(
                     width: 32,
                     height: 32,
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                       borderRadius: BorderRadius.all(Radius.circular(10)),
                       color: Colors.white,
                     ),

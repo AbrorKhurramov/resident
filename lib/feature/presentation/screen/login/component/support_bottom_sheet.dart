@@ -9,9 +9,11 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:resident/core/extension/size_extension.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import '../../../component/init_info_item_widget.dart';
+
 class SupportBottomSheet extends StatefulWidget {
-   SupportBottomSheet({Key? key,required this.isLogin}) : super(key: key);
-bool isLogin;
+  const SupportBottomSheet({Key? key,required this.isLogin}) : super(key: key);
+final bool isLogin;
   @override
   State<SupportBottomSheet> createState() => _SupportBottomSheetState();
 }
@@ -55,7 +57,7 @@ class _SupportBottomSheetState extends State<SupportBottomSheet> {
            width: AppConfig.screenWidth(context),
            height: AppConfig.screenHeight(context) * 0.9,
            child: Padding(
-             padding: EdgeInsets.all(16),
+             padding: const EdgeInsets.all(16),
              child: Column(
                crossAxisAlignment: CrossAxisAlignment.center,
                mainAxisAlignment: MainAxisAlignment.start,
@@ -67,10 +69,10 @@ class _SupportBottomSheetState extends State<SupportBottomSheet> {
                    style: Theme
                        .of(context)
                        .textTheme
-                       .headline2!
+                       .displayMedium!
                        .copyWith(color: AppColor.c4000, fontSize: 17.sf(context)),
                  ),
-                 SizedBox(height: 48),
+                 const SizedBox(height: 48),
                  Column(
                    children: List.generate(response.data.length, (index) => Column(
                      children: [
@@ -79,9 +81,9 @@ class _SupportBottomSheetState extends State<SupportBottomSheet> {
                            response.data[index].type==1 ?  _launchUrl(response.data[index].contactData) :
                            _launchUrl("tel://${response.data[index].contactData}");
                          },
-                         child: _initInfoItem(
-                             iconData(response.data[index].type),
-                             response.data[index].type==1?_appLocalization.write_telegram:_appLocalization.support_phone, response.data[index].contactPerson),
+                         child: InitInfoItemWidget(
+                            path: iconData(response.data[index].type),
+                           desc:  response.data[index].type==1?_appLocalization.write_telegram:_appLocalization.support_phone,info: response.data[index].contactPerson),
                        ),
                        AppDimension.verticalSize_32,
                      ],
@@ -89,11 +91,10 @@ class _SupportBottomSheetState extends State<SupportBottomSheet> {
                  ),
                  const Spacer(),
                  Padding(
-                   padding: EdgeInsets.symmetric(horizontal: 36),
+                   padding: const EdgeInsets.symmetric(horizontal: 36),
                    child: ElevatedButton(
                        style: ElevatedButton.styleFrom(
-                           onSurface: AppColor.c6000.withOpacity(0.15),
-                           primary: AppColor.c6000),
+                           backgroundColor: AppColor.c6000, disabledForegroundColor: AppColor.c6000.withOpacity(0.15).withOpacity(0.38), disabledBackgroundColor: AppColor.c6000.withOpacity(0.15).withOpacity(0.12)),
                        onPressed: () {
                          Navigator.of(context).pop();
                        },
@@ -116,7 +117,7 @@ class _SupportBottomSheetState extends State<SupportBottomSheet> {
        width: AppConfig.screenWidth(context),
        height: AppConfig.screenHeight(context) * 0.9,
        child: Padding(
-         padding: EdgeInsets.all(16),
+         padding: const EdgeInsets.all(16),
          child: Column(
            crossAxisAlignment: CrossAxisAlignment.center,
            mainAxisAlignment: MainAxisAlignment.start,
@@ -129,33 +130,32 @@ class _SupportBottomSheetState extends State<SupportBottomSheet> {
                style: Theme
                    .of(context)
                    .textTheme
-                   .headline2!
+                   .displayMedium!
                    .copyWith(color: AppColor.c4000, fontSize: 17),
              ),
-             SizedBox(height: 48),
+             const SizedBox(height: 48),
              Column(
                children: [
                  GestureDetector(
                    onTap: () => _launchUrl("tel://+998977771098"),
-                   child: _initInfoItem('assets/icons/phone.svg',
-                       _appLocalization.support_phone, '+998 97 777 10 98'),
+                   child: InitInfoItemWidget(path:'assets/icons/phone.svg',
+                      desc: _appLocalization.support_phone,info: '+998 97 777 10 98'),
                  ),
                  AppDimension.verticalSize_32,
                  GestureDetector(
                    onTap: ()=> _launchUrl("https://t.me/resident_support_official"),
-                   child: _initInfoItem('assets/icons/telegram.svg',
-                       _appLocalization.write_telegram, 't.me/resident_support_official'),
+                   child: InitInfoItemWidget(path:'assets/icons/telegram.svg',
+                      desc: _appLocalization.write_telegram, info:'t.me/resident_support_official'),
                  ),
 
                ],
              ),
              const Spacer(),
              Padding(
-               padding: EdgeInsets.symmetric(horizontal: 36),
+               padding: const EdgeInsets.symmetric(horizontal: 36),
                child: ElevatedButton(
                    style: ElevatedButton.styleFrom(
-                       onSurface: AppColor.c6000.withOpacity(0.15),
-                       primary: AppColor.c6000),
+                       backgroundColor: AppColor.c6000, disabledForegroundColor: AppColor.c6000.withOpacity(0.15).withOpacity(0.38), disabledBackgroundColor: AppColor.c6000.withOpacity(0.15).withOpacity(0.12)),
                    onPressed: () {
                      Navigator.of(context).pop();
                    },
@@ -171,11 +171,11 @@ class _SupportBottomSheetState extends State<SupportBottomSheet> {
 
 }
         if (state.stateStatus == StateStatus.loading) {
-          return Center(
+          return const Center(
             child: CircularProgressIndicator(),
           );
         }
-        return SizedBox();
+        return const SizedBox();
 
       },
     );
@@ -190,46 +190,6 @@ class _SupportBottomSheetState extends State<SupportBottomSheet> {
 
   }
 
-  Widget _initInfoItem(String path, String desc, String info) {
-    return Row(
-      children: [
-        Container(
-          width: 36,
-          height: 36,
-          decoration:
-          BoxDecoration(shape: BoxShape.circle, color: AppColor.c6000),
-          child: Center(
-            child: SvgPicture.asset(
-              path,
-              color: Colors.white,
-              fit: BoxFit.none,
-            ),
-          ),
-        ),
-        AppDimension.horizontalSize_8,
-        Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              desc.capitalize(),
-              style: Theme
-                  .of(context)
-                  .textTheme
-                  .headline3!
-                  .copyWith(color: AppColor.c3000, fontSize: 11.sf(context)),
-            ),
-            Text(info,
-                style: Theme
-                    .of(context)
-                    .textTheme
-                    .headline2!
-                    .copyWith(color: AppColor.c4000, fontSize: 14.sf(context))),
-          ],
-        )
-      ],
-    );
-  }
   void _launchUrl(String url) async {
     if (!await launchUrl(
       Uri.parse(url),

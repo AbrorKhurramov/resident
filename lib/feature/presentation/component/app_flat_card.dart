@@ -101,13 +101,13 @@ class _AppFlatCardState extends State<AppFlatCard> {
         Text(_appLocalization.residential_complex.capitalize(),
             style: Theme.of(context)
                 .textTheme
-                .headline3!
+                .displaySmall!
                 .copyWith(color: Colors.white.withOpacity(0.5), fontSize: 12.sf(context))),
         Text(
           complex.name,
           style: Theme.of(context)
               .textTheme
-              .headline2!
+              .displayMedium!
               .copyWith(color: Colors.white, fontSize: 16.sf(context)),
           overflow: TextOverflow.ellipsis,
           maxLines: 1,
@@ -138,13 +138,13 @@ class _AppFlatCardState extends State<AppFlatCard> {
         Text(_appLocalization.apartment_balance.capitalize(),
             style: Theme.of(context)
                 .textTheme
-                .headline3!
+                .displaySmall!
                 .copyWith(color: Colors.white.withOpacity(0.5), fontSize: 12.sf(context))),
         Text(
           '${balance.currencyFormat()} ${_appLocalization.sum}',
           style: Theme.of(context)
               .textTheme
-              .headline2!
+              .displayMedium!
               .copyWith(color: Colors.white, fontSize: 25.sf(context)),
           overflow: TextOverflow.ellipsis,
           maxLines: 1,
@@ -166,14 +166,14 @@ class _AppFlatCardState extends State<AppFlatCard> {
             '${_appLocalization.personal_account.capitalize()}:',
             style: Theme.of(context)
                 .textTheme
-                .headline3!
+                .displaySmall!
                 .copyWith(color: Colors.white.withOpacity(0.5), fontSize: 12.sf(context)),
           ),
           AppDimension.horizontalSize_8,
           Text(personalAccount,
               style: Theme.of(context)
                   .textTheme
-                  .headline1!
+                  .displayLarge!
                   .copyWith(color: Colors.white, fontSize: 12.sf(context))),
         ],
       ),
@@ -229,7 +229,7 @@ class _AppFlatCardState extends State<AppFlatCard> {
                 maxLines: 1,
                 style: Theme.of(context)
                     .textTheme
-                    .headline3!
+                    .displaySmall!
                     .copyWith(color: Colors.white, fontSize: 10.sf(context)),
                 overflow: TextOverflow.ellipsis,
               ),
@@ -237,7 +237,7 @@ class _AppFlatCardState extends State<AppFlatCard> {
                 subTitle,
                 style: Theme.of(context)
                     .textTheme
-                    .headline1!
+                    .displayLarge!
                     .copyWith(color: Colors.white, fontSize: 12.sf(context)),
               ),
             ],

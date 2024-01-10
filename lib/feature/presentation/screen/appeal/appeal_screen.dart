@@ -68,12 +68,10 @@ class _AppealScreenState extends State<AppealScreen> {
                                 Navigator.of(context).pop();
                               },
                               style: ElevatedButton.styleFrom(
-                                shape: const CircleBorder(),
+                                foregroundColor: Theme.of(context)
+                                    .primaryColor, shape: const CircleBorder(), backgroundColor: Colors.white,
                                 fixedSize: const Size(32, 32),
-                                primary: Colors.white,
-                                elevation: 0,
-                                onPrimary: Theme.of(context)
-                                    .primaryColor, // <-- Splash color
+                                elevation: 0, // <-- Splash color
                               ),
                               child: Center(
                                 child: SvgPicture.asset(
@@ -94,12 +92,10 @@ class _AppealScreenState extends State<AppealScreen> {
                                 ElevatedButton(
                                   onPressed: () {},
                                   style: ElevatedButton.styleFrom(
-                                    fixedSize: const Size(64, 64),
+                                    foregroundColor: Theme.of(context).primaryColor, fixedSize: const Size(64, 64), backgroundColor: Colors.white,
                                     shape: RoundedRectangleBorder(
                                         borderRadius:
                                             BorderRadius.circular(24)),
-                                    primary: Colors.white,
-                                    onPrimary: Theme.of(context).primaryColor,
                                     elevation: 0,
                                   ),
                                   child:
@@ -110,7 +106,7 @@ class _AppealScreenState extends State<AppealScreen> {
                                   _appLocalization.appeal.capitalize(),
                                   style: Theme.of(context)
                                       .textTheme
-                                      .headline2!
+                                      .displayMedium!
                                       .copyWith(
                                           color: AppColor.c4000, fontSize: 17.sf(context)),
                                 ),

@@ -19,14 +19,14 @@ class _CardComponentState extends State<CardComponent> {
         width: AppConfig.screenWidth(context),
         height: 200,
         child: Card(
-          shape: RoundedRectangleBorder(
+          shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(12)),
           ),
           margin: EdgeInsets.zero,
           elevation: 24,
           child: Container(
             decoration: BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(12)),
+                borderRadius: const BorderRadius.all(Radius.circular(12)),
                 gradient: widget.cardResponse == null ? AppColor.defaultCardGradient() : null),
             child: Stack(
               children: [
@@ -38,7 +38,7 @@ class _CardComponentState extends State<CardComponent> {
                 )),
                 Positioned(
                     child: Padding(
-                  padding: EdgeInsets.all(16),
+                  padding: const EdgeInsets.all(16),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -63,7 +63,7 @@ class _CardComponentState extends State<CardComponent> {
             children: [
               Text(
                 widget.cardResponse?.cardHolder ?? '',
-                style: Theme.of(context).textTheme.headline4!.copyWith(color: AppColor.c4000, fontSize: 16),
+                style: Theme.of(context).textTheme.headlineMedium!.copyWith(color: AppColor.c4000, fontSize: 16),
               ),
               AppDimension.verticalSize_8,
               Row(
@@ -72,12 +72,12 @@ class _CardComponentState extends State<CardComponent> {
                 children: [
                   Text(
                     widget.cardResponse?.cardNumber?.cardNumberFormat() ?? '',
-                    style: Theme.of(context).textTheme.headline4!.copyWith(color: AppColor.c3000, fontSize: 14),
+                    style: Theme.of(context).textTheme.headlineMedium!.copyWith(color: AppColor.c3000, fontSize: 14),
                   ),
                   const Spacer(),
                   Text(
                     widget.cardResponse?.expiryDate?.cardExpiryFormat() ?? '',
-                    style: Theme.of(context).textTheme.headline4!.copyWith(color: AppColor.c3000, fontSize: 14),
+                    style: Theme.of(context).textTheme.headlineMedium!.copyWith(color: AppColor.c3000, fontSize: 14),
                   ),
                   const Spacer(),
                 ],

@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:resident/app_package/injection_package.dart';
 import 'package:resident/app_package/core_package.dart';
 import 'package:resident/app_package/presentation/bloc_package.dart';
-import 'package:resident/feature/presentation/bloc/appeal_history_cubit/appeal_history_cubit.dart';
 import 'package:resident/feature/presentation/component/app_modal_bottom_sheet.dart';
 import 'package:resident/feature/presentation/component/custom_app_bar.dart';
 import 'package:resident/feature/presentation/component/filter_float_bottom.dart';
@@ -11,8 +10,6 @@ import 'package:resident/feature/presentation/screen/appeal_history/component/ap
 
 import '../../../domain/entity/response/appeal_type.dart';
 import '../../app_route/app_route_name.dart';
-import '../../bloc/app_cubit/app_cubit.dart';
-import '../../bloc/appeal_cubit/appeal_cubit.dart';
 import 'component/appeal_history_list_component.dart';
 
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -23,7 +20,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 class AppealHistoryScreen extends StatefulWidget {
   // List<AppealType>? appealTypes;
   static Route<dynamic> route() {
-    return MaterialPageRoute(settings: RouteSettings(name: AppRouteName.appealHistoryScreen),  builder: (context) {
+    return MaterialPageRoute(settings: const RouteSettings(name: AppRouteName.appealHistoryScreen),  builder: (context) {
       return MultiBlocProvider(
         providers:[
           BlocProvider(
@@ -33,7 +30,7 @@ class AppealHistoryScreen extends StatefulWidget {
             create: (_) => getIt<AppealCubit>(),
           ),
         ],
-          child: AppealHistoryScreen()
+          child: const AppealHistoryScreen()
       );
     });
   }
@@ -57,6 +54,7 @@ class _AppealHistoryScreenState extends State<AppealHistoryScreen> {
 
   @override
   void didChangeDependencies() {
+    super.didChangeDependencies();
     context.read<AppealCubit>().getInitialAppeal(
         context.read<AppCubit>().getActiveApartment().id, 0);
   }
@@ -68,7 +66,7 @@ class _AppealHistoryScreenState extends State<AppealHistoryScreen> {
 
     return Scaffold(
       body: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           image: DecorationImage(
             image: AssetImage('assets/images/part_third_gradient.png'),
             fit: BoxFit.fill,
@@ -117,7 +115,7 @@ class _AppealHistoryScreenState extends State<AppealHistoryScreen> {
               selectedStatusIndex: status,
               selectedTypeIndex: type,
               fromDate: dateFrom!=""?dateFrom.parseFilterData(): DateTime(DateTime.now().month>6?DateTime.now().year:DateTime.now().year-1, DateTime.now().month-6,1),
-              toDate: dateTo!=""?dateTo.parseFilterData(): DateTime.now().add(Duration(days: 1)),
+              toDate: dateTo!=""?dateTo.parseFilterData(): DateTime.now().add(const Duration(days: 1)),
 
           );
         }).then((value) => {

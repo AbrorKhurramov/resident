@@ -8,7 +8,7 @@ class ReplenishmentCubit extends RepositoryCubit<ReplenishmentState> {
   final ReplenishmentUseCase replenishmentUseCase;
 
   ReplenishmentCubit(this.replenishmentUseCase)
-      : super(ReplenishmentState(stateStatus: StateStatus.initial));
+      : super(const ReplenishmentState(stateStatus: StateStatus.initial));
 
   void replenishmentBalance(String cardId, String personalAccount, int amount) {
     emit(state.copyWith(stateStatus: StateStatus.loading));

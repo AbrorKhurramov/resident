@@ -19,21 +19,19 @@ class CustomSliverAppBar extends StatelessWidget{
       centerTitle: true,
       title: Text(
         label,
-        style: Theme.of(context).textTheme.headline2!.copyWith(color: AppColor.c4000, fontSize: 17),
+        style: Theme.of(context).textTheme.displayMedium!.copyWith(color: AppColor.c4000, fontSize: 17),
       ),
       leading: Padding(
-        padding: EdgeInsets.symmetric(vertical: 4, horizontal: 24),
+        padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 24),
         child: ElevatedButton(
           onPressed: () => Navigator.of(context).pop(),
-          child: Center(child: SvgPicture.asset('assets/icons/left_app_bar.svg')),
           style: ElevatedButton.styleFrom(
-            padding: EdgeInsets.zero,
-            shape: CircleBorder(),
-            fixedSize: Size(32, 32),
-            primary: Colors.white,
+            foregroundColor: Theme.of(context).primaryColor, padding: EdgeInsets.zero, backgroundColor: Colors.white,
+            shape: const CircleBorder(),
+            fixedSize: const Size(32, 32),
             elevation: 0,
-            onPrimary: Theme.of(context).primaryColor,
           ),
+          child: Center(child: SvgPicture.asset('assets/icons/left_app_bar.svg')),
         ),
       ),
     );

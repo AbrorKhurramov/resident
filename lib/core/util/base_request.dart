@@ -3,6 +3,7 @@ import 'dart:io';
 
 import 'package:dio/dio.dart';
 import 'package:either_dart/either.dart';
+import 'package:flutter/foundation.dart';
 import 'package:resident/app_package/core_package.dart';
 import 'package:resident/app_package/domain/entity_package.dart';
 import 'package:resident/core/error/exception.dart';
@@ -23,15 +24,16 @@ dynamic jsonToBaseResponsePaginationList<T>(Response responseBody) {
 // }
 
 dynamic jsonToBaseResponse<T>(Response responseBody) {
-  print("DATA");
-  print(responseBody.data);
+  debugPrint("DATA");
+  debugPrint(responseBody.data);
   return BaseResponse<T>.fromJson(responseBody.data as Map<String, dynamic>,
       (json) {
-    print("AAA $json");
-    if(json is bool)
+        debugPrint("AAA $json");
+    if(json is bool) {
       return json as T;
-    else
-    return jsonToEntity<T>(json as Map<String, dynamic>);
+    } else {
+      return jsonToEntity<T>(json as Map<String, dynamic>);
+    }
   });
 }
 
@@ -136,7 +138,7 @@ mixin BaseRequest {
       return Right(
           await jsonToEntity<T>(response.data as Map<String, dynamic>));
     } catch (error) {
-      print(error.toString());
+      debugPrint(error.toString());
       return Left(JsonCastException(message: error.toString()));
     }
   }
@@ -144,18 +146,18 @@ mixin BaseRequest {
   Future<Either<Exception, dynamic>> _request(Future<dynamic> request) async {
     try {
       return Right(await request);
-    } on DioError catch (dioError) {
-      print("DIOERRORTYPE ${dioError.type}");
-      if (dioError.type == DioErrorType.badResponse) {
-        print("DioErrorType.response");
+    } on DioException catch (dioError) {
+      debugPrint("DIOERRORTYPE ${dioError.type}");
+      if (dioError.type == DioExceptionType.badResponse) {
+        debugPrint("DioErrorType.response");
         if (dioError.response!.statusCode == 401 ||
             dioError.response!.statusCode == 403) {
-          print("TokenExpireException");
+          debugPrint("TokenExpireException");
           return Left(TokenExpireException());
         }
         else if (dioError.response != null &&
             dioError.response?.data != null) {
-          print("ServerException");
+          debugPrint("ServerException");
           return Left(ServerException(
             statusCode: dioError.response!.statusCode,
             message: dioError.response!.data != null &&
@@ -167,18 +169,18 @@ mixin BaseRequest {
         }
       }
 
-      else if(dioError.type == DioErrorType.cancel) {
-        return Left(CancelException());
+      else if(dioError.type == DioExceptionType.cancel) {
+        return const Left(CancelException());
       }
 
-      else if (dioError.type == DioErrorType.connectionTimeout ||
-          dioError.type == DioErrorType.receiveTimeout ||
-          dioError.type == DioErrorType.sendTimeout) {
+      else if (dioError.type == DioExceptionType.connectionTimeout ||
+          dioError.type == DioExceptionType.receiveTimeout ||
+          dioError.type == DioExceptionType.sendTimeout) {
         return Left(ConnectionTimeOutException());
       }
-      return Left(NetworkException());
+      return const Left(NetworkException());
     } on SocketException {
-      return Left(NetworkException());
+      return const Left(NetworkException());
     } catch (e) {
       return Left(JsonCastException(message: e.toString()));
     }

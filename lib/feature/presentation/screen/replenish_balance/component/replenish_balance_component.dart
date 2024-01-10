@@ -59,7 +59,7 @@ class _ReplenishBalanceComponentState extends State<ReplenishBalanceComponent> {
                   _appLocalization.payment_method.capitalize(),
                   style: Theme.of(context)
                       .textTheme
-                      .headline2!
+                      .displayMedium!
                       .copyWith(color: AppColor.c4000, fontSize: 15),
                 ),
                 AppDimension.verticalSize_8,
@@ -110,7 +110,7 @@ class _ReplenishBalanceComponentState extends State<ReplenishBalanceComponent> {
         textInputAction: TextInputAction.done,
         style: Theme.of(context)
             .textTheme
-            .headline2!
+            .displayMedium!
             .copyWith(fontSize: 17, color: AppColor.c9000),
         decoration: InputDecoration(
             isDense: true,
@@ -120,7 +120,7 @@ class _ReplenishBalanceComponentState extends State<ReplenishBalanceComponent> {
             hintText: "0 ${_appLocalization.sum}",
             hintStyle: Theme.of(context)
                 .textTheme
-                .headline4!
+                .headlineMedium!
                 .copyWith(fontSize: 17, color: AppColor.c9000)),
       ),
       focusNode: _amountFocusNode,

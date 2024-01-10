@@ -12,7 +12,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:resident/feature/presentation/screen/login/component/language_component.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:resident/feature/presentation/screen/login/component/support_bottom_sheet.dart';
-import 'package:resident/main.dart';
 
 import '../../../../injection/injection_container.dart';
 import '../../app_route/app_route_name.dart';
@@ -82,12 +81,12 @@ class _ChangePhoneScreenState extends State<ChangePhoneScreen> {
                         AppDimension.verticalSize_20,
                         Center(
                           child: Padding(
-                              padding: EdgeInsets.symmetric(horizontal: 48),
-                              child: Text(_appLocalization.change_admin_phone.capitalize(),style: Theme.of(context).textTheme.headline3!.copyWith(fontSize: 15.sf(context),color: Colors.white,letterSpacing: 2),maxLines: 2,textAlign:TextAlign.center,)),
+                              padding: const EdgeInsets.symmetric(horizontal: 48),
+                              child: Text(_appLocalization.change_admin_phone.capitalize(),style: Theme.of(context).textTheme.displaySmall!.copyWith(fontSize: 15.sf(context),color: Colors.white,letterSpacing: 2),maxLines: 2,textAlign:TextAlign.center,)),
                         ),
                         AppDimension.verticalSize_20,
                         Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 20),
+                          padding: const EdgeInsets.symmetric(horizontal: 20),
                           child: AppTextField(
                             textFormField: TextFormField(
                               controller: _newPhoneController,
@@ -97,7 +96,7 @@ class _ChangePhoneScreenState extends State<ChangePhoneScreen> {
                               obscureText: false,
                               keyboardType: TextInputType.phone,
                               textInputAction: TextInputAction.done,
-                              style: Theme.of(context).textTheme.headline2!.copyWith(fontSize: 17.sf(context), color: Colors.white),
+                              style: Theme.of(context).textTheme.displayMedium!.copyWith(fontSize: 17.sf(context), color: Colors.white),
                               decoration: InputDecoration(
                                   isDense: true,
                                   counterText: "",
@@ -106,11 +105,11 @@ class _ChangePhoneScreenState extends State<ChangePhoneScreen> {
                                   hintText: "(90) 123 45 67",
                                   prefixIcon: Text(
                                     "+998 ",
-                                    style: Theme.of(context).textTheme.headline2!.copyWith(fontSize: 17.sf(context), color: Colors.white),
+                                    style: Theme.of(context).textTheme.displayMedium!.copyWith(fontSize: 17.sf(context), color: Colors.white),
                                   ),
                                   hintStyle: Theme.of(context)
                                       .textTheme
-                                      .headline4!
+                                      .headlineMedium!
                                       .copyWith(fontSize: 17.sf(context), color: Colors.white.withOpacity(0.3))),
 
                             ),
@@ -132,10 +131,10 @@ class _ChangePhoneScreenState extends State<ChangePhoneScreen> {
                               },
                               builder: (context, profileState) {
                                 return Padding(
-                                  padding: EdgeInsets.symmetric(vertical: 16,horizontal: 36),
+                                  padding: const EdgeInsets.symmetric(vertical: 16,horizontal: 36),
                                   child: ElevatedButton(
                                       style: ElevatedButton.styleFrom(
-                                          onSurface: AppColor.c6000.withOpacity(0.15), primary: AppColor.c6000),
+                                          backgroundColor: AppColor.c6000, disabledForegroundColor: AppColor.c6000.withOpacity(0.15).withOpacity(0.38), disabledBackgroundColor: AppColor.c6000.withOpacity(0.15).withOpacity(0.12)),
                                       onPressed:
                                           _validate(_newPhoneController.text)&& internetState ? () {
                                         context.read<ProfileCubit>().updateProfile(
@@ -147,7 +146,7 @@ class _ChangePhoneScreenState extends State<ChangePhoneScreen> {
                                       }
                                           : null,
                                       child: profileState.stateStatus == StateStatus.loading
-                                          ? CupertinoActivityIndicator(radius: 12)
+                                          ? const CupertinoActivityIndicator(radius: 12)
                                           : Text(_appLocalization.save.capitalize(),style: TextStyle(fontSize: 14.sf(context)))),
                                 );
                               },
@@ -197,7 +196,7 @@ String _getPhoneNumber(String text){
                   ),
                 ),
               )),
-          Positioned(top: 0, right: 0, child: LanguageComponent())
+          const Positioned(top: 0, right: 0, child: LanguageComponent())
         ],
       ),
     );

@@ -34,7 +34,7 @@ class _AppTextFieldState extends State<AppTextField> {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      borderRadius: BorderRadius.all(Radius.circular(16)),
+      borderRadius: const BorderRadius.all(Radius.circular(16)),
       focusColor: Colors.transparent,
       splashFactory: NoSplash.splashFactory,
       onTap: () {
@@ -46,12 +46,12 @@ class _AppTextFieldState extends State<AppTextField> {
         width: AppConfig.screenWidth(context),
         height: 90,
         decoration: BoxDecoration(
-            borderRadius: BorderRadius.all(Radius.circular(16)),
+            borderRadius: const BorderRadius.all(Radius.circular(16)),
             color: widget.backgroundColor ?? Colors.transparent,
             border: Border.all(
                 color: !widget.formatError ? widget.borderColor : Colors.red)),
         child: Padding(
-          padding: EdgeInsets.symmetric(vertical: 20, horizontal: 16),
+          padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 16),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.start,
@@ -60,7 +60,7 @@ class _AppTextFieldState extends State<AppTextField> {
                 widget.label,
                 style: Theme.of(context)
                     .textTheme
-                    .headline2!
+                    .displayMedium!
                     .copyWith(fontSize: 15.sf(context), color: widget.labelColor),
               ),
               AppDimension.verticalSize_8,

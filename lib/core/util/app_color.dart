@@ -12,6 +12,7 @@ class AppColor {
   static const Color c9000 = Color(0xFFA6A9B6);
   static const Color transparent = Color(0x00000000);
 
+  static const Color shadowColor005 = Color.fromRGBO(0, 0, 0, 0.05);
   static const Color c10000 = Color(0xFF182FFF);
   static const Color c20000 = Color(0xFFDA4FB0);
   static const Color c30000 = Color(0xFF101B23);

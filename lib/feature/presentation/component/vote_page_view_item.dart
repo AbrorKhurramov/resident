@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:intl/intl.dart';
 import 'package:resident/app_package/core_package.dart';
 import 'package:resident/app_package/domain/entity_package.dart';
 import 'package:resident/app_package/domain/use_case_package.dart';
@@ -13,8 +12,8 @@ import 'package:resident/feature/presentation/screen/survey/component/survey_bot
 
 class VotePageViewItem extends StatefulWidget {
   final SurveyList vote;
-BuildContext surveyContext;
-   VotePageViewItem({Key? key, required this.vote,required this.surveyContext}) : super(key: key);
+final BuildContext surveyContext;
+  const VotePageViewItem({Key? key, required this.vote,required this.surveyContext}) : super(key: key);
 
   @override
   State<StatefulWidget> createState() {
@@ -46,7 +45,7 @@ class _VotePageViewItemState extends State<VotePageViewItem> {
               overflow: TextOverflow.ellipsis,
               style: Theme.of(context)
                   .textTheme
-                  .headline2!
+                  .displayMedium!
                   .copyWith(color: Colors.white, fontSize: 17),
             ),
           ),
@@ -59,7 +58,7 @@ class _VotePageViewItemState extends State<VotePageViewItem> {
                 maxLines: 3,
                 overflow: TextOverflow.ellipsis,
                 textAlign: TextAlign.center,
-                style: Theme.of(context).textTheme.headline4!.copyWith(
+                style: Theme.of(context).textTheme.headlineMedium!.copyWith(
                     color: Colors.white.withOpacity(0.6),
                     fontSize: 14,
                     height: 1.3)),
@@ -82,14 +81,14 @@ class _VotePageViewItemState extends State<VotePageViewItem> {
             children: [
               Text(_appLocalization.you_must_vote_before.capitalize(),
                   maxLines: 1,
-                  style: Theme.of(context).textTheme.headline3!.copyWith(
+                  style: Theme.of(context).textTheme.displaySmall!.copyWith(
                       color: Colors.white.withOpacity(0.6),
                       fontSize: 11,
                       height: 1.3)),
               const SizedBox(height: 4),
               Text(widget.vote.expiryDate.getDateWithHour(_appLocalization),
                   maxLines: 1,
-                  style: Theme.of(context).textTheme.headline2!.copyWith(
+                  style: Theme.of(context).textTheme.displayMedium!.copyWith(
                       color: Colors.white, fontSize: 12, height: 1.5)),
             ],
           )
@@ -124,7 +123,7 @@ class _VotePageViewItemState extends State<VotePageViewItem> {
       },
     ).then((value) => (){
       print("Survey bottom dialog then");
-      print("VALUE"+value.toString());
+      print("VALUE$value");
           if (value != null && value == true) {
             context.read<SurveyListCubit>().getSurveys();
           }

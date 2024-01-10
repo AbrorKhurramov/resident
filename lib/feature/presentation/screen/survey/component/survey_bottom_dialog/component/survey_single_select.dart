@@ -54,7 +54,7 @@ class SurveySingleSelectState extends State<SurveySingleSelect> {
         ? Container()
         : ListView.builder(
             shrinkWrap: true,
-            physics: NeverScrollableScrollPhysics(),
+            physics: const NeverScrollableScrollPhysics(),
             itemCount:
                 widget.survey.questions[widget.activePosition].variants!.length,
             itemBuilder: (context, index) {
@@ -69,10 +69,10 @@ class SurveySingleSelectState extends State<SurveySingleSelect> {
     return Theme(
         data: widget.getThemeData(context, isSelected),
         child: Container(
-          margin: EdgeInsets.only(bottom: 16),
+          margin: const EdgeInsets.only(bottom: 16),
           decoration: widget.getContainerBoxDecoration(_value == index),
           child: RadioListTile<int>(
-            contentPadding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+            contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
             dense: true,
             value: index,
             groupValue: _value,

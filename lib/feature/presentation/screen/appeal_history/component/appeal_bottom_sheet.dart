@@ -50,7 +50,7 @@ class _AppealBottomSheetState extends State<AppealBottomSheet> {
                         '',
                     style: Theme.of(context)
                         .textTheme
-                        .headline2!
+                        .displayMedium!
                         .copyWith(color: AppColor.c4000, fontSize: 17.sf(context)),
                   ),
                   AppDimension.verticalSize_4,
@@ -64,7 +64,7 @@ class _AppealBottomSheetState extends State<AppealBottomSheet> {
                             _appLocalization.flat),
                         style: Theme.of(context)
                             .textTheme
-                            .headline3!
+                            .displaySmall!
                             .copyWith(color: AppColor.c3000, fontSize: 12.sf(context)),
                       ),
                     ],
@@ -74,7 +74,7 @@ class _AppealBottomSheetState extends State<AppealBottomSheet> {
                     appState.user!.getActiveApartment().complexInfo(),
                     style: Theme.of(context)
                         .textTheme
-                        .headline3!
+                        .displaySmall!
                         .copyWith(color: AppColor.c4000, fontSize: 14.sf(context)),
                   ),
                   AppDimension.verticalSize_32,
@@ -92,7 +92,7 @@ class _AppealBottomSheetState extends State<AppealBottomSheet> {
                             overflow: TextOverflow.ellipsis,
                             style: Theme.of(context)
                                 .textTheme
-                                .headline3!
+                                .displaySmall!
                                 .copyWith(color: AppColor.c3000, fontSize: 13.sf(context)),
                           ),
                         ),
@@ -105,7 +105,7 @@ class _AppealBottomSheetState extends State<AppealBottomSheet> {
                             textAlign: TextAlign.right,
                             style: Theme.of(context)
                                 .textTheme
-                                .headline2!
+                                .displayMedium!
                                 .copyWith(color: AppColor.c4000, fontSize: 13.sf(context)),
                           ),
                         ),
@@ -130,7 +130,7 @@ class _AppealBottomSheetState extends State<AppealBottomSheet> {
                             overflow: TextOverflow.ellipsis,
                             style: Theme.of(context)
                                 .textTheme
-                                .headline3!
+                                .displaySmall!
                                 .copyWith(color: AppColor.c3000, fontSize: 13.sf(context)),
                           ),
                         ),
@@ -147,7 +147,7 @@ class _AppealBottomSheetState extends State<AppealBottomSheet> {
                                     .toUpperCase(),
                                 style: Theme.of(context)
                                     .textTheme
-                                    .headline2!
+                                    .displayMedium!
                                     .copyWith(
                                       fontSize: 10.sf(context),
                                       color: Colors.white,
@@ -174,7 +174,7 @@ class _AppealBottomSheetState extends State<AppealBottomSheet> {
                           textAlign: TextAlign.start,
                           style: Theme.of(context)
                               .textTheme
-                              .headline2!
+                              .displayMedium!
                               .copyWith(color: AppColor.c4000, fontSize: 12.sf(context)),
                         ),
                         AppDimension.verticalSize_8,
@@ -183,7 +183,7 @@ class _AppealBottomSheetState extends State<AppealBottomSheet> {
                           textAlign: TextAlign.start,
                           style: Theme.of(context)
                               .textTheme
-                              .headline3!
+                              .displaySmall!
                               .copyWith(color: AppColor.c3000, fontSize: 14.sf(context)),
                         ),
                       ],
@@ -231,7 +231,7 @@ class _AppealBottomSheetState extends State<AppealBottomSheet> {
                   reply.createdDate,
                   style: Theme.of(context)
                       .textTheme
-                      .headline3!
+                      .displaySmall!
                       .copyWith(color: AppColor.c4000, fontSize: 12.sf(context)),
                 ),
               ],
@@ -241,7 +241,7 @@ class _AppealBottomSheetState extends State<AppealBottomSheet> {
               _appLocalization.answer_from_housing_and_communal_services.capitalize(),
               style: Theme.of(context)
                   .textTheme
-                  .headline2!
+                  .displayMedium!
                   .copyWith(color: AppColor.c4000, fontSize: 12.sf(context)),
             ),
             AppDimension.verticalSize_8,
@@ -249,7 +249,7 @@ class _AppealBottomSheetState extends State<AppealBottomSheet> {
                 reply.content,
                 style: Theme.of(context)
                     .textTheme
-                    .headline3!
+                    .displaySmall!
                     .copyWith(color: AppColor.c3000, fontSize: 14.sf(context))),
           ],
         ),
@@ -290,7 +290,7 @@ class _AppealBottomSheetState extends State<AppealBottomSheet> {
         children: [
           Text(
             _appLocalization.attached_files.toUpperCase(),
-            style: Theme.of(context).textTheme.headline2!.copyWith(
+            style: Theme.of(context).textTheme.displayMedium!.copyWith(
                   color: AppColor.c4000,
                   fontSize: 12.sf(context),
                 ),

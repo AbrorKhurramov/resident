@@ -5,7 +5,7 @@ import 'package:percent_indicator/linear_percent_indicator.dart';
 class VoteSelect extends StatefulWidget {
   final bool isAnswered;
 
-  VoteSelect(this.isAnswered);
+  const VoteSelect(this.isAnswered, {Key? key}) : super(key: key);
 
   @override
   State<StatefulWidget> createState() {
@@ -20,7 +20,7 @@ class VoteSelectState extends State<VoteSelect> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        padding: EdgeInsets.symmetric(horizontal: 8),
+        padding: const EdgeInsets.symmetric(horizontal: 8),
         color: AppColor.c6000,
         child: ListView.builder(
           itemCount: 20,
@@ -29,13 +29,13 @@ class VoteSelectState extends State<VoteSelect> {
               data: Theme.of(context)
                   .copyWith(unselectedWidgetColor: Colors.white),
               child: Container(
-                padding: EdgeInsets.symmetric(vertical: 20, horizontal: 16),
+                padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 16),
                 decoration: BoxDecoration(
                     border: Border.all(
                       color: Colors.white,
                     ),
                     color: value == index ? Colors.white : AppColor.c6000,
-                    borderRadius: BorderRadius.all(Radius.circular(16))),
+                    borderRadius: const BorderRadius.all(Radius.circular(16))),
                 child: widget.isAnswered
                     ? _initVoteItem(value == index)
                     : _initRadioItem(value == index),
@@ -56,7 +56,7 @@ class VoteSelectState extends State<VoteSelect> {
       controlAffinity: ListTileControlAffinity.trailing,
       onChanged: widget.isAnswered ? null : _onRadioClick,
       title: Padding(
-        padding: EdgeInsets.only(bottom: 8),
+        padding: const EdgeInsets.only(bottom: 8),
         child: Text(
           "MMG Facility Management Group",
           style: _getRadioTitleStyle(value == index),
@@ -76,7 +76,7 @@ class VoteSelectState extends State<VoteSelect> {
         isSelected
             ? Text('Ваш голос:', style: _getRadioTitleStyle(isSelected))
             : Container(),
-        SizedBox(height: 4),
+        const SizedBox(height: 4),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.baseline,
@@ -86,7 +86,7 @@ class VoteSelectState extends State<VoteSelect> {
             Text('35%', style: _getPercentCountStyle(isSelected)),
           ],
         ),
-        SizedBox(
+        const SizedBox(
           height: 8,
         ),
         LinearPercentIndicator(
@@ -108,23 +108,23 @@ class VoteSelectState extends State<VoteSelect> {
   }
 
   _getRadioTitleStyle(isSelected) {
-    return Theme.of(context).textTheme.headline3!.copyWith(
+    return Theme.of(context).textTheme.displaySmall!.copyWith(
         color: isSelected ? AppColor.c4000 : Colors.white, fontSize: 14);
   }
 
   _getRadioSubTitleStyle(isSelected) {
-    return Theme.of(context).textTheme.headline4!.copyWith(
+    return Theme.of(context).textTheme.headlineMedium!.copyWith(
         color: isSelected ? AppColor.c3000 : Colors.white.withOpacity(0.6),
         fontSize: 13);
   }
 
   _getPercentCountStyle(isSelected) {
-    return Theme.of(context).textTheme.headline1!.copyWith(
+    return Theme.of(context).textTheme.displayLarge!.copyWith(
         color: isSelected ? AppColor.c4000 : Colors.white, fontSize: 16);
   }
 
   _getTitlePercentStyle(isSelected) {
-    return Theme.of(context).textTheme.headline3!.copyWith(
+    return Theme.of(context).textTheme.displaySmall!.copyWith(
         color: isSelected ? AppColor.c4000 : Colors.white, fontSize: 16);
   }
 }

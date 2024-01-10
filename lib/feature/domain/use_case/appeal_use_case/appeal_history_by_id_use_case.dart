@@ -5,7 +5,6 @@ import 'package:resident/app_package/domain/entity_package.dart';
 
 import 'package:either_dart/either.dart';
 import 'package:equatable/equatable.dart';
-import 'package:resident/feature/domain/entity/param/appeal_history_param.dart';
 
 class AppealHistoryByIDUseCase extends UseCase<
     BaseResponse<AppealResponse>, AppealHistoryByIDUseCaseParams> {

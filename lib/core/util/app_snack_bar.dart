@@ -14,14 +14,14 @@ void dismissFlushBar() async {
 
 void showErrorFlushBar(context, String message) {
   flushBar = Flushbar(
-    margin: EdgeInsets.symmetric(horizontal: 24),
-    borderRadius: BorderRadius.all(Radius.circular(16)),
+    margin: const EdgeInsets.symmetric(horizontal: 24),
+    borderRadius: const BorderRadius.all(Radius.circular(16)),
     backgroundColor: AppColor.c50000,
     flushbarStyle: FlushbarStyle.FLOATING,
     flushbarPosition: FlushbarPosition.TOP,
-    duration: Duration(seconds: 4),
-    animationDuration: Duration(milliseconds: 500),
-    padding: EdgeInsets.all(12),
+    duration: const Duration(seconds: 4),
+    animationDuration: const Duration(milliseconds: 500),
+    padding: const EdgeInsets.all(12),
     messageText: Row(
       children: [
         SizedBox(
@@ -36,7 +36,7 @@ void showErrorFlushBar(context, String message) {
         Expanded(
           child: Text(
             message.capitalize(),
-            style: Theme.of(context).textTheme.headline3!.copyWith(color: Colors.white, fontSize: 14.sf(context)),
+            style: Theme.of(context).textTheme.displaySmall!.copyWith(color: Colors.white, fontSize: 14.sf(context)),
           ),
         )
       ],
@@ -48,14 +48,14 @@ void showErrorFlushBar(context, String message) {
 
 void showSuccessFlushBar(context, String message) {
   flushBar = Flushbar(
-    margin: EdgeInsets.symmetric(horizontal: 24),
-    borderRadius: BorderRadius.all(Radius.circular(16)),
+    margin: const EdgeInsets.symmetric(horizontal: 24),
+    borderRadius: const BorderRadius.all(Radius.circular(16)),
     backgroundColor: Colors.black.withOpacity(0.85),
     flushbarStyle: FlushbarStyle.FLOATING,
     flushbarPosition: FlushbarPosition.TOP,
-    duration: Duration(seconds: 4),
-    animationDuration: Duration(milliseconds: 500),
-    padding: EdgeInsets.all(12),
+    duration: const Duration(seconds: 4),
+    animationDuration: const Duration(milliseconds: 500),
+    padding: const EdgeInsets.all(12),
     messageText: Row(
       children: [
         SizedBox(
@@ -67,7 +67,7 @@ void showSuccessFlushBar(context, String message) {
         Expanded(
           child: Text(
             message.capitalize(),
-            style: Theme.of(context).textTheme.headline3!.copyWith(color: Colors.white, fontSize: 14.sf(context)),
+            style: Theme.of(context).textTheme.displaySmall!.copyWith(color: Colors.white, fontSize: 14.sf(context)),
           ),
         )
       ],

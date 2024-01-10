@@ -2,8 +2,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:resident/app_package/domain/use_case_package.dart';
 import 'package:either_dart/either.dart';
 import 'package:resident/app_package/injection_package.dart';
-import 'package:resident/feature/domain/use_case/by_biometrics_permission_use_case/get_permission_use_case.dart';
-import 'package:resident/feature/domain/use_case/by_biometrics_permission_use_case/set_permission_use_case.dart';
 import 'package:resident/injection/params/permission_param.dart';
 
 class ByBiometricsPermissionCubit extends Cubit<bool> {
@@ -18,7 +16,7 @@ class ByBiometricsPermissionCubit extends Cubit<bool> {
 
   void turnOnPermission() {
      setPermissionUseCase
-        .call(SetPermissionParams(true))
+        .call(const SetPermissionParams(true))
         .fold((left) => null, (right) {
       getIt.unregister<PermissionParam>();
       getIt.registerFactory<PermissionParam>(
@@ -29,7 +27,7 @@ class ByBiometricsPermissionCubit extends Cubit<bool> {
 
   void turnOffPermission() {
     setPermissionUseCase
-        .call(SetPermissionParams(false))
+        .call(const SetPermissionParams(false))
         .fold((left) => null, (right) {
       getIt.unregister<PermissionParam>();
       getIt.registerFactory<PermissionParam>(

@@ -265,7 +265,7 @@ class _PinCodeScreenState extends State<PinCodeScreen> {
                                 title,
                                 style: Theme.of(context)
                                     .textTheme
-                                    .headline3!
+                                    .displaySmall!
                                     .copyWith(color: AppColor.c4000, fontSize: 14.sf(context)),
                               );
                             case PinCodeStatus.enter:
@@ -274,13 +274,13 @@ class _PinCodeScreenState extends State<PinCodeScreen> {
                                     ? _appLocalization.come_up_pin_code.capitalize()
                                     : _appLocalization.confirm_pin_code.capitalize(),
                                 style:
-                                    Theme.of(context).textTheme.headline3!.copyWith(color: Colors.white, fontSize: 14.sf(context)),
+                                    Theme.of(context).textTheme.displaySmall!.copyWith(color: Colors.white, fontSize: 14.sf(context)),
                               );
                             default:
                               return Text(
                                 _appLocalization.enter_pin_code.capitalize(),
                                 style:
-                                    Theme.of(context).textTheme.headline3!.copyWith(color: Colors.white, fontSize: 14.sf(context)),
+                                    Theme.of(context).textTheme.displaySmall!.copyWith(color: Colors.white, fontSize: 14.sf(context)),
                               );
                           }
                         },

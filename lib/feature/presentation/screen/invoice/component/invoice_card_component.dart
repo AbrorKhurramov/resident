@@ -41,7 +41,7 @@ class _InvoiceCardComponentState extends State<InvoiceCardComponent> {
           AppDimension.verticalSize_16,
           Text(
             '${widget.invoice.amount?.currencyFormat() ?? ''} ${_appLocalization.sum}',
-            style: Theme.of(context).textTheme.headline1!.copyWith(fontSize: 28.sf(context), color: AppColor.c4000),
+            style: Theme.of(context).textTheme.displayLarge!.copyWith(fontSize: 28.sf(context), color: AppColor.c4000),
           ),
           InvoiceStatusComponent(invoice: widget.invoice),
           AppDimension.verticalSize_12,
@@ -64,10 +64,10 @@ class _InvoiceCardComponentState extends State<InvoiceCardComponent> {
             children: [
               Text(
                 '${_appLocalization.invoice_number}:',
-                style: Theme.of(context).textTheme.headline3!.copyWith(color: AppColor.c3000, fontSize: 13.sf(context)),
+                style: Theme.of(context).textTheme.displaySmall!.copyWith(color: AppColor.c3000, fontSize: 13.sf(context)),
               ),
               Text(widget.invoice.invoice.toString(),
-                  style: Theme.of(context).textTheme.headline2!.copyWith(color: AppColor.c4000, fontSize: 13.sf(context)))
+                  style: Theme.of(context).textTheme.displayMedium!.copyWith(color: AppColor.c4000, fontSize: 13.sf(context)))
             ],
           ),
           AppDimension.verticalSize_16,
@@ -91,11 +91,11 @@ class _InvoiceCardComponentState extends State<InvoiceCardComponent> {
       children: [
         Text(
           _appLocalization.date_of_issue.capitalize(),
-          style: Theme.of(context).textTheme.headline3!.copyWith(fontSize: 12.sf(context), color: AppColor.c3000),
+          style: Theme.of(context).textTheme.displaySmall!.copyWith(fontSize: 12.sf(context), color: AppColor.c3000),
         ),
         Text(
     invoice.createdDate!.getDateWithHour(_appLocalization),
-          style: Theme.of(context).textTheme.headline3!.copyWith(fontSize: 12.sf(context), color: AppColor.c4000),
+          style: Theme.of(context).textTheme.displaySmall!.copyWith(fontSize: 12.sf(context), color: AppColor.c4000),
         ),
       ],
     );
@@ -145,7 +145,7 @@ class _InvoiceCardComponentState extends State<InvoiceCardComponent> {
           message,
           style: Theme.of(context)
               .textTheme
-              .headline3!
+              .displaySmall!
               .copyWith(color: AppColor.c4000, fontSize: 10.sf(context)),
         ),
       ],
@@ -184,7 +184,7 @@ class _InvoiceCardComponentState extends State<InvoiceCardComponent> {
       children: [
         Text(
           isService?'${_appLocalization.services.capitalize()}:':'${_appLocalization.indication.capitalize()}:',
-          style: Theme.of(context).textTheme.headline3!.copyWith(
+          style: Theme.of(context).textTheme.displaySmall!.copyWith(
             color: AppColor.c3000,
             fontSize: 13.sf(context),
           ),
@@ -192,7 +192,7 @@ class _InvoiceCardComponentState extends State<InvoiceCardComponent> {
         Text(!isService?widget.invoice.invoiceService.isNotEmpty?  widget.invoice.invoiceService[0].result?.toString() ?? '':"":invoiceService.message
             ?.translate(context.read<LanguageCubit>().languageCode()) ??
             "".capitalize(),
-            style: Theme.of(context).textTheme.headline2!.copyWith(
+            style: Theme.of(context).textTheme.displayMedium!.copyWith(
               color: AppColor.c4000,
               fontSize: 13.sf(context),
             ))
@@ -208,12 +208,12 @@ class _InvoiceCardComponentState extends State<InvoiceCardComponent> {
         Text(
           title,
           textAlign: textAlign,
-          style: Theme.of(context).textTheme.headline3!.copyWith(fontSize: 12.sf(context), color: AppColor.c3000),
+          style: Theme.of(context).textTheme.displaySmall!.copyWith(fontSize: 12.sf(context), color: AppColor.c3000),
         ),
         Text(
           description,
           textAlign: textAlign,
-          style: Theme.of(context).textTheme.headline3!.copyWith(fontSize: 12.sf(context), color: AppColor.c4000),
+          style: Theme.of(context).textTheme.displaySmall!.copyWith(fontSize: 12.sf(context), color: AppColor.c4000),
         ),
       ],
     );
@@ -234,12 +234,12 @@ class _InvoiceCardComponentState extends State<InvoiceCardComponent> {
           children: [
             Text(
               _appLocalization.payment_date.capitalize(),
-              style: Theme.of(context).textTheme.headline3!.copyWith(color: AppColor.c3000, fontSize: 13.sf(context)),
+              style: Theme.of(context).textTheme.displaySmall!.copyWith(color: AppColor.c3000, fontSize: 13.sf(context)),
             ),
             Text(
                // '${closedDateTime.getDay()} ${closedDateTime.getMonthLabel(_appLocalization)} ${closedDateTime.year}, ${closedDate.getHourAndMinute()}',
                 closedDate.getDateWithHour(_appLocalization),
-                style: Theme.of(context).textTheme.headline2!.copyWith(color: AppColor.c4000, fontSize: 13.sf(context)))
+                style: Theme.of(context).textTheme.displayMedium!.copyWith(color: AppColor.c4000, fontSize: 13.sf(context)))
           ],
         )
       ],

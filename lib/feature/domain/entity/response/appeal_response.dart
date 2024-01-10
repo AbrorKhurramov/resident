@@ -2,7 +2,6 @@ import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:resident/feature/domain/entity/response/appeal_type.dart';
 import 'package:resident/feature/domain/entity/response/image_file.dart';
-import 'package:resident/feature/domain/entity/response/reg_application_reply.dart';
 
 part 'appeal_response.g.dart';
 

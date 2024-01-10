@@ -67,7 +67,7 @@ class _ChangePasswordBottomSheetState extends State<ChangePasswordBottomSheet> {
               }
             }, builder: (context, state) {
               return Padding(
-                padding: EdgeInsets.all(16),
+                padding: const EdgeInsets.all(16),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -78,7 +78,7 @@ class _ChangePasswordBottomSheetState extends State<ChangePasswordBottomSheet> {
                       _appLocalization.change_password.capitalize(),
                       style: Theme.of(context)
                           .textTheme
-                          .headline2!
+                          .displayMedium!
                           .copyWith(color: AppColor.c4000, fontSize: 17.sf(context)),
                     ),
                     AppDimension.verticalSize_24,
@@ -95,7 +95,7 @@ class _ChangePasswordBottomSheetState extends State<ChangePasswordBottomSheet> {
                         onChanged: _onChangeCurrentPassword,
                         style: Theme.of(context)
                             .textTheme
-                            .headline2!
+                            .displayMedium!
                             .copyWith(fontSize: 14.sf(context), color: AppColor.c9000),
                         decoration: InputDecoration(
                             isDense: true,
@@ -107,7 +107,7 @@ class _ChangePasswordBottomSheetState extends State<ChangePasswordBottomSheet> {
                                 .capitalize(),
                             hintStyle: Theme.of(context)
                                 .textTheme
-                                .headline4!
+                                .headlineMedium!
                                 .copyWith(fontSize: 17.sf(context), color: AppColor.c9000)),
                       ),
                       focusNode: _currentFocus,
@@ -131,7 +131,7 @@ class _ChangePasswordBottomSheetState extends State<ChangePasswordBottomSheet> {
                         onChanged: _onChangeNewCurrentPassword,
                         style: Theme.of(context)
                             .textTheme
-                            .headline2!
+                            .displayMedium!
                             .copyWith(fontSize: 14.sf(context), color: AppColor.c9000),
                         decoration: InputDecoration(
                             isDense: true,
@@ -142,7 +142,7 @@ class _ChangePasswordBottomSheetState extends State<ChangePasswordBottomSheet> {
                                 .capitalize(),
                             hintStyle: Theme.of(context)
                                 .textTheme
-                                .headline4!
+                                .headlineMedium!
                                 .copyWith(fontSize: 17.sf(context), color: AppColor.c9000)),
                       ),
                       focusNode: _newPasswordFocus,
@@ -163,7 +163,7 @@ class _ChangePasswordBottomSheetState extends State<ChangePasswordBottomSheet> {
                         onChanged: _onChangeConfirmCurrentPassword,
                         style: Theme.of(context)
                             .textTheme
-                            .headline2!
+                            .displayMedium!
                             .copyWith(fontSize: 14.sf(context), color: AppColor.c9000),
                         decoration: InputDecoration(
                             isDense: true,
@@ -175,7 +175,7 @@ class _ChangePasswordBottomSheetState extends State<ChangePasswordBottomSheet> {
                                 .capitalize(),
                             hintStyle: Theme.of(context)
                                 .textTheme
-                                .headline4!
+                                .headlineMedium!
                                 .copyWith(fontSize: 17.sf(context), color: AppColor.c9000)),
                       ),
                       focusNode: _confirmFocus,
@@ -189,11 +189,10 @@ class _ChangePasswordBottomSheetState extends State<ChangePasswordBottomSheet> {
                     BlocBuilder<NotInternetCubit, bool>(
                       builder: (context, internetState) {
                         return Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 36),
+                          padding: const EdgeInsets.symmetric(horizontal: 36),
                           child: ElevatedButton(
                               style: ElevatedButton.styleFrom(
-                                  onSurface: AppColor.c6000.withOpacity(0.15),
-                                  primary: AppColor.c6000),
+                                  backgroundColor: AppColor.c6000, disabledForegroundColor: AppColor.c6000.withOpacity(0.15).withOpacity(0.38), disabledBackgroundColor: AppColor.c6000.withOpacity(0.15).withOpacity(0.12)),
                               onPressed: _validate(
                                           state.currentPassword,
                                           state.newPassword,
@@ -202,7 +201,7 @@ class _ChangePasswordBottomSheetState extends State<ChangePasswordBottomSheet> {
                                   ? _changePassword
                                   : null,
                               child: state.stateStatus == StateStatus.loading
-                                  ? CupertinoActivityIndicator(radius: 12)
+                                  ? const CupertinoActivityIndicator(radius: 12)
                                   : Text(_appLocalization.save.capitalize(),style: TextStyle(fontSize: 14.sf(context)))),
                         );
                       },

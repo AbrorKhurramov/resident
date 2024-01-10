@@ -56,7 +56,7 @@ class _LanguageComponentState extends State<LanguageComponent> {
                     child: Center(
                       child: Text(
                         _getDefaultLanguageLabel(state.languageCode),
-                        style: Theme.of(context).textTheme.headline3!.copyWith(color: Colors.white, fontSize: 12.sf(context)),
+                        style: Theme.of(context).textTheme.displaySmall!.copyWith(color: Colors.white, fontSize: 12.sf(context)),
                       ),
                     ),
                   ),
@@ -85,8 +85,8 @@ class _LanguageComponentState extends State<LanguageComponent> {
       child: Text(
         title,
         style: isChosen
-            ? Theme.of(context).textTheme.headline3!.copyWith(color: AppColor.c4000, fontSize: 12.sf(context))
-            : Theme.of(context).textTheme.headline4!.copyWith(color: AppColor.c3000, fontSize: 12.sf(context)),
+            ? Theme.of(context).textTheme.displaySmall!.copyWith(color: AppColor.c4000, fontSize: 12.sf(context))
+            : Theme.of(context).textTheme.headlineMedium!.copyWith(color: AppColor.c3000, fontSize: 12.sf(context)),
       ),
     );
   }

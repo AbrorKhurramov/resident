@@ -71,13 +71,13 @@ class _ReplenishFlatCardState extends State<ReplenishFlatCard> {
         Text(complex.name,
             style: Theme.of(context)
                 .textTheme
-                .headline3!
+                .displaySmall!
                 .copyWith(color: Colors.white.withOpacity(0.5), fontSize: 12)),
         Text(
           '${widget.apartment.bloc!.name.translate(context.read<LanguageCubit>().state.languageCode)}, ${widget.apartment.house!.name.translate(context.read<LanguageCubit>().state.languageCode)}',
           style: Theme.of(context)
               .textTheme
-              .headline2!
+              .displayMedium!
               .copyWith(color: Colors.white, fontSize: 16),
           overflow: TextOverflow.ellipsis,
           maxLines: 1,
@@ -112,14 +112,14 @@ class _ReplenishFlatCardState extends State<ReplenishFlatCard> {
               '${_appLocalization.apartment_balance.capitalize()}:',
               style: Theme.of(context)
                   .textTheme
-                  .headline3!
+                  .displaySmall!
                   .copyWith(color: Colors.white.withOpacity(0.5), fontSize: 12),
             ),
             AppDimension.horizontalSize_8,
             Text('${balance.currencyFormat()} ${_appLocalization.sum}',
                 style: Theme.of(context)
                     .textTheme
-                    .headline1!
+                    .displayLarge!
                     .copyWith(color: Colors.white, fontSize: 20)),
           ],
         ),

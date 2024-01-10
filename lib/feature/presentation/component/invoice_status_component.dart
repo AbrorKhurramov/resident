@@ -41,11 +41,11 @@ class _InvoiceStatusComponentState extends State<InvoiceStatusComponent> {
     }
 
     return Container(
-      padding: EdgeInsets.all(4),
-      decoration: BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(10)), color: color),
+      padding: const EdgeInsets.all(4),
+      decoration: BoxDecoration(borderRadius: const BorderRadius.all(Radius.circular(10)), color: color),
       child: Text(
         status.toUpperCase(),
-        style: Theme.of(context).textTheme.headline2!.copyWith(fontSize: 10.sf(context), color: Colors.white),
+        style: Theme.of(context).textTheme.displayMedium!.copyWith(fontSize: 10.sf(context), color: Colors.white),
       ),
     );
   }

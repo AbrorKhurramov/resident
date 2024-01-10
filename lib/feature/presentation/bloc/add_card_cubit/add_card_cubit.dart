@@ -6,8 +6,9 @@ import 'package:resident/feature/presentation/bloc/add_card_cubit/add_card_state
 class AddCardCubit extends RepositoryCubit<AddCardState> {
   final AddCardUseCase addCardUseCase;
 
+
   AddCardCubit({required this.addCardUseCase})
-      : super(AddCardState(
+      : super(const AddCardState(
           stateStatus: StateStatus.initial,
           cardNumber: '',
           expiryDate: '',

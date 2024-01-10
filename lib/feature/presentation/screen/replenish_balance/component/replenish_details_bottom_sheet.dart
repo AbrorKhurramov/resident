@@ -46,7 +46,7 @@ class _ReplenishDetailsBottomSheetState extends State<ReplenishDetailsBottomShee
             _appLocalization.detailing.capitalize(),
             style: Theme.of(context)
                 .textTheme
-                .headline2!
+                .displayMedium!
                 .copyWith(color: AppColor.c4000, fontSize: 17.sf(context)),
           ),
           const SizedBox(height: 40),
@@ -79,7 +79,7 @@ class _ReplenishDetailsBottomSheetState extends State<ReplenishDetailsBottomShee
               "${(widget.amount*(100+widget.replenishmentDetails.fee)).toInt().currencyFormat()} ${_appLocalization.sum}",
               style: Theme.of(context)
                   .textTheme
-                  .headline2!
+                  .displayMedium!
                   .copyWith(fontSize: 20.sf(context), color: Colors.white),
             ),
           ),
@@ -88,7 +88,7 @@ class _ReplenishDetailsBottomSheetState extends State<ReplenishDetailsBottomShee
             children: [
               Expanded(
                 child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(primary: AppColor.c60000, onPrimary: Colors.black),
+                    style: ElevatedButton.styleFrom(foregroundColor: Colors.black, backgroundColor: AppColor.c60000),
                     onPressed: () {
                       Navigator.pop(context);
                     },
@@ -139,7 +139,7 @@ class _ReplenishDetailsBottomSheetState extends State<ReplenishDetailsBottomShee
             label,
             style: Theme.of(context)
                 .textTheme
-                .headline3!
+                .displaySmall!
                 .copyWith(color: AppColor.c3000, fontSize: 13.sf(context)),
           ),
           const Spacer(),
@@ -147,7 +147,7 @@ class _ReplenishDetailsBottomSheetState extends State<ReplenishDetailsBottomShee
             desc,
             style: Theme.of(context)
                 .textTheme
-                .headline2!
+                .displayMedium!
                 .copyWith(color: AppColor.c4000, fontSize: 13.sf(context)),
           ),
         ],

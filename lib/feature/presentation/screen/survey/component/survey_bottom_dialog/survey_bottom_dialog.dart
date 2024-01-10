@@ -17,10 +17,10 @@ import 'package:resident/main.dart';
 
 
 class SurveyBottomDialog extends StatefulWidget {
-   SurveyBottomDialog({
+  const SurveyBottomDialog({
     Key? key,required this.surveyContext
   }) : super(key: key);
-BuildContext surveyContext;
+final BuildContext surveyContext;
   @override
   State<StatefulWidget> createState() {
     return _SurveyBottomDialogState();
@@ -101,7 +101,7 @@ class _SurveyBottomDialogState extends State<SurveyBottomDialog> {
                 width: AppConfig.screenWidth(context),
                 height: AppConfig.screenHeight(context) * 0.9,
                 child: Padding(
-                  padding: EdgeInsets.all(16),
+                  padding: const EdgeInsets.all(16),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.start,
@@ -132,7 +132,7 @@ class _SurveyBottomDialogState extends State<SurveyBottomDialog> {
                           }
 
                         if (state.stateStatus == StateStatus.loading) {
-                          return Expanded(
+                          return const Expanded(
                             child: Center(
                               child: CircularProgressIndicator(),
                             ),
@@ -164,7 +164,7 @@ class _SurveyBottomDialogState extends State<SurveyBottomDialog> {
                                     child:state
                                         .response!.data!.questions.isNotEmpty? PageView.builder(
                                       controller: _controller,
-                                      physics: NeverScrollableScrollPhysics(),
+                                      physics: const NeverScrollableScrollPhysics(),
                                       itemBuilder: (context, pos) {
                                         return _initPageItem(
                                             state.response!.data!, pos);
@@ -203,7 +203,7 @@ class _SurveyBottomDialogState extends State<SurveyBottomDialog> {
                                           .capitalize(),
                                       style: Theme.of(context)
                                           .textTheme
-                                          .headline3!
+                                          .displaySmall!
                                           .copyWith(
                                               color: state.response!.data!
                                                           .surveyType ==
@@ -220,7 +220,7 @@ class _SurveyBottomDialogState extends State<SurveyBottomDialog> {
                                         maxLines: 1,
                                         style: Theme.of(context)
                                             .textTheme
-                                            .headline2!
+                                            .displayMedium!
                                             .copyWith(
                                                 color: state.response!.data!
                                                             .surveyType ==
@@ -272,13 +272,13 @@ class _SurveyBottomDialogState extends State<SurveyBottomDialog> {
     print( survey.questions[activeQuestionPos].description.translate(
         context.read<LanguageCubit>().languageCode()));
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 10),
+      padding: const EdgeInsets.symmetric(horizontal: 10),
       child: Column(
         children: [
           Text(
             '${survey.questions[activeQuestionPos].question.translate(context.read<LanguageCubit>().languageCode())}',
             textAlign: TextAlign.center,
-            style: Theme.of(context).textTheme.headline2!.copyWith(
+            style: Theme.of(context).textTheme.displayMedium!.copyWith(
                 color: survey.surveyType == SurveyType.vote
                     ? Colors.white
                     : AppColor.c4000,
@@ -290,7 +290,7 @@ class _SurveyBottomDialogState extends State<SurveyBottomDialog> {
                       context.read<LanguageCubit>().languageCode()) ??
                   '',
               textAlign: TextAlign.center,
-              style: Theme.of(context).textTheme.headline4!.copyWith(
+              style: Theme.of(context).textTheme.headlineMedium!.copyWith(
                   color: survey.surveyType == SurveyType.vote
                       ? Colors.white.withOpacity(0.6)
                       : AppColor.c3000,
@@ -299,11 +299,11 @@ class _SurveyBottomDialogState extends State<SurveyBottomDialog> {
           AppDimension.verticalSize_16,
           _initSurveyComponent(survey),
          if(survey.results.length>activeQuestionPos) Padding(
-            padding: EdgeInsets.only(bottom: 4),
+            padding: const EdgeInsets.only(bottom: 4),
             child: Center(
                 child: Text(
               '${_appLocalization.voted.capitalize()} ${_appLocalization.residents}: ${survey.results[activeQuestionPos].totalUsers} ',
-              style: Theme.of(context).textTheme.headline3!.copyWith(
+              style: Theme.of(context).textTheme.displaySmall!.copyWith(
                   color: survey.surveyType == SurveyType.vote
                       ? Colors.white.withOpacity(0.6)
                       : AppColor.c3000,
@@ -355,7 +355,7 @@ class _SurveyBottomDialogState extends State<SurveyBottomDialog> {
       if (activeQuestionPos < survey.questions.length - 1) {
         _controller.jumpToPage(activeQuestionPos++);
         _controller.animateToPage(activeQuestionPos,
-            curve: Curves.decelerate, duration: Duration(milliseconds: 300));
+            curve: Curves.decelerate, duration: const Duration(milliseconds: 300));
 
         setState(() {});
       }
@@ -369,7 +369,7 @@ class _SurveyBottomDialogState extends State<SurveyBottomDialog> {
     if (activeQuestionPos != 0) {
       _controller.jumpToPage(activeQuestionPos--);
       _controller.animateToPage(activeQuestionPos,
-          curve: Curves.decelerate, duration: Duration(milliseconds: 300));
+          curve: Curves.decelerate, duration: const Duration(milliseconds: 300));
       setState(() {});
     }
     else {

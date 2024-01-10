@@ -45,7 +45,7 @@ class _HomeComponentState extends State<HomeComponent>
   Widget build(BuildContext context) {
     super.build(context);
     return Container(
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         image: DecorationImage(
             image: AssetImage(
               'assets/images/part_second.png',
@@ -66,7 +66,7 @@ class _HomeComponentState extends State<HomeComponent>
     return _initUserLabel(state.user!.firstName);
     }),
     AppDimension.verticalSize_16,
-   AppNews(),
+   const AppNews(),
     AppDimension.verticalSize_16,
     BlocConsumer<AppCubit, AppState>(
       buildWhen: (oldState, newState) {
@@ -75,7 +75,7 @@ class _HomeComponentState extends State<HomeComponent>
     listener: (context, appState) {},
     builder: (context, state) {
     return Padding(
-    padding: EdgeInsets.symmetric(horizontal: 20),
+    padding: const EdgeInsets.symmetric(horizontal: 20),
     child: AppChosenFlatCard(
     apartment: state.user!.getActiveApartment(),
     ),
@@ -84,7 +84,7 @@ class _HomeComponentState extends State<HomeComponent>
     ),
     AppDimension.verticalSize_16,
 
-    AppCommunalList(),
+    const AppCommunalList(),
 
 
     AppDimension.verticalSize_16,
@@ -101,7 +101,7 @@ class _HomeComponentState extends State<HomeComponent>
       textAlign: TextAlign.center,
       style: Theme.of(context)
           .textTheme
-          .headline1!
+          .displayLarge!
           .copyWith(fontSize: 18.sf(context), color: AppColor.c4000, letterSpacing: 0.6),
     );
   }

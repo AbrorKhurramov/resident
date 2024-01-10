@@ -13,21 +13,21 @@ class AppEmptyCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      shape: RoundedRectangleBorder(
+      shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(20))),
       elevation: 8,
       shadowColor: Colors.white.withOpacity(0.7),
       color: Colors.white.withOpacity(0.7),
-      child: Container(
+      child: SizedBox(
         width: MediaQuery.of(context).size.width,
         child: Padding(
-          padding: EdgeInsets.symmetric(vertical: 24, horizontal: 20),
+          padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 20),
           child: Column(
             children: [
               Container(
                 width: 104,
                 height: 104,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   shape: BoxShape.circle,
                   color: Colors.white,
                 ),
@@ -40,7 +40,7 @@ class AppEmptyCard extends StatelessWidget {
                 description,
                 style: Theme.of(context)
                     .textTheme
-                    .headline3!
+                    .displaySmall!
                     .copyWith(fontSize: 15.sf(context), color: AppColor.c3000),
                 textAlign: TextAlign.center,
               )

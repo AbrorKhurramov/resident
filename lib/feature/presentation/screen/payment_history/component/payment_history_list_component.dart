@@ -61,7 +61,7 @@ class _PaymentHistoryListComponentState
                 },
                 child: GroupListView(
                  shrinkWrap: true,
-                  padding: EdgeInsets.symmetric(vertical: 16, horizontal: 16),
+                  padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
                   sectionsCount: state.sortedPayment.keys.toList().length,
                   countOfItemInSection: (int section) {
                     if (response.totalPages != response.currentPage + 1 &&
@@ -85,7 +85,7 @@ class _PaymentHistoryListComponentState
                             .getPaginationPaymentHistory(response.currentPage + 1,
                                 context.read<AppCubit>().getActiveApartment().id,widget.dateFrom,widget.dateTo,widget.confirmType);
                       }
-                      return Center(child: CircularProgressIndicator());
+                      return const Center(child: CircularProgressIndicator());
                     }
                     return _initItem(state.sortedPayment.values
                         .toList()[indexPath.section][indexPath.index]);
@@ -94,15 +94,15 @@ class _PaymentHistoryListComponentState
                     return _initGroupHeader(
                         state.sortedPayment.keys.toList()[section]);
                   },
-                  separatorBuilder: (context, index) => SizedBox(height: 12),
+                  separatorBuilder: (context, index) => const SizedBox(height: 12),
                   sectionSeparatorBuilder: (context, section) =>
-                      SizedBox(height: 12),
+                      const SizedBox(height: 12),
                 ),
               ),
             );
           } else {
             return Padding(
-              padding: EdgeInsets.symmetric(horizontal: 20),
+              padding: const EdgeInsets.symmetric(horizontal: 20),
               child: AppEmptyCard(
                   path: 'assets/icons/empty_replenish_history.svg',
                   description: _appLocalization.empty_replenish_balance_history),
@@ -111,14 +111,14 @@ class _PaymentHistoryListComponentState
         }
 
         if (state.stateStatus == StateStatus.loading) {
-          return Expanded(
+          return const Expanded(
             child: Center(
               child: CircularProgressIndicator(),
             ),
           );
         }
 
-        return SizedBox();
+        return const SizedBox();
       },
     );
   }
@@ -129,15 +129,15 @@ class _PaymentHistoryListComponentState
     return Align(
       alignment: Alignment.centerLeft,
       child: Container(
-        padding: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
-        decoration: BoxDecoration(
+        padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+        decoration: const BoxDecoration(
           borderRadius: BorderRadius.all(Radius.circular(16)),
           color: Colors.white,
         ),
         child: Text(
           label.getDateWithoutHour(_appLocalization),
           textAlign: TextAlign.center,
-          style: Theme.of(context).textTheme.headline3!.copyWith(
+          style: Theme.of(context).textTheme.displaySmall!.copyWith(
             fontSize: 12.sf(context),
             color: AppColor.c3000,
           ),
@@ -176,15 +176,13 @@ class _PaymentHistoryListComponentState
                 });
           },
           style: ElevatedButton.styleFrom(
-              fixedSize: Size(double.infinity, double.infinity),
-              primary: Colors.white,
+              foregroundColor: Theme.of(context).primaryColor, fixedSize: const Size(double.infinity, double.infinity), backgroundColor: Colors.white,
               elevation: 0,
-              onPrimary: Theme.of(context).primaryColor,
-              shape: RoundedRectangleBorder(
+              shape: const RoundedRectangleBorder(
                   borderRadius:
                       BorderRadiusDirectional.all(Radius.circular(16)))),
           child: Padding(
-            padding: EdgeInsets.all(16),
+            padding: const EdgeInsets.all(16),
             child: Column(
               children: [
                 _initItemHeader(payment),
@@ -219,7 +217,7 @@ class _PaymentHistoryListComponentState
                     overflow: TextOverflow.ellipsis,
                     style: Theme.of(context)
                         .textTheme
-                        .headline3!
+                        .displaySmall!
                         .copyWith(fontSize: 14.sf(context), color: AppColor.c4000),
                   ),
                 ),
@@ -230,7 +228,7 @@ class _PaymentHistoryListComponentState
                     overflow: TextOverflow.ellipsis,
                     style: Theme.of(context)
                         .textTheme
-                        .headline3!
+                        .displaySmall!
                         .copyWith(fontSize: 12.sf(context), color: AppColor.c4000),
                   ),
                 ),
@@ -242,7 +240,7 @@ class _PaymentHistoryListComponentState
             payment.createdDate!.getHourAndMinute(),
             style: Theme.of(context)
                 .textTheme
-                .headline3!
+                .displaySmall!
                 .copyWith(fontSize: 13.sf(context), color: AppColor.c3000),
           ),
         ],
@@ -255,14 +253,14 @@ class _PaymentHistoryListComponentState
       children: [
         Container(
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.all(Radius.circular(10)),
+            borderRadius: const BorderRadius.all(Radius.circular(10)),
             color: payment.confirmType!=2?AppColor.c7000:AppColor.c50000,
           ),
           child: Padding(
-              padding: EdgeInsets.all(4),
+              padding: const EdgeInsets.all(4),
               child: Text(
                payment.confirmType!=2? _appLocalization.successfully.toUpperCase():_appLocalization.canceled.toUpperCase(),
-                style: Theme.of(context).textTheme.headline2!.copyWith(
+                style: Theme.of(context).textTheme.displayMedium!.copyWith(
                       fontSize: 10.sf(context),
                       color: Colors.white,
                     ),
@@ -275,15 +273,15 @@ class _PaymentHistoryListComponentState
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
             Text(
-              '+ ${(payment.amount!/100).toInt().currencyFormat()} ${_appLocalization.sum}',
-              style: Theme.of(context).textTheme.headline1!.copyWith(
+              '+ ${(payment.amount!~/100).currencyFormat()} ${_appLocalization.sum}',
+              style: Theme.of(context).textTheme.displayLarge!.copyWith(
                     fontSize: 20.sf(context),
                     color: Colors.black,
                   ),
             ),
             Text(
             payment.cardNumber!=null?  payment.cardNumber.toString():"",
-              style: Theme.of(context).textTheme.headline3!.copyWith(
+              style: Theme.of(context).textTheme.displaySmall!.copyWith(
                     fontSize: 12.sf(context),
                     color: AppColor.c3000,
                   ),

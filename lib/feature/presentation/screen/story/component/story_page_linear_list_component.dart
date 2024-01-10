@@ -1,11 +1,9 @@
-import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:resident/app_package/core_package.dart';
 import 'package:resident/app_package/presentation/bloc_package.dart';
 import 'package:resident/feature/presentation/screen/story/component/story_page_linear_component.dart';
-import 'package:percent_indicator/percent_indicator.dart';
 
 class StoryPageLinearListComponent extends StatefulWidget {
   const StoryPageLinearListComponent({Key? key}) : super(key: key);
@@ -34,12 +32,12 @@ class _StoryPageLinearListComponentState
                           2 * (state.list.length - 1)) /
                       state.list.length,
                   child: state.activeIndex == index
-                      ? StoryPageLinearComponent()
+                      ? const StoryPageLinearComponent()
                       : _initDefaultLinear(state.activeIndex > index),
                 );
               },
               separatorBuilder: (context, index) {
-                return SizedBox(width: 2);
+                return const SizedBox(width: 2);
               },
               itemCount: state.list.length),
         );
@@ -50,7 +48,7 @@ class _StoryPageLinearListComponentState
   Widget _initDefaultLinear(bool isViewed) {
     return Container(
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.all(Radius.circular(24)),
+        borderRadius: const BorderRadius.all(Radius.circular(24)),
         color: isViewed ? Colors.white : Colors.white.withOpacity(0.36),
       ),
     );

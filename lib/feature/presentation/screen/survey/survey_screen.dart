@@ -12,11 +12,11 @@ import '../../app_route/app_route_name.dart';
 class SurveyScreen extends StatefulWidget {
   static Route<dynamic> route() {
     return MaterialPageRoute(
-        settings: RouteSettings(name: AppRouteName.surveyScreen),
+        settings: const RouteSettings(name: AppRouteName.surveyScreen),
         builder: (context) {
       return BlocProvider(
         create: (_) => getIt<SurveyListCubit>(),
-        child: SurveyScreen(),
+        child: const SurveyScreen(),
       );
     });
   }
@@ -38,7 +38,7 @@ class _SurveyScreenState extends State<SurveyScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           image: DecorationImage(
             image: AssetImage('assets/images/part_third_gradient.png'),
             fit: BoxFit.fill,
@@ -48,20 +48,20 @@ class _SurveyScreenState extends State<SurveyScreen> {
           child: BlocBuilder<SurveyListCubit, SurveyListState>(
             builder: (context, state) {
               if (state.stateStatus == StateStatus.loading) {
-                return SurveyLoadingComponent();
+                return const SurveyLoadingComponent();
               }
 
               if (state.stateStatus == StateStatus.success &&
                   state.surveyList.isEmpty &&
                   state.voteList.isEmpty) {
-                return SurveyEmptyComponent();
+                return const SurveyEmptyComponent();
               }
 
               if (state.stateStatus == StateStatus.failure) {
                 return AppDimension.defaultSize;
               }
 
-              return SurveyListComponent();
+              return const SurveyListComponent();
             },
           ),
         ),

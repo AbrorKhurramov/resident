@@ -20,15 +20,13 @@ class LanguageArrowCard extends StatelessWidget {
     return ElevatedButton(
       onPressed: onPressed,
       style: ElevatedButton.styleFrom(
-          shape: RoundedRectangleBorder(
+          foregroundColor: Colors.blue, shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(16),
-          ),
-          fixedSize: Size(double.infinity, 64),
-          onPrimary:  Colors.blue,
-          primary: Colors.white,
+          ), backgroundColor: Colors.white,
+          fixedSize: const Size(double.infinity, 64),
           elevation: 0),
       child: Padding(
-        padding: EdgeInsets.symmetric( horizontal: 16),
+        padding: const EdgeInsets.symmetric( horizontal: 16),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -36,7 +34,7 @@ class LanguageArrowCard extends StatelessWidget {
               label,
               style: Theme.of(context)
                   .textTheme
-                  .headline3!
+                  .displaySmall!
                   .copyWith(color:  AppColor.c4000, fontSize: 14.sf(context)),
             ),
             Row(
@@ -45,7 +43,7 @@ class LanguageArrowCard extends StatelessWidget {
                   desc.capitalize(),
                   style: Theme.of(context)
                       .textTheme
-                      .headline3!
+                      .displaySmall!
                       .copyWith(color:  AppColor.c4000, fontSize: 14.sf(context)),
                 ),
                 AppDimension.horizontalSize_8,

@@ -9,7 +9,7 @@ class MyCardCubit extends RepositoryCubit<MyCardState> {
 
   MyCardCubit({
     required this.removeCardUseCase,
-  }) : super(MyCardState(stateStatus: StateStatus.initial));
+  }) : super(const MyCardState(stateStatus: StateStatus.initial));
 
   void deleteCard(CardResponse cardResponse) {
     emit(state.copyWith(stateStatus: StateStatus.loading));

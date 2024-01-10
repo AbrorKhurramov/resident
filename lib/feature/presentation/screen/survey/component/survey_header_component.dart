@@ -35,12 +35,9 @@ class _SurveyHeaderComponentState extends State<SurveyHeaderComponent> {
                       Navigator.of(context).pop();
                     },
                     style: ElevatedButton.styleFrom(
-                      shape: CircleBorder(),
-                      fixedSize: Size(32, 32),
-                      primary: Colors.white,
-                      elevation: 0,
-                      onPrimary:
-                          Theme.of(context).primaryColor, // <-- Splash color
+                      foregroundColor: Theme.of(context).primaryColor, shape: const CircleBorder(), backgroundColor: Colors.white,
+                      fixedSize: const Size(32, 32),
+                      elevation: 0, // <-- Splash color
                     ),
                     child: Center(
                       child: SvgPicture.asset('assets/icons/left_app_bar.svg'),
@@ -60,11 +57,9 @@ class _SurveyHeaderComponentState extends State<SurveyHeaderComponent> {
                       ElevatedButton(
                         onPressed: () {},
                         style: ElevatedButton.styleFrom(
-                          fixedSize: Size(64, 64),
+                          foregroundColor: Theme.of(context).primaryColor, fixedSize: const Size(64, 64), backgroundColor: Colors.white,
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(24)),
-                          primary: Colors.white,
-                          onPrimary: Theme.of(context).primaryColor,
                           elevation: 0,
                         ),
                         child: SvgPicture.asset('assets/icons/votes.svg'),
@@ -74,7 +69,7 @@ class _SurveyHeaderComponentState extends State<SurveyHeaderComponent> {
                         _appLocalization.survey.capitalize(),
                         style: Theme.of(context)
                             .textTheme
-                            .headline2!
+                            .displayMedium!
                             .copyWith(color: AppColor.c4000, fontSize: 17.sf(context)),
                       )
                     ],

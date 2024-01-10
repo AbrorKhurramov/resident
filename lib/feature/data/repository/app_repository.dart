@@ -3,7 +3,6 @@ import 'package:resident/app_package/data/data_source_package.dart';
 import 'package:resident/app_package/domain/domain_repository_package.dart';
 import 'package:resident/feature/data/repository/app_repository_mixin.dart';
 import 'package:resident/feature/data/repository/mixin/support_repository_mixin.dart';
-import 'package:resident/feature/domain/repository/support_repository/support_repository.dart';
 
 import '../../domain/repository/notification_repository/notifications_count_repository.dart';
 import 'mixin/notifications_count_repository_mixin.dart';

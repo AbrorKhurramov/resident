@@ -40,15 +40,13 @@ class _PermissionComponentState extends State<PermissionComponent> {
           _onPressedPermission(!state);
         },
         style: ElevatedButton.styleFrom(
-            fixedSize: Size(double.infinity, 64),
+            foregroundColor: Colors.blue, fixedSize: const Size(double.infinity, 64), backgroundColor: Colors.white,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(16),
             ),
-            onPrimary: Colors.blue,
-            primary: Colors.white,
             elevation: 0),
         child: Padding(
-          padding: EdgeInsets.symmetric( horizontal: 16),
+          padding: const EdgeInsets.symmetric( horizontal: 16),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -57,7 +55,7 @@ class _PermissionComponentState extends State<PermissionComponent> {
                   _appLocalization.login_by_biometrics.capitalize(),
                   style: Theme.of(context)
                       .textTheme
-                      .headline3!
+                      .displaySmall!
                       .copyWith(color: AppColor.c4000, fontSize: 14.sf(context)),
                   maxLines: 2,
                 ),

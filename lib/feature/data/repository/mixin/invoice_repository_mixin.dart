@@ -5,7 +5,6 @@ import 'package:resident/app_package/data/data_source_package.dart';
 import 'package:resident/app_package/domain/entity_package.dart';
 import 'package:resident/feature/data/repository/app_repository_mixin.dart';
 
-import '../../../domain/entity/param/appeal_history_param.dart';
 
 mixin InvoiceRepositoryMixin implements AppRepositoryMixin {
   late final AppRemoteSource appRemoteSource;

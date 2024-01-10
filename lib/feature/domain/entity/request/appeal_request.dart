@@ -1,6 +1,5 @@
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
-import 'package:resident/feature/domain/entity/response/image_file.dart';
 
 part 'appeal_request.g.dart';
 

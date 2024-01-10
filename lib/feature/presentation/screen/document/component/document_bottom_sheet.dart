@@ -40,7 +40,7 @@ class _DocumentBottomSheetState extends State<DocumentBottomSheet> {
           width: AppConfig.screenWidth(context),
           height: AppConfig.screenHeight(context) * 0.9,
           child: Container(
-            padding: EdgeInsets.symmetric(vertical: 16, horizontal: 20),
+            padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 20),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.start,
@@ -51,7 +51,7 @@ class _DocumentBottomSheetState extends State<DocumentBottomSheet> {
                 Text(
                   widget.document.message?.translate(context.read<LanguageCubit>().languageCode()) ?? '',
                   textAlign: TextAlign.center,
-                  style: Theme.of(context).textTheme.headline2!.copyWith(
+                  style: Theme.of(context).textTheme.displayMedium!.copyWith(
                         fontSize: 17.sf(context),
                         color: AppColor.c4000,
                       ),
@@ -59,7 +59,7 @@ class _DocumentBottomSheetState extends State<DocumentBottomSheet> {
                 AppDimension.verticalSize_24,
                 Text(
                   widget.document.content?.translate(context.read<LanguageCubit>().languageCode()) ?? '',
-                  style: Theme.of(context).textTheme.headline3!.copyWith(
+                  style: Theme.of(context).textTheme.displaySmall!.copyWith(
                         fontSize: 14.sf(context),
                         color: AppColor.c3000,
                       ),
@@ -98,7 +98,7 @@ class _DocumentBottomSheetState extends State<DocumentBottomSheet> {
                     ),
                   ),
                     child: Center(
-                      child: Text(widget.appLocalizations.open.toUpperCase(),style: Theme.of(context).textTheme.headline2!.copyWith(
+                      child: Text(widget.appLocalizations.open.toUpperCase(),style: Theme.of(context).textTheme.displayMedium!.copyWith(
                         color: Colors.blue,
                         fontSize: 14.sf(context),
                       ),),
@@ -155,8 +155,8 @@ class ImageViewerFromUrl extends StatelessWidget {
           child: CachedNetworkImage(
      imageUrl:   url,
 
-            placeholder: (context, url) => CircularProgressIndicator(),
-            errorWidget: (context, url, error) => Icon(Icons.error),
+            placeholder: (context, url) => const CircularProgressIndicator(),
+            errorWidget: (context, url, error) => const Icon(Icons.error),
           ),
         ),
       ),

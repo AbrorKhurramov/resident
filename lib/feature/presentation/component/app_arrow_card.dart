@@ -22,15 +22,13 @@ class AppArrowCard extends StatelessWidget {
     return ElevatedButton(
       onPressed: onPressed,
       style: ElevatedButton.styleFrom(
-          shape: RoundedRectangleBorder(
+          foregroundColor: bgColor != null ? Colors.white : Colors.blue, shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(16),
-          ),
-          fixedSize: Size(double.infinity, 64),
-          onPrimary: bgColor != null ? Colors.white : Colors.blue,
-          primary: bgColor ?? Colors.white,
+          ), backgroundColor: bgColor ?? Colors.white,
+          fixedSize: const Size(double.infinity, 64),
           elevation: 0),
       child: Padding(
-        padding: EdgeInsets.symmetric(vertical: 24, horizontal: 16),
+        padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 16),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -38,7 +36,7 @@ class AppArrowCard extends StatelessWidget {
               label,
               style: Theme.of(context)
                   .textTheme
-                  .headline3!
+                  .displaySmall!
                   .copyWith(color: labelColor ?? AppColor.c4000, fontSize: 14.sf(context)),
             ),
             SvgPicture.asset('assets/icons/right_arrow.svg',

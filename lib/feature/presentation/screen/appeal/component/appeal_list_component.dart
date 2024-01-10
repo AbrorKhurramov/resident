@@ -63,9 +63,9 @@ class _AppealListComponentState extends State<AppealListComponent> {
       builder: (context, state) {
         return PagedListView<int, AppealType>.separated(
           pagingController: _pagingController,
-          padding: EdgeInsets.symmetric(vertical: 32, horizontal: 24),
+          padding: const EdgeInsets.symmetric(vertical: 32, horizontal: 24),
           shrinkWrap: true,
-          physics: NeverScrollableScrollPhysics(),
+          physics: const NeverScrollableScrollPhysics(),
           builderDelegate: PagedChildBuilderDelegate<AppealType>(
             itemBuilder: (context, item, index) {
               return _initItem(item, index);

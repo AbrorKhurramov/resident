@@ -39,13 +39,13 @@ class _AppButtonState extends State<AppButton> {
         onPressed: widget.isLoading ? null : widget.onClick,
         style: _initStyle(),
         child: widget.isLoading
-            ? CupertinoActivityIndicator(radius: 10)
+            ? const CupertinoActivityIndicator(radius: 10)
             : Padding(
-                padding: EdgeInsets.symmetric(horizontal: 0),
+                padding: const EdgeInsets.symmetric(horizontal: 0),
                 child: Text(widget.label.toUpperCase(),
                     style: Theme.of(context)
                         .textTheme
-                        .button!
+                        .labelLarge!
                         .copyWith(color: widget.labelColor,fontSize: 14.sf(context))),
               ),
       ),
@@ -56,7 +56,7 @@ class _AppButtonState extends State<AppButton> {
     return ButtonStyle(
       shape: MaterialStateProperty.resolveWith<StadiumBorder>(
         (Set<MaterialState> states) {
-          return StadiumBorder(side: BorderSide(color: Colors.transparent));
+          return const StadiumBorder(side: BorderSide(color: Colors.transparent));
         },
       ),
       backgroundColor: MaterialStateProperty.resolveWith<Color>(

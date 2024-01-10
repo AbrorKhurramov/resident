@@ -4,11 +4,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:resident/app_package/presentation/bloc_package.dart';
 import 'package:resident/app_package/core_package.dart';
-import 'package:resident/feature/presentation/app_route/app_route_name.dart';
 import 'package:resident/feature/presentation/component/app_modal_bottom_sheet.dart';
 import 'package:resident/feature/presentation/component/log_out_bottom_sheet.dart';
 import 'package:resident/feature/presentation/screen/pin_code/enum/pin_code_status.dart';
-import 'package:resident/injection/injection_container.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:resident/main.dart';
 
@@ -22,7 +20,7 @@ class PinForgotPassword extends StatefulWidget {
 class _PinForgotPasswordState extends State<PinForgotPassword> {
   @override
   Widget build(BuildContext context) {
-    AppLocalizations _appLocalization = AppLocalizations.of(context)!;
+    AppLocalizations appLocalization = AppLocalizations.of(context)!;
 
     return BlocBuilder<PinCodeCubit, PinCodeState>(
       builder: (context, state) {
@@ -46,10 +44,10 @@ class _PinForgotPasswordState extends State<PinForgotPassword> {
                       SvgPicture.asset('assets/icons/exit.svg'),
                       AppDimension.horizontalSize_8,
                       Text(
-                        _appLocalization.exit.capitalize(),
+                        appLocalization.exit.capitalize(),
                         style: Theme.of(context)
                             .textTheme
-                            .headline5!
+                            .headlineSmall!
                             .copyWith(color: Colors.white, fontSize: 14.sf(context)),
                       )
                     ],

@@ -2,7 +2,6 @@ import 'package:dio/dio.dart';
 import 'package:either_dart/either.dart';
 import 'package:resident/app_package/core_package.dart';
 import 'package:resident/app_package/domain/entity_package.dart';
-import 'package:resident/feature/domain/entity/param/appeal_history_param.dart';
 
 abstract class AppealRepository {
   Future<Either<Failure, BasePaginationListResponse<AppealType>>>

@@ -11,9 +11,9 @@ import '../../../../bloc/survey_list_cubit/survey_list_cubit.dart';
 
 class SurveySuccessDialog extends StatefulWidget {
   final bool isSuccess;
-BuildContext surveyContext;
+final BuildContext surveyContext;
 
-   SurveySuccessDialog(this.isSuccess, {Key? key,required this.surveyContext}) : super(key: key);
+const SurveySuccessDialog(this.isSuccess, {Key? key,required this.surveyContext}) : super(key: key);
 
   @override
   State<SurveySuccessDialog> createState() => _SurveySuccessDialogState();
@@ -37,7 +37,7 @@ class _SurveySuccessDialogState extends State<SurveySuccessDialog> {
                 width: AppConfig.screenWidth(context),
                 height: AppConfig.screenHeight(context) * 0.9,
                 child: Padding(
-                  padding: EdgeInsets.all(16),
+                  padding: const EdgeInsets.all(16),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.start,
@@ -54,11 +54,11 @@ class _SurveySuccessDialogState extends State<SurveySuccessDialog> {
                                 ? AppColor.c100000
                                 : AppColor.c200000),
                         child: widget.isSuccess
-                            ? Icon(
+                            ? const Icon(
                                 Icons.check,
                                 size: 56,
                               )
-                            : Icon(Icons.clear, color: Colors.white, size: 56),
+                            : const Icon(Icons.clear, color: Colors.white, size: 56),
                       ),
                       AppDimension.verticalSize_24,
                       Text(
@@ -68,7 +68,7 @@ class _SurveySuccessDialogState extends State<SurveySuccessDialog> {
                                 .toUpperCase(),
                         style: Theme.of(context)
                             .textTheme
-                            .headline2!
+                            .displayMedium!
                             .copyWith(color: Colors.black, fontSize: 14),
                       ),
                       const Spacer(),

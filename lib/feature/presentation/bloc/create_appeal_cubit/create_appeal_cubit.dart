@@ -7,7 +7,7 @@ import 'package:either_dart/either.dart';
 class CreateAppealCubit extends RepositoryCubit<CreateAppealState> {
   final CreateAppealUseCase createAppealUseCase;
 
-  CreateAppealCubit({required this.createAppealUseCase}) : super(CreateAppealState(stateStatus: StateStatus.initial));
+  CreateAppealCubit({required this.createAppealUseCase}) : super(const CreateAppealState(stateStatus: StateStatus.initial));
 
   void createAppeal(AppealRequest appealRequest) {
     emit(state.copyWith(stateStatus: StateStatus.loading));

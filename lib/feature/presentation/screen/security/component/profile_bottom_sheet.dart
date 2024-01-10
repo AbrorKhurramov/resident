@@ -47,7 +47,7 @@ class _ProfileBottomSheetState extends State<ProfileBottomSheet> {
             height: AppConfig.screenHeight(context)*0.9,
             child: BlocBuilder<AppCubit, AppState>(builder: (context, appState) {
               return Padding(
-                padding: EdgeInsets.all(16),
+                padding: const EdgeInsets.all(16),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -56,7 +56,7 @@ class _ProfileBottomSheetState extends State<ProfileBottomSheet> {
                     AppDimension.verticalSize_16,
                     Text(
                       _appLocalization.personal_data.capitalize(),
-                      style: Theme.of(context).textTheme.headline2!.copyWith(color: AppColor.c4000, fontSize: 17.sf(context)),
+                      style: Theme.of(context).textTheme.displayMedium!.copyWith(color: AppColor.c4000, fontSize: 17.sf(context)),
                     ),
                     AppDimension.verticalSize_24,
                     AppTextField(
@@ -64,7 +64,7 @@ class _ProfileBottomSheetState extends State<ProfileBottomSheet> {
                         readOnly: true,
                         maxLength: 32,
                         textInputAction: TextInputAction.next,
-                        style: Theme.of(context).textTheme.headline2!.copyWith(fontSize: 12.sf(context), color: AppColor.c9000),
+                        style: Theme.of(context).textTheme.displayMedium!.copyWith(fontSize: 12.sf(context), color: AppColor.c9000),
                         decoration: InputDecoration(
                             isDense: true,
                             counterText: "",
@@ -72,7 +72,7 @@ class _ProfileBottomSheetState extends State<ProfileBottomSheet> {
                             border: InputBorder.none,
                             hintText: appState.user?.lastName ?? '',
                             hintStyle:
-                                Theme.of(context).textTheme.headline4!.copyWith(fontSize: 17.sf(context), color: AppColor.c9000)),
+                                Theme.of(context).textTheme.headlineMedium!.copyWith(fontSize: 17.sf(context), color: AppColor.c9000)),
                       ),
                       borderColor: AppColor.c8000,
                       label: _appLocalization.last_name.toUpperCase(),
@@ -85,7 +85,7 @@ class _ProfileBottomSheetState extends State<ProfileBottomSheet> {
                         readOnly: true,
                         maxLength: 32,
                         textInputAction: TextInputAction.next,
-                        style: Theme.of(context).textTheme.headline2!.copyWith(fontSize: 12.sf(context), color: AppColor.c9000),
+                        style: Theme.of(context).textTheme.displayMedium!.copyWith(fontSize: 12.sf(context), color: AppColor.c9000),
                         decoration: InputDecoration(
                             isDense: true,
                             counterText: "",
@@ -93,7 +93,7 @@ class _ProfileBottomSheetState extends State<ProfileBottomSheet> {
                             border: InputBorder.none,
                             hintText: appState.user?.firstName ?? '',
                             hintStyle:
-                                Theme.of(context).textTheme.headline4!.copyWith(fontSize: 17.sf(context), color: AppColor.c9000)),
+                                Theme.of(context).textTheme.headlineMedium!.copyWith(fontSize: 17.sf(context), color: AppColor.c9000)),
                       ),
                       borderColor: AppColor.c8000,
                       label: _appLocalization.first_name.toUpperCase(),
@@ -110,7 +110,7 @@ class _ProfileBottomSheetState extends State<ProfileBottomSheet> {
                         obscureText: false,
                         keyboardType: TextInputType.phone,
                         textInputAction: TextInputAction.done,
-                        style: Theme.of(context).textTheme.headline2!.copyWith(fontSize: 17.sf(context), color: AppColor.c9000),
+                        style: Theme.of(context).textTheme.displayMedium!.copyWith(fontSize: 17.sf(context), color: AppColor.c9000),
                         decoration: InputDecoration(
                             isDense: true,
                             counterText: "",
@@ -119,10 +119,10 @@ class _ProfileBottomSheetState extends State<ProfileBottomSheet> {
                             hintText:_getFormattedPhoneNumber(appState.user?.phone??""),
                             prefixIcon: Text(
                               "+998 ",
-                              style: Theme.of(context).textTheme.headline2!.copyWith(fontSize: 17.sf(context), color: AppColor.c9000),
+                              style: Theme.of(context).textTheme.displayMedium!.copyWith(fontSize: 17.sf(context), color: AppColor.c9000),
                             ),
                             hintStyle:
-                            Theme.of(context).textTheme.headline2!.copyWith(fontSize: 17.sf(context), color: AppColor.c9000)),
+                            Theme.of(context).textTheme.displayMedium!.copyWith(fontSize: 17.sf(context), color: AppColor.c9000)),
 
                       ),
                       focusNode: _newPhoneFocus,
@@ -150,10 +150,10 @@ class _ProfileBottomSheetState extends State<ProfileBottomSheet> {
                           builder: (context, profileState) {
                             return BlocBuilder<AppImageCubit, AppImageState>(builder: (context, imageState) {
                               return Padding(
-                                padding: EdgeInsets.symmetric(horizontal: 36),
+                                padding: const EdgeInsets.symmetric(horizontal: 36),
                                 child: ElevatedButton(
                                     style: ElevatedButton.styleFrom(
-                                        onSurface: AppColor.c6000.withOpacity(0.15), primary: AppColor.c6000),
+                                        backgroundColor: AppColor.c6000, disabledForegroundColor: AppColor.c6000.withOpacity(0.15).withOpacity(0.38), disabledBackgroundColor: AppColor.c6000.withOpacity(0.15).withOpacity(0.12)),
                                     onPressed:_validate(_newPhoneController.text)&&
                                         internetState && imageState.imageFile != null && imageState.imageFile!.isNotEmpty
                                             ? () {
@@ -165,7 +165,7 @@ class _ProfileBottomSheetState extends State<ProfileBottomSheet> {
                                               }
                                             : null,
                                     child: profileState.stateStatus == StateStatus.loading
-                                        ? CupertinoActivityIndicator(radius: 12)
+                                        ? const CupertinoActivityIndicator(radius: 12)
                                         : Text(_appLocalization.save.capitalize(),style: TextStyle(fontSize: 14.sf(context)))),
                               );
                             });
@@ -201,9 +201,9 @@ class _ProfileBottomSheetState extends State<ProfileBottomSheet> {
   Widget _initImageContainer() {
     return Container(
       width: AppConfig.screenWidth(context),
-      padding: EdgeInsets.symmetric(vertical: 20, horizontal: 16),
+      padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 16),
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.all(
+        borderRadius: const BorderRadius.all(
           Radius.circular(24),
         ),
         border: Border.all(
@@ -216,7 +216,7 @@ class _ProfileBottomSheetState extends State<ProfileBottomSheet> {
         children: [
           Text(
             _appLocalization.profile_image.toUpperCase(),
-            style: Theme.of(context).textTheme.headline2!.copyWith(
+            style: Theme.of(context).textTheme.displayMedium!.copyWith(
                   color: AppColor.c4000,
                   fontSize: 12.sf(context),
                 ),

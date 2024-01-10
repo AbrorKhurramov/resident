@@ -21,7 +21,7 @@ class _SurveyCompletedState extends State<SurveyCompleted> {
   Widget build(BuildContext context) {
     return Container(
       color: Colors.white,
-      padding: EdgeInsets.symmetric(vertical: 24, horizontal: 12),
+      padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 12),
       width: MediaQuery.of(context).size.width,
       child: Column(
         children: [
@@ -34,11 +34,11 @@ class _SurveyCompletedState extends State<SurveyCompleted> {
                 shape: BoxShape.circle,
                 color: widget.isSuccess ? AppColor.c100000 : AppColor.c200000),
             child: widget.isSuccess
-                ? Icon(
+                ? const Icon(
                     Icons.check,
                     size: 56,
                   )
-                : Icon(Icons.clear, color: Colors.white, size: 56),
+                : const Icon(Icons.clear, color: Colors.white, size: 56),
           ),
           AppDimension.verticalSize_24,
           Text(
@@ -47,10 +47,10 @@ class _SurveyCompletedState extends State<SurveyCompleted> {
                 : _appLocalization.something_went_wrong.toUpperCase(),
             style: Theme.of(context)
                 .textTheme
-                .headline2!
+                .displayMedium!
                 .copyWith(color: Colors.black, fontSize: 14),
           ),
-          Spacer(),
+          const Spacer(),
           AppButton(
             isLoading: false,
             isSmallSize: true,

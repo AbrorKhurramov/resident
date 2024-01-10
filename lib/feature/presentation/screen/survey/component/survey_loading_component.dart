@@ -15,8 +15,8 @@ class _SurveyLoadingComponentState extends State<SurveyLoadingComponent> {
   Widget build(BuildContext context) {
     return BlocBuilder<SurveyListCubit, SurveyListState>(
       builder: (context, state) {
-        return Stack(
-          children: const [
+        return const Stack(
+          children: [
             Positioned(
               top: 0,
               left: 0,

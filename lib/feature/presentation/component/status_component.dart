@@ -16,15 +16,15 @@ class _StatusComponentState extends State<StatusComponent> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(4),
+      padding: const EdgeInsets.all(4),
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.all(Radius.circular(10)),
+          borderRadius: const BorderRadius.all(Radius.circular(10)),
           color: widget.color),
       child: Text(
         widget.label.toUpperCase(),
         style: Theme.of(context)
             .textTheme
-            .headline2!
+            .displayMedium!
             .copyWith(fontSize: 10.sf(context), color: Colors.white),
       ),
     );

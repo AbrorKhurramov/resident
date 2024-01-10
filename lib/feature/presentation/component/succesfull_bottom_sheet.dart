@@ -9,9 +9,9 @@ import 'package:resident/core/extension/size_extension.dart';
 
 class SuccessfulBottomSheet extends StatefulWidget {
   final String description;
-  BuildContext subContext;
-  int isAdd;
-   SuccessfulBottomSheet({Key? key, required this.description,required this.isAdd,required this.subContext})
+  final BuildContext subContext;
+ final int isAdd;
+  const SuccessfulBottomSheet({Key? key, required this.description,required this.isAdd,required this.subContext})
       : super(key: key);
 
   @override
@@ -40,7 +40,7 @@ class _SuccessfulBottomSheetState extends State<SuccessfulBottomSheet> {
             width: AppConfig.screenWidth(context),
             height: AppConfig.screenHeight(context) * 0.9,
             child: Padding(
-              padding: EdgeInsets.all(16),
+              padding: const EdgeInsets.all(16),
               child: Stack(
                 children: [
                   Positioned(
@@ -53,7 +53,7 @@ class _SuccessfulBottomSheetState extends State<SuccessfulBottomSheet> {
                       children: [
                         SvgPicture.asset(
                             'assets/icons/modal_bottom_top_line.svg'),
-                        SizedBox(height: 64),
+                        const SizedBox(height: 64),
                         SizedBox(
                           width: 96,
                           height: 96,
@@ -64,7 +64,7 @@ class _SuccessfulBottomSheetState extends State<SuccessfulBottomSheet> {
                           widget.description.toUpperCase(),
                           style: Theme.of(context)
                               .textTheme
-                              .headline2!
+                              .displayMedium!
                               .copyWith(color: AppColor.c4000, fontSize: 14),
                           textAlign: TextAlign.center,
                         ),
@@ -76,11 +76,10 @@ class _SuccessfulBottomSheetState extends State<SuccessfulBottomSheet> {
                     right: 0,
                     bottom: 32,
                     child: Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 36),
+                      padding: const EdgeInsets.symmetric(horizontal: 36),
                       child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
-                              onSurface: AppColor.c6000.withOpacity(0.15),
-                              primary: AppColor.c6000),
+                              backgroundColor: AppColor.c6000, disabledForegroundColor: AppColor.c6000.withOpacity(0.15).withOpacity(0.38), disabledBackgroundColor: AppColor.c6000.withOpacity(0.15).withOpacity(0.12)),
                           onPressed: () {
                             if(widget.isAdd==1) {
                               widget.subContext.read<CardCubit>().getCardList();

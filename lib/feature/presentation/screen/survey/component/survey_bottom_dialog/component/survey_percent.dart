@@ -28,7 +28,7 @@ class _SurveyPercentState extends State<SurveyPercent> {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-      physics: NeverScrollableScrollPhysics(),
+      physics: const NeverScrollableScrollPhysics(),
       shrinkWrap: true,
       itemBuilder: (context, index) {
         return _initItem(widget.survey, index);
@@ -61,19 +61,19 @@ class _SurveyPercentState extends State<SurveyPercent> {
     }
 
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 16, vertical: 16),
-      margin: EdgeInsets.only(bottom: 16),
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+      margin: const EdgeInsets.only(bottom: 16),
       decoration: widget.getContainerBoxDecoration(isSelected),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Visibility(
+              visible: isSelected,
               child: Text(
                 '${_appLocalization.your_voice.toUpperCase()}:',
                 style: _getUserVoteStyle(context, isSelected),
-              ),
-              visible: isSelected),
-          SizedBox(height: 4),
+              )),
+          const SizedBox(height: 4),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.baseline,
@@ -94,14 +94,14 @@ class _SurveyPercentState extends State<SurveyPercent> {
                   ],
                 ),
               ),
-              SizedBox(width: 8),
+              const SizedBox(width: 8),
               Text(
                 '${resultVariant!.percent.toStringAsFixed(2)}%',
                 style: _getPercentCountStyle(context, isSelected),
               ),
             ],
           ),
-          SizedBox(height: 16),
+          const SizedBox(height: 16),
           LinearPercentIndicator(
             lineHeight: 16,
             percent:
@@ -119,13 +119,13 @@ class _SurveyPercentState extends State<SurveyPercent> {
         (widget.surveyType == SurveyType.vote && !isSelected)) {
       return Theme.of(context)
           .textTheme
-          .headline3!
+          .displaySmall!
           .copyWith(color: AppColor.c4000, fontSize: 14);
     } else if ((widget.surveyType == SurveyType.vote && !isSelected) ||
         (widget.surveyType == SurveyType.survey && isSelected)) {
       return Theme.of(context)
           .textTheme
-          .headline3!
+          .displaySmall!
           .copyWith(color: Colors.white, fontSize: 14);
     }
   }
@@ -135,13 +135,13 @@ class _SurveyPercentState extends State<SurveyPercent> {
         (widget.surveyType == SurveyType.survey && !isSelected)) {
       return Theme.of(context)
           .textTheme
-          .headline3!
+          .displaySmall!
           .copyWith(color: AppColor.c4000, fontSize: 16);
     } else if ((widget.surveyType == SurveyType.vote && !isSelected) ||
         (widget.surveyType == SurveyType.survey && isSelected)) {
       return Theme.of(context)
           .textTheme
-          .headline3!
+          .displaySmall!
           .copyWith(color: Colors.white, fontSize: 16);
     }
   }

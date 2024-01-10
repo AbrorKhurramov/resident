@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:resident/app_package/core_package.dart';
-import 'package:resident/app_package/domain/entity_package.dart';
 import 'package:resident/app_package/presentation/bloc_package.dart';
 import 'package:resident/feature/presentation/screen/dashboard/component/home_component/component/app_communal.dart';
+
+import '../../../../../app_route/app_route_name.dart';
 
 class AppCommunalList extends StatefulWidget {
   const AppCommunalList({Key? key}) : super(key: key);
@@ -39,7 +40,7 @@ class _AppCommunalListState extends State<AppCommunalList> {
                 AppCommunal(type: 4, counter: counterState.responseGas!, apartmentId: apartmentId),
                 AppDimension.verticalSize_12,
                 AppCommunal(type: 5, counter: counterState.responseGas!, apartmentId: apartmentId,onTapAddOther: (){
-                  debugPrint("hello");
+                  Navigator.pushNamed(context, AppRouteName.otherCategoryScreen);
                 },),
               ],
             );

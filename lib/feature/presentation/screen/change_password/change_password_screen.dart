@@ -87,14 +87,14 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                       AppDimension.verticalSize_20,
                       Center(
                         child: Padding(
-                            padding: EdgeInsets.symmetric(horizontal: 48),
-                            child: Text(_appLocalization.change_admin_password.capitalize(),style: Theme.of(context).textTheme.headline3!.copyWith(fontSize: 15.sf(context),color: Colors.white,letterSpacing: 2),maxLines: 4,textAlign:TextAlign.center,)),
+                            padding: const EdgeInsets.symmetric(horizontal: 48),
+                            child: Text(_appLocalization.change_admin_password.capitalize(),style: Theme.of(context).textTheme.displaySmall!.copyWith(fontSize: 15.sf(context),color: Colors.white,letterSpacing: 2),maxLines: 4,textAlign:TextAlign.center,)),
                       ),
                       AppDimension.verticalSize_32,
                       BlocBuilder<ChangePasswordCubit, ChangePasswordState>(
                         builder: (context, state) {
                           return Padding(
-                            padding: EdgeInsets.symmetric(horizontal: 20),
+                            padding: const EdgeInsets.symmetric(horizontal: 20),
                             child: AppTextField(
                               textFormField: TextFormField(
                                 controller: _newPasswordController,
@@ -106,7 +106,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                                 obscureText: true,
                                 textInputAction: TextInputAction.done,
                                 onChanged: _onChangeNewCurrentPassword,
-                                style: Theme.of(context).textTheme.headline2!.copyWith(fontSize: 17.sf(context), color: Colors.white),
+                                style: Theme.of(context).textTheme.displayMedium!.copyWith(fontSize: 17.sf(context), color: Colors.white),
                                 decoration: InputDecoration(
                                     isDense: true,
                                     counterText: "",
@@ -116,7 +116,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                                         .capitalize(),
                                     hintStyle: Theme.of(context)
                                         .textTheme
-                                        .headline4!
+                                        .headlineMedium!
                                         .copyWith(fontSize: 17.sf(context), color: Colors.white.withOpacity(0.3))),
                               ),
                               focusNode: _newPasswordFocus,
@@ -132,7 +132,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                       BlocBuilder<ChangePasswordCubit, ChangePasswordState>(
                         builder: (context, state) {
                           return Padding(
-                            padding: EdgeInsets.symmetric(horizontal: 20),
+                            padding: const EdgeInsets.symmetric(horizontal: 20),
                             child: AppTextField(
                               textFormField: TextFormField(
                                 controller: _confirmPasswordController,
@@ -141,7 +141,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                                 obscureText: true,
                                 textInputAction: TextInputAction.done,
                                 onChanged: _onChangeConfirmCurrentPassword,
-                                style: Theme.of(context).textTheme.headline2!.copyWith(fontSize: 17.sf(context), color: Colors.white),
+                                style: Theme.of(context).textTheme.displayMedium!.copyWith(fontSize: 17.sf(context), color: Colors.white),
                                 decoration: InputDecoration(
                                     isDense: true,
                                     counterText: "",
@@ -152,7 +152,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                                         .capitalize(),
                                     hintStyle: Theme.of(context)
                                         .textTheme
-                                        .headline4!
+                                        .headlineMedium!
                                         .copyWith(fontSize: 17.sf(context), color: Colors.white.withOpacity(0.3))),
                               ),
                               focusNode: _confirmFocus,
@@ -179,9 +179,9 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                           return BlocBuilder<NotInternetCubit, bool>(
                             builder: (context, internetState) {
                               return Padding(
-                                padding: EdgeInsets.symmetric(vertical: 16, horizontal: 36),
+                                padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 36),
                                 child: ElevatedButton(
-                                    style: ElevatedButton.styleFrom(onSurface: Colors.white.withOpacity(0.15)),
+                                    style: ElevatedButton.styleFrom(disabledForegroundColor: Colors.white.withOpacity(0.15).withOpacity(0.38), disabledBackgroundColor: Colors.white.withOpacity(0.15).withOpacity(0.12)),
                                     onPressed: internetState
                                         ? () {
                                       if (state.newPassword.length < 3 || state.confirmPassword.length < 3) {
@@ -198,7 +198,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                                     }
                                         : null,
                                     child: state.stateStatus == StateStatus.loading
-                                        ? CupertinoActivityIndicator(radius: 12)
+                                        ? const CupertinoActivityIndicator(radius: 12)
                                         : Text(_appLocalization.save.capitalize(),style: TextStyle(fontSize: 14.sf(context)))),
                               );
                             },
@@ -256,7 +256,7 @@ void _onChangeNewCurrentPassword(String changedText) {
         child: SvgPicture.asset('assets/icons/lock_icon.svg')
 
       ),
-          Positioned(top: 0, right: 0, child: LanguageComponent())
+          const Positioned(top: 0, right: 0, child: LanguageComponent())
         ],
       ),
     );

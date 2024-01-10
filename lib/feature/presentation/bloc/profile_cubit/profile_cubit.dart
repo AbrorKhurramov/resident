@@ -51,8 +51,8 @@ class ProfileCubit extends RepositoryCubit<ProfileState> {
   }
 
   Future<void> getFirebaseNotificationState() async {
-    final FirebaseMessaging _firebaseMessaging = FirebaseMessaging.instance;
-    final firebaseToken = await _firebaseMessaging.getToken();
+    final FirebaseMessaging firebaseMessaging = FirebaseMessaging.instance;
+    final firebaseToken = await firebaseMessaging.getToken();
     emit(state.copyWith(stateStatus: StateStatus.loading));
     await _getNotificationUseCase
         .call(GetNotificationUseCaseParams(

@@ -3,7 +3,6 @@ import 'package:resident/core/extension/size_extension.dart';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_multi_formatter/flutter_multi_formatter.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -19,8 +18,8 @@ import 'package:resident/main.dart';
 import 'package:pinput/pinput.dart';
 
 class AddCardBottomSheet extends StatefulWidget {
-   AddCardBottomSheet({Key? key,required this.subContext}) : super(key: key);
-BuildContext subContext;
+  const AddCardBottomSheet({Key? key,required this.subContext}) : super(key: key);
+final BuildContext subContext;
   @override
   State<AddCardBottomSheet> createState() => _AddCardBottomSheetState();
 }
@@ -57,7 +56,7 @@ class _AddCardBottomSheetState extends State<AddCardBottomSheet> {
     if (res.succeed) {
       debugPrint('SMS: ${res.code}');
     } else {
-      debugPrint('SMS Failure:'+res.toString());
+      debugPrint('SMS Failure:$res');
     }
     debugPrint(res.toString());
   }
@@ -100,7 +99,7 @@ print("SUCCESS");
                         _appLocalization.add_card.capitalize(),
                         style: Theme.of(context)
                             .textTheme
-                            .headline2!
+                            .displayMedium!
                             .copyWith(color: AppColor.c4000, fontSize: 17.sf(context)),
                       ),
                       AppDimension.verticalSize_24,
@@ -121,7 +120,7 @@ print("SUCCESS");
                           onChanged: _onChangeCardNumber,
                           style: Theme.of(context)
                               .textTheme
-                              .headline2!
+                              .displayMedium!
                               .copyWith(fontSize: 17.sf(context), color: AppColor.c9000),
                           decoration: InputDecoration(
                               isDense: true,
@@ -131,7 +130,7 @@ print("SUCCESS");
                               hintText: "0000 0000 0000 0000",
                               hintStyle: Theme.of(context)
                                   .textTheme
-                                  .headline4!
+                                  .headlineMedium!
                                   .copyWith(
                                       fontSize: 17.sf(context), color: AppColor.c9000)),
                         ),
@@ -159,7 +158,7 @@ print("SUCCESS");
                           onChanged: _onChangeExpiryDate,
                           style: Theme.of(context)
                               .textTheme
-                              .headline2!
+                              .displayMedium!
                               .copyWith(fontSize: 17.sf(context), color: AppColor.c9000),
                           decoration: InputDecoration(
                               isDense: true,
@@ -169,7 +168,7 @@ print("SUCCESS");
                               hintText: '00/00',
                               hintStyle: Theme.of(context)
                                   .textTheme
-                                  .headline4!
+                                  .headlineMedium!
                                   .copyWith(
                                       fontSize: 17.sf(context), color: AppColor.c9000)),
                         ),
@@ -189,9 +188,7 @@ print("SUCCESS");
                               padding: const EdgeInsets.symmetric(horizontal: 36),
                               child: ElevatedButton(
                                   style: ElevatedButton.styleFrom(
-                                      onSurface:
-                                          AppColor.c6000.withOpacity(0.15),
-                                      primary: AppColor.c6000),
+                                      backgroundColor: AppColor.c6000, disabledForegroundColor: AppColor.c6000.withOpacity(0.15).withOpacity(0.38), disabledBackgroundColor: AppColor.c6000.withOpacity(0.15).withOpacity(0.12)),
                                   onPressed: _validate(state.cardNumber,
                                               state.expiryDate) &&
                                           internetState

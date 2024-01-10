@@ -34,7 +34,7 @@ class _DoingsBottomSheetState extends State<DoingsBottomSheet> {
             width: AppConfig.screenWidth(context),
             height: AppConfig.screenHeight(context) * 0.9,
             child: Padding(
-              padding: EdgeInsets.all(16),
+              padding: const EdgeInsets.all(16),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.start,
@@ -45,12 +45,12 @@ class _DoingsBottomSheetState extends State<DoingsBottomSheet> {
                   AppDimension.verticalSize_16,
                   Text(
                     _appLocalization.fitness_club,
-                    style: Theme.of(context).textTheme.caption!.copyWith(color: Colors.white, fontSize: 24.sf(context)),
+                    style: Theme.of(context).textTheme.bodySmall!.copyWith(color: Colors.white, fontSize: 24.sf(context)),
                   ),
                   AppDimension.verticalSize_24,
                   Text(
                     _appLocalization.fitness_label,
-                    style: Theme.of(context).textTheme.headline4!.copyWith(color: Colors.white, fontSize: 14.sf(context)),
+                    style: Theme.of(context).textTheme.headlineMedium!.copyWith(color: Colors.white, fontSize: 14.sf(context)),
                     textAlign: TextAlign.center,
                   ),
                   AppDimension.verticalSize_24,
@@ -59,7 +59,7 @@ class _DoingsBottomSheetState extends State<DoingsBottomSheet> {
                   _initTextField(),
                   const Spacer(),
                   Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 36),
+                    padding: const EdgeInsets.symmetric(horizontal: 36),
                     child: ElevatedButton(
                       onPressed: () {
                         Navigator.pop(context);
@@ -100,9 +100,9 @@ class _DoingsBottomSheetState extends State<DoingsBottomSheet> {
       },
       child: Container(
         height: 80,
-        padding: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+        padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.all(
+          borderRadius: const BorderRadius.all(
             Radius.circular(24),
           ),
           border: Border.all(
@@ -115,7 +115,7 @@ class _DoingsBottomSheetState extends State<DoingsBottomSheet> {
           children: [
             Text(
               _appLocalization.date_and_time.capitalize(),
-              style: Theme.of(context).textTheme.headline2!.copyWith(
+              style: Theme.of(context).textTheme.displayMedium!.copyWith(
                     color: Colors.white,
                     fontSize: 12.sf(context),
                   ),
@@ -125,7 +125,7 @@ class _DoingsBottomSheetState extends State<DoingsBottomSheet> {
               children: [
                 Text(
                   chosenDate?.formatDateTime() ?? _appLocalization.select_date_reservation.capitalize(),
-                  style: Theme.of(context).textTheme.headline4!.copyWith(
+                  style: Theme.of(context).textTheme.headlineMedium!.copyWith(
                         color: Colors.white.withOpacity(0.3),
                         fontSize: 17.sf(context),
                       ),
@@ -144,9 +144,9 @@ class _DoingsBottomSheetState extends State<DoingsBottomSheet> {
   Widget _initTextField() {
     return Container(
       height: 144,
-      padding: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+      padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.all(
+        borderRadius: const BorderRadius.all(
           Radius.circular(24),
         ),
         border: Border.all(
@@ -159,7 +159,7 @@ class _DoingsBottomSheetState extends State<DoingsBottomSheet> {
         children: [
           Text(
             _appLocalization.wish.capitalize(),
-            style: Theme.of(context).textTheme.headline2!.copyWith(
+            style: Theme.of(context).textTheme.displayMedium!.copyWith(
                   color: Colors.white,
                   fontSize: 12.sf(context),
                 ),
@@ -167,7 +167,7 @@ class _DoingsBottomSheetState extends State<DoingsBottomSheet> {
           TextField(
             keyboardType: TextInputType.multiline,
             maxLines: 4,
-            style: Theme.of(context).textTheme.headline4!.copyWith(
+            style: Theme.of(context).textTheme.headlineMedium!.copyWith(
                   color: Colors.white.withOpacity(0.3),
                   fontSize: 17.sf(context),
                 ),
@@ -176,7 +176,7 @@ class _DoingsBottomSheetState extends State<DoingsBottomSheet> {
                 hintText: _appLocalization.write_your_wish.capitalize(),
                 hintStyle: Theme.of(context)
                     .textTheme
-                    .headline4!
+                    .headlineMedium!
                     .copyWith(color: Colors.white.withOpacity(0.3), fontSize: 17.sf(context))),
           )
         ],

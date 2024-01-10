@@ -15,7 +15,7 @@ class ForceUpdateScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    AppLocalizations  _appLocalization = AppLocalizations.of(context)!;
+    AppLocalizations  appLocalization = AppLocalizations.of(context)!;
     return Scaffold(
       body: Container(
           width: AppConfig.screenWidth(context),
@@ -39,19 +39,19 @@ class ForceUpdateScreen extends StatelessWidget {
             Center(
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 90),
-                child: Text(_appLocalization.install_software_update.capitalize(),style: Theme.of(context).textTheme.headline1!.copyWith(fontSize: 18,color: Colors.white),textAlign: TextAlign.center,),
+                child: Text(appLocalization.install_software_update.capitalize(),style: Theme.of(context).textTheme.displayLarge!.copyWith(fontSize: 18,color: Colors.white),textAlign: TextAlign.center,),
               ),
             ),
             const Spacer(),
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 36),
               child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(onSurface: Colors.white.withOpacity(0.15)),
+                  style: ElevatedButton.styleFrom(disabledForegroundColor: Colors.white.withOpacity(0.15).withOpacity(0.38), disabledBackgroundColor: Colors.white.withOpacity(0.15).withOpacity(0.12)),
                   onPressed: () async{
                     var versionStatus = await NewVersion().getVersionStatus();
                     NewVersion().launchAppStore(versionStatus!.appStoreLink);
                   },
-                  child: Text(_appLocalization.install_update.capitalize(),style: Theme.of(context).textTheme.headline2!.copyWith(fontSize: 14.sf(context),color: Colors.white),)),
+                  child: Text(appLocalization.install_update.capitalize(),style: Theme.of(context).textTheme.displayMedium!.copyWith(fontSize: 14.sf(context),color: Colors.white),)),
             ),
             AppDimension.verticalSize_32,
           ],

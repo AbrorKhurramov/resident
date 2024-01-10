@@ -13,10 +13,10 @@ class _ServiceNotificationComponentState extends State<ServiceNotificationCompon
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: 20),
-      padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+      margin: const EdgeInsets.symmetric(horizontal: 20),
+      padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
       width: AppConfig.screenWidth(context),
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         borderRadius: BorderRadius.all(Radius.circular(16)),
         color: AppColor.c6000,
       ),
@@ -27,7 +27,7 @@ class _ServiceNotificationComponentState extends State<ServiceNotificationCompon
           Expanded(
             child: Text(
               'Через 3 дня будет не забудьте оплатить 100 000 сум за кварплату',
-              style: Theme.of(context).textTheme.headline3!.copyWith(color: Colors.white, fontSize: 12),
+              style: Theme.of(context).textTheme.displaySmall!.copyWith(color: Colors.white, fontSize: 12),
             ),
           )
         ],

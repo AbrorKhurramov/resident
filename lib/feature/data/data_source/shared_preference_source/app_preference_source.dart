@@ -3,7 +3,6 @@ import 'package:resident/app_package/data/data_source_package.dart';
 
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'mixin/permission_preference_source_mixin.dart';
 
 abstract class AppPreferenceSource
     implements

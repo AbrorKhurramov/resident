@@ -128,12 +128,10 @@ class _MyCardScreenState extends State<MyCardScreen> {
             });
           },
           style: ElevatedButton.styleFrom(
-              shape: RoundedRectangleBorder(
+              foregroundColor: Colors.blue, shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(16),
-              ),
+              ), backgroundColor: Colors.white,
               fixedSize: const Size(double.infinity, 64),
-              onPrimary: Colors.blue,
-              primary: Colors.white,
               elevation: 0),
           child: Padding(
             padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
@@ -143,7 +141,7 @@ class _MyCardScreenState extends State<MyCardScreen> {
               children: [
                 Text(
                   _appLocalization.delete_card.capitalize(),
-                  style: Theme.of(context).textTheme.headline3!.copyWith(color: AppColor.c50000, fontSize: 14.sf(context)),
+                  style: Theme.of(context).textTheme.displaySmall!.copyWith(color: AppColor.c50000, fontSize: 14.sf(context)),
                 ),
                 SvgPicture.asset(
                   'assets/icons/trash.svg',
@@ -174,7 +172,4 @@ class _MyCardScreenState extends State<MyCardScreen> {
     });
   }
 
-  void _onAddCard(BuildContext subContext) {
-
-  }
 }

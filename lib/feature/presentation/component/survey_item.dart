@@ -23,18 +23,17 @@ class _SurveyItemState extends State<SurveyItem> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(bottom: 12, left: 20, right: 20),
+      margin: const EdgeInsets.only(bottom: 12, left: 20, right: 20),
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
-          primary: Colors.white,
-          onPrimary: Colors.grey,
+          foregroundColor: Colors.grey, backgroundColor: Colors.white,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(16.0),
           ),
         ),
         onPressed: widget.onClick,
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 0, vertical: 20),
+          padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 20),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
@@ -45,7 +44,7 @@ class _SurveyItemState extends State<SurveyItem> {
                         '',
                     style: Theme.of(context)
                         .textTheme
-                        .headline3!
+                        .displaySmall!
                         .copyWith(color: AppColor.c4000, fontSize: 14.sf(context))),
               ),
               AppDimension.verticalSize_12,

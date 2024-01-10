@@ -226,7 +226,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             maxLength: 16,
                             textInputAction: TextInputAction.next,
                             onChanged: _onChangedLogin,
-                            style: Theme.of(context).textTheme.headline2!.copyWith(fontSize: 17.sf(context), color: Colors.white),
+                            style: Theme.of(context).textTheme.displayMedium!.copyWith(fontSize: 17.sf(context), color: Colors.white),
                             decoration: InputDecoration(
                                 isDense: true,
                                 counterText: "",
@@ -235,7 +235,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                 hintText: _appLocalization.login_hint_label.capitalize(),
                                 hintStyle: Theme.of(context)
                                     .textTheme
-                                    .headline4!
+                                    .headlineMedium!
                                     .copyWith(fontSize: 17.sf(context), color: Colors.white.withOpacity(0.3))),
                           ),
                           focusNode: _loginFocusNode,
@@ -260,7 +260,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             obscureText: true,
                             textInputAction: TextInputAction.done,
                             onChanged: _onChangedPassword,
-                            style: Theme.of(context).textTheme.headline2!.copyWith(fontSize: 17.sf(context), color: Colors.white),
+                            style: Theme.of(context).textTheme.displayMedium!.copyWith(fontSize: 17.sf(context), color: Colors.white),
                             decoration: InputDecoration(
                                 isDense: true,
                                 counterText: "",
@@ -269,7 +269,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                 hintText: _appLocalization.password_hint_label.capitalize(),
                                 hintStyle: Theme.of(context)
                                     .textTheme
-                                    .headline4!
+                                    .headlineMedium!
                                     .copyWith(fontSize: 17.sf(context), color: Colors.white.withOpacity(0.3))),
                           ),
                           focusNode: _passwordFocusNode,
@@ -314,7 +314,7 @@ else if(state.user!.firstEnter==false) {
                           return Padding(
                             padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 36),
                             child: ElevatedButton(
-                                style: ElevatedButton.styleFrom(onSurface: Colors.white.withOpacity(0.15)),
+                                style: ElevatedButton.styleFrom(disabledForegroundColor: Colors.white.withOpacity(0.15).withOpacity(0.38), disabledBackgroundColor: Colors.white.withOpacity(0.15).withOpacity(0.12)),
                                 onPressed: _validate(state.login, state.password) && internetState ? _login : null,
                                 child: state.stateStatus == StateStatus.loading
                                     ? const CupertinoActivityIndicator(radius: 12)

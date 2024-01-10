@@ -33,9 +33,9 @@ class _EmptyMeterReadingState extends State<EmptyMeterReading> {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.all(Radius.circular(16)),
+          borderRadius: const BorderRadius.all(Radius.circular(16)),
           color: Colors.white.withOpacity(0.95)),
-      padding: EdgeInsets.all(16),
+      padding: const EdgeInsets.all(16),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
@@ -50,7 +50,7 @@ class _EmptyMeterReadingState extends State<EmptyMeterReading> {
             textAlign: TextAlign.center,
             style: Theme.of(context)
                 .textTheme
-                .headline2!
+                .displayMedium!
                 .copyWith(color: Colors.black, fontSize: 11.sf(context)),
           )
         ],
@@ -80,7 +80,7 @@ class _EmptyMeterReadingState extends State<EmptyMeterReading> {
                   label.toUpperCase(),
                   style: Theme.of(context)
                       .textTheme
-                      .headline3!
+                      .displaySmall!
                       .copyWith(fontSize: 10.sf(context), color: AppColor.c4000),
                 ),
                 descriptionLabel.isNotEmpty
@@ -88,10 +88,10 @@ class _EmptyMeterReadingState extends State<EmptyMeterReading> {
                         descriptionLabel.capitalize(),
                         style: Theme.of(context)
                             .textTheme
-                            .headline3!
+                            .displaySmall!
                             .copyWith(fontSize: 10.sf(context), color: AppColor.c3000),
                       )
-                    : SizedBox()
+                    : const SizedBox()
               ],
             )
           ],
@@ -143,11 +143,11 @@ class _EmptyMeterReadingState extends State<EmptyMeterReading> {
     return Container(
         height: 56,
         width: 56,
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           shape: BoxShape.circle,
           color: AppColor.c6000,
         ),
-        child: Icon(
+        child: const Icon(
           Icons.add,
           color: Colors.white,
         ));

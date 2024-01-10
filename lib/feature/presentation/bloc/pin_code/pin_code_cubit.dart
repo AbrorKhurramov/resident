@@ -21,11 +21,11 @@ class PinCodeCubit extends Cubit<PinCodeState> {
   }
 
   void removePinCode() async {
-    Future<Either<Failure, void>> _call = _removePinCodeUseCase.call(NoParams());
+    Future<Either<Failure, void>> call = _removePinCodeUseCase.call(const NoParams());
   }
 
   void setUpPinCode() async {
-    Future<Either<Failure, void>> _call = _setUpPinCodeUseCase.call(SetUpPinCodeParams(state.newPinCode));
+    Future<Either<Failure, void>> call = _setUpPinCodeUseCase.call(SetUpPinCodeParams(state.newPinCode));
     //_call.fold((left) => print(left.toString()), (right) => print('right'));
     getIt.unregister<PinCodeParam>();
     getIt.registerFactory<PinCodeParam>(() => PinCodeParam(pinCode: state.newPinCode));

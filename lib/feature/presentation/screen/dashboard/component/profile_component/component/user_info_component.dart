@@ -26,7 +26,7 @@ class UserInfoComponent extends StatelessWidget {
             '${state.firstName}\n${state.lastName}',
             style: Theme.of(context)
                 .textTheme
-                .headline1!
+                .displayLarge!
                 .copyWith(color: AppColor.c4000, fontSize: 18.sf(context), letterSpacing: 0.6),
           ),
           state.logo != null
@@ -41,7 +41,7 @@ class UserInfoComponent extends StatelessWidget {
                   ),
                   imageUrl:  '${AppRemoteSourceImpl.BASE_URL}/file/download/${state.logo!.guid}.${state.logo!.extension}',
                   fit: BoxFit.cover,
-                  placeholder: (context, url) => CircularProgressIndicator(),
+                  placeholder: (context, url) => const CircularProgressIndicator(),
                   errorWidget: (context, url, error) => Container(
                     width: 64,
                     height: 64,

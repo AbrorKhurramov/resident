@@ -40,14 +40,14 @@ class _ServiceResultHistoryComponentState extends State<ServiceResultHistoryComp
           listener: (context, state) {},
           builder: (context, state) {
             if (state.stateStatus == StateStatus.loading) {
-              return Center(
+              return const Center(
                 child: CircularProgressIndicator(),
               );
             }
             if (state.stateStatus == StateStatus.success) {
               return ListView.builder(
-                physics: widget.isPhysics?NeverScrollableScrollPhysics():BouncingScrollPhysics(),
-                padding: EdgeInsets.all(4),
+                physics: widget.isPhysics?const NeverScrollableScrollPhysics():const BouncingScrollPhysics(),
+                padding: const EdgeInsets.all(4),
                 itemBuilder: (context, index) {
                   return Column(
                     children: [
@@ -63,13 +63,13 @@ class _ServiceResultHistoryComponentState extends State<ServiceResultHistoryComp
                                 widget.type.getCommunalType().getLabel(_appLocalization),
                                 style: Theme.of(context)
                                     .textTheme
-                                    .headline3!
+                                    .displaySmall!
                                     .copyWith(fontSize: 14.sf(context), color: AppColor.c4000),
                               ),
                               Text(state.response!.data[index].getCounterInfo(),
                                   style: Theme.of(context)
                                       .textTheme
-                                      .headline3!
+                                      .displaySmall!
                                       .copyWith(fontSize: 10.sf(context), color: AppColor.c3000)),
                             ],
                           ),
@@ -77,7 +77,7 @@ class _ServiceResultHistoryComponentState extends State<ServiceResultHistoryComp
                       ),
                       AppDimension.verticalSize_12,
                       _initDateAndCounterReading(state.response!.data[index]),
-                      Divider(thickness: 1)
+                      const Divider(thickness: 1)
                     ],
                   );
                 },
@@ -85,7 +85,7 @@ class _ServiceResultHistoryComponentState extends State<ServiceResultHistoryComp
                 itemExtent: 88,
               );
             }
-            return SizedBox();
+            return const SizedBox();
           }),
     );
   }
@@ -105,12 +105,12 @@ class _ServiceResultHistoryComponentState extends State<ServiceResultHistoryComp
             children: [
               Text(
                 _appLocalization.date.capitalize(),
-                style: Theme.of(context).textTheme.headline3!.copyWith(color: AppColor.c3000, fontSize: 10.sf(context)),
+                style: Theme.of(context).textTheme.displaySmall!.copyWith(color: AppColor.c3000, fontSize: 10.sf(context)),
               ),
               Text(
                 serviceResult.createdDate!.getDateWithHour(_appLocalization),
            //     '${createdDate.getDay()} ${createdDate.getMonthLabel(_appLocalization)} ${createdDate.year}, ${serviceResult.createdDate!.getHourAndMinute()}',
-                style: Theme.of(context).textTheme.headline2!.copyWith(color: AppColor.c4000, fontSize: 10.sf(context)),
+                style: Theme.of(context).textTheme.displayMedium!.copyWith(color: AppColor.c4000, fontSize: 10.sf(context)),
               ),
             ],
           ),
@@ -121,11 +121,11 @@ class _ServiceResultHistoryComponentState extends State<ServiceResultHistoryComp
             children: [
               Text(
                 _appLocalization.counter_indication.capitalize(),
-                style: Theme.of(context).textTheme.headline3!.copyWith(color: AppColor.c3000, fontSize: 10.sf(context)),
+                style: Theme.of(context).textTheme.displaySmall!.copyWith(color: AppColor.c3000, fontSize: 10.sf(context)),
               ),
               Text(
                 serviceResult.result?.toString() ?? '',
-                style: Theme.of(context).textTheme.headline2!.copyWith(color: AppColor.c4000, fontSize: 10.sf(context)),
+                style: Theme.of(context).textTheme.displayMedium!.copyWith(color: AppColor.c4000, fontSize: 10.sf(context)),
               ),
             ],
           )

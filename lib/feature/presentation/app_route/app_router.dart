@@ -12,6 +12,7 @@ import 'package:resident/feature/presentation/screen/indication_history/indicati
 import 'package:resident/feature/presentation/screen/invoice/invoice_screen.dart';
 import 'package:resident/feature/presentation/screen/invoice_list/invoice_list_screen.dart';
 import 'package:resident/feature/presentation/screen/login/login_screen.dart';
+import 'package:resident/feature/presentation/screen/mobile_providers/mobile_providers_screen.dart';
 import 'package:resident/feature/presentation/screen/my_card/my_card_screen.dart';
 import 'package:resident/feature/presentation/screen/my_flat/my_flat_screen.dart';
 import 'package:resident/feature/presentation/screen/other_category/other_category_screen.dart';
@@ -72,6 +73,8 @@ class AppRouter {
         return DocumentScreen.route();
         case AppRouteName.otherCategoryScreen:
         return OtherCategoryScreen.route();
+        case AppRouteName.mobileProvidersScreen:
+        return MobileProvidersScreen.route();
       case AppRouteName.replenishBalanceScreen:
         return ReplenishBalanceScreen.route();
       case AppRouteName.indicationHistoryScreen:

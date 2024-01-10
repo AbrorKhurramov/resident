@@ -20,7 +20,7 @@ class ReplenishBalanceScreen extends StatefulWidget {
         BlocProvider(create: (_) => getIt<ReplenishmentCubit>()),
         BlocProvider(create: (_) => getIt<ReplenishmentDetailsCubit>()),
 
-      ], child: ReplenishBalanceScreen());
+      ], child: const ReplenishBalanceScreen());
     });
   }
 
@@ -44,7 +44,7 @@ class _ReplenishBalanceScreenState extends State<ReplenishBalanceScreen> {
     return Scaffold(
         resizeToAvoidBottomInset:false,
         body: Container(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             image: DecorationImage(
               image: AssetImage('assets/images/part_first_gradient.png'),
               fit: BoxFit.fill,
@@ -70,12 +70,12 @@ class _ReplenishBalanceScreenState extends State<ReplenishBalanceScreen> {
                     }, builder: (context, cardState) {
                       if (cardState.stateStatus == StateStatus.success &&
                           cardState.response!.data.isEmpty) {
-                        return ReplenishBalanceEmptyComponent();
+                        return const ReplenishBalanceEmptyComponent();
                       } else if (cardState.stateStatus == StateStatus.success &&
                           cardState.response!.data.isNotEmpty) {
-                        return ReplenishBalanceComponent();
+                        return const ReplenishBalanceComponent();
                       }
-                      return SizedBox();
+                      return const SizedBox();
                     }),
                   ],
                 ),

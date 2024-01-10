@@ -123,7 +123,7 @@ class _IndicationHistoryListComponentState extends State<IndicationHistoryListCo
           child: Text(
            label.getDateWithoutHour(_appLocalization),
             textAlign: TextAlign.center,
-            style: Theme.of(context).textTheme.headline3!.copyWith(
+            style: Theme.of(context).textTheme.displaySmall!.copyWith(
               fontSize: 12.sf(context),
               color: AppColor.c3000,
             ),
@@ -168,17 +168,17 @@ class _IndicationHistoryListComponentState extends State<IndicationHistoryListCo
                 children: [
                   Text(
                     type.getCommunalType().getLabel(_appLocalization).capitalize(),
-                    style: Theme.of(context).textTheme.headline3!.copyWith(fontSize: 14.sf(context), color: AppColor.c4000),
+                    style: Theme.of(context).textTheme.displaySmall!.copyWith(fontSize: 14.sf(context), color: AppColor.c4000),
                   ),
                   Text(serviceResult.getCounterInfo(),
-                      style: Theme.of(context).textTheme.headline3!.copyWith(fontSize: 10.sf(context), color: AppColor.c3000)),
+                      style: Theme.of(context).textTheme.displaySmall!.copyWith(fontSize: 10.sf(context), color: AppColor.c3000)),
                 ],
               ),
               AppDimension.horizontalSize_8,
               const Spacer(),
               Text(
                 serviceResult.createdDate!.getHourAndMinute(),
-                style: Theme.of(context).textTheme.headline3!.copyWith(
+                style: Theme.of(context).textTheme.displaySmall!.copyWith(
                       fontSize: 16.sf(context),
                       color: AppColor.c3000,
                     ),
@@ -189,10 +189,10 @@ class _IndicationHistoryListComponentState extends State<IndicationHistoryListCo
           Row(
             children: [
               Text(_appLocalization.counter_indication.capitalize(),
-                  style: Theme.of(context).textTheme.headline3!.copyWith(fontSize: 12.sf(context), color: AppColor.c3000)),
+                  style: Theme.of(context).textTheme.displaySmall!.copyWith(fontSize: 12.sf(context), color: AppColor.c3000)),
               const Spacer(),
               Text(serviceResult.result?.toString() ?? '',
-                  style: Theme.of(context).textTheme.headline2!.copyWith(fontSize: 12.sf(context), color: AppColor.c4000))
+                  style: Theme.of(context).textTheme.displayMedium!.copyWith(fontSize: 12.sf(context), color: AppColor.c4000))
             ],
           )
         ],

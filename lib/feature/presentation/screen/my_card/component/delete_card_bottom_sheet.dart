@@ -3,7 +3,6 @@ import 'package:resident/core/extension/size_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:resident/app_package/core_package.dart';
-import 'package:resident/app_package/domain/entity_package.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class DeleteCardBottomSheet extends StatefulWidget {
@@ -43,7 +42,7 @@ class _DeleteCardBottomSheetState extends State<DeleteCardBottomSheet> {
             AppDimension.verticalSize_24,
             Text(
               _appLocalization.delete_card_info.toUpperCase(),
-              style: Theme.of(context).textTheme.headline2!.copyWith(color: AppColor.c4000, fontSize: 14.sf(context)),
+              style: Theme.of(context).textTheme.displayMedium!.copyWith(color: AppColor.c4000, fontSize: 14.sf(context)),
               textAlign: TextAlign.center,
             ),
             const Spacer(),
@@ -52,20 +51,20 @@ class _DeleteCardBottomSheetState extends State<DeleteCardBottomSheet> {
                 Expanded(
                   child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                          onSurface: AppColor.c6000.withOpacity(0.15), primary: AppColor.c60000),
+                          backgroundColor: AppColor.c60000, disabledForegroundColor: AppColor.c6000.withOpacity(0.15).withOpacity(0.38), disabledBackgroundColor: AppColor.c6000.withOpacity(0.15).withOpacity(0.12)),
                       onPressed: () {
                         Navigator.pop(context, false);
                       },
                       child: Text(
                         _appLocalization.cancel.toUpperCase(),
-                        style: Theme.of(context).textTheme.button!.copyWith(color: Colors.black,fontSize: 14.sf(context)),
+                        style: Theme.of(context).textTheme.labelLarge!.copyWith(color: Colors.black,fontSize: 14.sf(context)),
                       )),
                 ),
                 AppDimension.horizontalSize_8,
                 Expanded(
                   child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                          onSurface: AppColor.c6000.withOpacity(0.15), primary: AppColor.c6000),
+                          backgroundColor: AppColor.c6000, disabledForegroundColor: AppColor.c6000.withOpacity(0.15).withOpacity(0.38), disabledBackgroundColor: AppColor.c6000.withOpacity(0.15).withOpacity(0.12)),
                       onPressed: () {
                         Navigator.pop(context, true);
                       },

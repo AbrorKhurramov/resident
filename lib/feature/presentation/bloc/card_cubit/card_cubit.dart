@@ -9,7 +9,7 @@ class CardCubit extends RepositoryCubit<CardState> {
 
   CardCubit({
     required this.getCardListUseCase,
-  }) : super(CardState(stateStatus: StateStatus.initial));
+  }) : super(const CardState(stateStatus: StateStatus.initial));
 
   void getCardList() async {
     emit(state.copyWith(stateStatus: StateStatus.loading));

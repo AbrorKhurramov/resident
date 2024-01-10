@@ -137,7 +137,7 @@ class _DocumentListComponentState extends State<DocumentListComponent> {
         child: Text(
          label.getDateWithoutHour(_appLocalization),
           textAlign: TextAlign.center,
-          style: Theme.of(context).textTheme.headline3!.copyWith(
+          style: Theme.of(context).textTheme.displaySmall!.copyWith(
             fontSize: 12.sf(context),
             color: AppColor.c3000,
           ),
@@ -178,10 +178,8 @@ class _DocumentListComponentState extends State<DocumentListComponent> {
                 });
           },
           style: ElevatedButton.styleFrom(
-              fixedSize: const Size(double.infinity, double.infinity),
-              primary: Colors.white,
+              foregroundColor: Theme.of(context).primaryColor, fixedSize: const Size(double.infinity, double.infinity), backgroundColor: Colors.white,
               elevation: 0,
-              onPrimary: Theme.of(context).primaryColor,
               shape: const RoundedRectangleBorder(
                   borderRadius:
                       BorderRadiusDirectional.all(Radius.circular(16)))),
@@ -196,7 +194,7 @@ class _DocumentListComponentState extends State<DocumentListComponent> {
                         '',
                     style: Theme.of(context)
                         .textTheme
-                        .headline3!
+                        .displaySmall!
                         .copyWith(fontSize: 14.sf(context), color: AppColor.c4000),
                   ),
                 ),
@@ -205,7 +203,7 @@ class _DocumentListComponentState extends State<DocumentListComponent> {
                   document.createdDate.toString().getHourAndMinute(),
                   style: Theme.of(context)
                       .textTheme
-                      .headline3!
+                      .displaySmall!
                       .copyWith(fontSize: 13.sf(context), color: AppColor.c3000),
                 )
               ],

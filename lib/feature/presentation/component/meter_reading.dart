@@ -124,14 +124,14 @@ class _MeterReadingState extends State<MeterReading> {
           //  ? _appLocalization.balance.capitalize()
           //  :
           _appLocalization.amount_debt.capitalize(),
-          style: Theme.of(context).textTheme.headline3!.copyWith(
+          style: Theme.of(context).textTheme.displaySmall!.copyWith(
                 fontSize: 10.sf(context),
                 color: AppColor.c3000,
               ),
         ),
         Text(
           '${allBalance>0?"-":""} ${allBalance.currencyFormat()} ${_appLocalization.sum}',
-          style: Theme.of(context).textTheme.headline1!.copyWith(
+          style: Theme.of(context).textTheme.displayLarge!.copyWith(
                 fontSize: 28.sf(context),
                 color: AppColor.c4000,
               ),
@@ -150,14 +150,14 @@ class _MeterReadingState extends State<MeterReading> {
               _appLocalization.counter.capitalize(),
               style: Theme.of(context)
                   .textTheme
-                  .headline3!
+                  .displaySmall!
                   .copyWith(color: AppColor.c3000, fontSize: 10.sf(context)),
             ),
             Text(
               _appLocalization.indication.capitalize(),
               style: Theme.of(context)
                   .textTheme
-                  .headline3!
+                  .displaySmall!
                   .copyWith(color: AppColor.c3000, fontSize: 10.sf(context)),
             )
           ],
@@ -173,14 +173,14 @@ class _MeterReadingState extends State<MeterReading> {
                               : counter.counterName?.toString() ?? '',
                           style: Theme.of(context)
                               .textTheme
-                              .headline2!
+                              .displayMedium!
                               .copyWith(color: AppColor.c4000, fontSize: 10.sf(context)),
                         ),
                         Text(
                           counter.serviceResult?.toString().capitalize() ?? '',
                           style: Theme.of(context)
                               .textTheme
-                              .headline2!
+                              .displayMedium!
                               .copyWith(color: AppColor.c4000, fontSize: 10.sf(context)),
                         )
                       ]))
@@ -214,7 +214,7 @@ class _MeterReadingState extends State<MeterReading> {
                   label.toUpperCase(),
                   style: Theme.of(context)
                       .textTheme
-                      .headline3!
+                      .displaySmall!
                       .copyWith(fontSize: 10.sf(context), color: AppColor.c4000),
                 ),
                 descriptionLabel.isNotEmpty
@@ -222,7 +222,7 @@ class _MeterReadingState extends State<MeterReading> {
                         descriptionLabel.capitalize(),
                         style: Theme.of(context)
                             .textTheme
-                            .headline3!
+                            .displaySmall!
                             .copyWith(fontSize: 10.sf(context), color: AppColor.c3000),
                       )
                     : const SizedBox()

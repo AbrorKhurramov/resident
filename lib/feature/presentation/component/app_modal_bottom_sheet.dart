@@ -16,11 +16,11 @@ class AppModalBottomSheet extends StatelessWidget {
   Widget build(BuildContext context) {
     return isExpand
         ? Container(
-            padding: EdgeInsets.only(left: 8, right: 8),
+            padding: const EdgeInsets.only(left: 8, right: 8),
             child: Material(
               color: backgroundColor,
               clipBehavior: Clip.antiAlias,
-              borderRadius: BorderRadius.only(
+              borderRadius: const BorderRadius.only(
                   topLeft: Radius.circular(24),
                   topRight: Radius.circular(24)),
               child: child,
@@ -28,11 +28,11 @@ class AppModalBottomSheet extends StatelessWidget {
           )
         : Container(
             height: AppConfig.screenHeight(context) * 0.9,
-            padding: EdgeInsets.only(left: 8, right: 8),
+            padding: const EdgeInsets.only(left: 8, right: 8),
             child: Material(
               color: backgroundColor,
               clipBehavior: Clip.antiAlias,
-              borderRadius: BorderRadius.only(
+              borderRadius: const BorderRadius.only(
                   topLeft: Radius.circular(24),
                   topRight: Radius.circular(24)),
               child: child,

@@ -41,13 +41,13 @@ class MyApp extends StatefulWidget {
 
   static logOut(BuildContext _) async {
     _openLoginScreen(_, pinCodeStatus: PinCodeStatus.enter);
-    await Future.delayed(Duration(seconds: 1));
+    await Future.delayed(const Duration(seconds: 1));
     navigatorKey.currentContext!.read<AppCubit>().logOut();
   }
 
   static tokenExpiryLogOut(BuildContext _) async {
     _openLoginScreen(_);
-    await Future.delayed(Duration(seconds: 1));
+    await Future.delayed(const Duration(seconds: 1));
     navigatorKey.currentContext!.read<AppCubit>().updateUser(
         isAuthorization: false);
   }
@@ -120,37 +120,37 @@ class _MyAppState extends State<MyApp> {
                 theme: ThemeData(
                   fontFamily: 'Montserrat',
                   textTheme: const TextTheme(
-                      caption: TextStyle(
+                      bodySmall: TextStyle(
                         fontFamily: 'Montserrat',
                         fontStyle: FontStyle.normal,
                         fontWeight: FontWeight.w900,
                       ),
-                      headline1: TextStyle(
+                      displayLarge: TextStyle(
                         fontFamily: 'Montserrat',
                         fontStyle: FontStyle.normal,
                         fontWeight: FontWeight.w700,
                       ),
-                      headline2: TextStyle(
+                      displayMedium: TextStyle(
                         fontFamily: 'Montserrat',
                         fontStyle: FontStyle.normal,
                         fontWeight: FontWeight.w600,
                       ),
-                      headline3: TextStyle(
+                      displaySmall: TextStyle(
                         fontFamily: 'Montserrat',
                         fontStyle: FontStyle.normal,
                         fontWeight: FontWeight.w500,
                       ),
-                      headline4: TextStyle(
+                      headlineMedium: TextStyle(
                         fontFamily: 'Montserrat',
                         fontStyle: FontStyle.normal,
                         fontWeight: FontWeight.w400,
                       ),
-                      headline5: TextStyle(
+                      headlineSmall: TextStyle(
                         fontFamily: 'Montserrat',
                         fontStyle: FontStyle.normal,
                         fontWeight: FontWeight.w300,
                       ),
-                      button: TextStyle(
+                      labelLarge: TextStyle(
                         fontFamily: 'Montserrat',
                         fontSize: 14,
                         fontStyle: FontStyle.normal,
@@ -163,7 +163,7 @@ class _MyAppState extends State<MyApp> {
                           Radius.circular(48),
                         ),
                       ),
-                      onSurface: Colors.white.withOpacity(0.3),
+                      disabledForegroundColor: Colors.white.withOpacity(0.3).withOpacity(0.38), disabledBackgroundColor: Colors.white.withOpacity(0.3).withOpacity(0.12),
                       fixedSize: const Size(double.maxFinite, 56),
                     ),
                   ),
@@ -210,7 +210,7 @@ Future<bool?> showCompulsoryUpdateDialog(BuildContext context) async {
     },
     barrierDismissible: false,
     barrierLabel: '',
-    transitionDuration: Duration(milliseconds: 400),
-    barrierColor: Color(0xff000000).withOpacity(.5),
+    transitionDuration: const Duration(milliseconds: 400),
+    barrierColor: const Color(0xff000000).withOpacity(.5),
   );
 }

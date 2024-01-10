@@ -53,7 +53,7 @@ class _CreateAppealBottomSheetState extends State<CreateAppealBottomSheet> {
         child: Container(
           width: AppConfig.screenWidth(context),
           height: AppConfig.screenHeight(context) * 0.9,
-          padding: EdgeInsets.symmetric(vertical: 16, horizontal: 20),
+          padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 20),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.start,
@@ -63,11 +63,11 @@ class _CreateAppealBottomSheetState extends State<CreateAppealBottomSheet> {
               AppDimension.verticalSize_16,
               Text(
                 widget.appealType.name.translate(context.read<LanguageCubit>().languageCode())!,
-                style: Theme.of(context).textTheme.headline2!.copyWith(color: AppColor.c4000, fontSize: 17.sf(context)),
+                style: Theme.of(context).textTheme.displayMedium!.copyWith(color: AppColor.c4000, fontSize: 17.sf(context)),
               ),
               Text(
                 context.read<AppCubit>().state.user!.getActiveApartment().complex?.name ?? '',
-                style: Theme.of(context).textTheme.headline3!.copyWith(color: AppColor.c4000, fontSize: 14.sf(context)),
+                style: Theme.of(context).textTheme.displaySmall!.copyWith(color: AppColor.c4000, fontSize: 14.sf(context)),
               ),
               Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -78,7 +78,7 @@ class _CreateAppealBottomSheetState extends State<CreateAppealBottomSheet> {
                         .read<AppCubit>()
                         .getActiveApartment()
                         .getApartmentInfo(context.read<LanguageCubit>().languageCode(), _appLocalization.flat),
-                    style: Theme.of(context).textTheme.headline3!.copyWith(color: AppColor.c3000, fontSize: 12.sf(context)),
+                    style: Theme.of(context).textTheme.displaySmall!.copyWith(color: AppColor.c3000, fontSize: 12.sf(context)),
                   ),
                 ],
               ),
@@ -102,14 +102,14 @@ class _CreateAppealBottomSheetState extends State<CreateAppealBottomSheet> {
                 return BlocBuilder<AppImageCubit, AppImageState>(builder: (context, imageState) {
                   return ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                          onSurface: AppColor.c6000.withOpacity(0.15), primary: AppColor.c6000),
+                          backgroundColor: AppColor.c6000, disabledForegroundColor: AppColor.c6000.withOpacity(0.15).withOpacity(0.38), disabledBackgroundColor: AppColor.c6000.withOpacity(0.15).withOpacity(0.12)),
                       onPressed: _editingController.text.isNotEmpty &&imageState.stateStatus!=StateStatus.loading && state.stateStatus != StateStatus.loading
                           ? () {
                               _createAppeal();
                             }
                           : null,
                       child: state.stateStatus == StateStatus.loading
-                          ? CupertinoActivityIndicator(radius: 12)
+                          ? const CupertinoActivityIndicator(radius: 12)
                           : Text(_appLocalization.send.toUpperCase(),style: TextStyle(fontSize: 14.sf(context))));
                 });
               })
@@ -131,9 +131,9 @@ class _CreateAppealBottomSheetState extends State<CreateAppealBottomSheet> {
   Widget _initImageContainer() {
     return Container(
       width: AppConfig.screenWidth(context),
-      padding: EdgeInsets.symmetric(vertical: 20, horizontal: 16),
+      padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 16),
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.all(
+        borderRadius: const BorderRadius.all(
           Radius.circular(24),
         ),
         border: Border.all(
@@ -146,7 +146,7 @@ class _CreateAppealBottomSheetState extends State<CreateAppealBottomSheet> {
         children: [
           Text(
             _appLocalization.attach_file.toUpperCase(),
-            style: Theme.of(context).textTheme.headline2!.copyWith(
+            style: Theme.of(context).textTheme.displayMedium!.copyWith(
                   color: AppColor.c4000,
                   fontSize: 12.sf(context),
                 ),
@@ -166,9 +166,9 @@ class _CreateAppealBottomSheetState extends State<CreateAppealBottomSheet> {
   Widget _initTextField() {
     return Container(
       height: 270,
-      padding: EdgeInsets.symmetric(vertical: 20, horizontal: 16),
+      padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 16),
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.all(
+        borderRadius: const BorderRadius.all(
           Radius.circular(24),
         ),
         border: Border.all(
@@ -181,7 +181,7 @@ class _CreateAppealBottomSheetState extends State<CreateAppealBottomSheet> {
         children: [
           Text(
             _appLocalization.appeal.capitalize(),
-            style: Theme.of(context).textTheme.headline2!.copyWith(
+            style: Theme.of(context).textTheme.displayMedium!.copyWith(
                   color: AppColor.c4000,
                   fontSize: 12.sf(context),
                 ),
@@ -194,14 +194,14 @@ class _CreateAppealBottomSheetState extends State<CreateAppealBottomSheet> {
             onChanged: (String changedText) {
               content = changedText;
             },
-            style: Theme.of(context).textTheme.headline4!.copyWith(
+            style: Theme.of(context).textTheme.headlineMedium!.copyWith(
                   color: AppColor.c3000,
                   fontSize: 17.sf(context),
                 ),
             decoration: InputDecoration(
                 border: InputBorder.none,
                 hintText: _appLocalization.write_appeal,
-                hintStyle: Theme.of(context).textTheme.headline4!.copyWith(color: AppColor.c3000, fontSize: 17.sf(context))),
+                hintStyle: Theme.of(context).textTheme.headlineMedium!.copyWith(color: AppColor.c3000, fontSize: 17.sf(context))),
           )
         ],
       ),

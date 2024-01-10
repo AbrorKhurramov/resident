@@ -28,6 +28,7 @@ class AppealHistoryParam extends FilterRequestParam{
     return _$AppealHistoryParamFromJson(json);
   }
 
+  @override
   Map<String, dynamic> toJson() => _$AppealHistoryParamToJson(this);
 
 

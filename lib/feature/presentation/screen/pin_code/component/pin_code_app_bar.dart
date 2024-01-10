@@ -12,7 +12,7 @@ class PinCodeAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    AppLocalizations _appLocalization = AppLocalizations.of(context)!;
+    AppLocalizations appLocalization = AppLocalizations.of(context)!;
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 24),
       child: Stack(
@@ -22,10 +22,8 @@ class PinCodeAppBar extends StatelessWidget {
               alignment: Alignment.centerLeft,
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  shape: const CircleBorder(),
-                  fixedSize: const Size(32, 32),
-                  primary: Colors.white,
-                  onPrimary: Theme.of(context).primaryColor, // <-- Splash color
+                  foregroundColor: Theme.of(context).primaryColor, shape: const CircleBorder(), backgroundColor: Colors.white,
+                  fixedSize: const Size(32, 32), // <-- Splash color
                 ),
                 onPressed: () {
                   Navigator.pop(context);
@@ -40,10 +38,10 @@ class PinCodeAppBar extends StatelessWidget {
               child: BlocBuilder<PinCodeCubit, PinCodeState>(
                 builder: (context, state) {
                   return Text(
-                    _appLocalization.set_up_pin_code.capitalize(),
+                    appLocalization.set_up_pin_code.capitalize(),
                     style: Theme.of(context)
                         .textTheme
-                        .headline2!
+                        .displayMedium!
                         .copyWith(color: AppColor.c4000, fontSize: 17.sf(context)),
                   );
                 },

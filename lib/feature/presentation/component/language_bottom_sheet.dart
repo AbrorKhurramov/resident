@@ -36,7 +36,7 @@ class _LanguageBottomSheetState extends State<LanguageBottomSheet> {
                 style: Theme
                     .of(context)
                     .textTheme
-                    .headline2!
+                    .displayMedium!
                     .copyWith(color: AppColor.c4000, fontSize: 17.sf(context)),
               ),
               const SizedBox(height: 40),
@@ -80,7 +80,7 @@ class _LanguageBottomSheetState extends State<LanguageBottomSheet> {
               style: Theme
                   .of(context)
                   .textTheme
-                  .headline3!
+                  .displaySmall!
                   .copyWith(color: AppColor.c3000, fontSize: 13.sf(context)),
             ),
             const Spacer(),

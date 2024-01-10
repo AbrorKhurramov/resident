@@ -65,7 +65,7 @@ class _ServiceListComponentState extends State<ServiceListComponent> {
           const Spacer(),
           Text(
             label,
-            style: Theme.of(context).textTheme.caption!.copyWith(fontSize: 24, color: Colors.white),
+            style: Theme.of(context).textTheme.bodySmall!.copyWith(fontSize: 24, color: Colors.white),
           )
         ],
       ),

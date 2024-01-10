@@ -5,11 +5,9 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:resident/app_package/core_package.dart';
 import 'package:resident/app_package/domain/entity_package.dart';
 import 'package:resident/app_package/presentation/bloc_package.dart';
-import 'package:resident/core/extension/invoice_extension.dart';
 import 'package:resident/core/extension/size_extension.dart';
 import 'package:resident/feature/presentation/app_route/app_route_name.dart';
 import 'package:resident/main.dart';
-import 'package:provider/src/provider.dart';
 
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
@@ -42,7 +40,7 @@ class _InvoiceFlatCardState extends State<InvoiceFlatCard> {
       builder: (context, state) {
         Apartment apartment = state.user!.getActiveApartment();
         return ClipRRect(
-          borderRadius: BorderRadius.all(Radius.circular(20)),
+          borderRadius: const BorderRadius.all(Radius.circular(20)),
           child: Container(
               width: AppConfig.screenWidth(context),
               height: 160,
@@ -52,13 +50,13 @@ class _InvoiceFlatCardState extends State<InvoiceFlatCard> {
                     ? DecorationImage(
                     image: NetworkImage('${AppRemoteSourceImpl.BASE_URL}/file/download/${apartment.backgroundLogo!.guid}.${apartment.backgroundLogo!.extension}'),
                        fit: BoxFit.cover)
-                    : DecorationImage(
+                    : const DecorationImage(
                         image:
                             AssetImage('assets/images/apartment_default.png'),
                         fit: BoxFit.cover),
               ),
               child: Container(
-                padding: EdgeInsets.all(16),
+                padding: const EdgeInsets.all(16),
                 decoration: BoxDecoration(
                   gradient: apartment.depositSum >= widget.invoice.amount! &&
                           widget.invoice.invoiceStatus != null &&
@@ -85,7 +83,7 @@ class _InvoiceFlatCardState extends State<InvoiceFlatCard> {
     return Container(
       width: 48,
       height: 48,
-      decoration: BoxDecoration(shape: BoxShape.circle, color: Colors.white),
+      decoration: const BoxDecoration(shape: BoxShape.circle, color: Colors.white),
       child: ClipOval(
         child: CachedNetworkImage(
           imageUrl: path!,
@@ -97,7 +95,7 @@ class _InvoiceFlatCardState extends State<InvoiceFlatCard> {
 
   Widget _initBalance(Apartment apartment) {
     String balanceTitle;
-    var balansColor;
+    Color balansColor;
     if (apartment.depositSum >= widget.invoice.amount! &&
         widget.invoice.invoiceStatus != null &&
         widget.invoice.invoiceStatus!.isOpen()) {
@@ -105,7 +103,7 @@ class _InvoiceFlatCardState extends State<InvoiceFlatCard> {
       balansColor = Colors.white.withOpacity(0.5);
     } else {
       balanceTitle = _appLocalization.balance_not_have_amount;
-      balansColor = Color.fromRGBO(255, 194, 122, 1);
+      balansColor = const Color.fromRGBO(255, 194, 122, 1);
     }
 
     return Row(
@@ -121,14 +119,14 @@ class _InvoiceFlatCardState extends State<InvoiceFlatCard> {
               Text(balanceTitle.capitalize(),
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
-                  style: Theme.of(context).textTheme.headline3!.copyWith(
+                  style: Theme.of(context).textTheme.displaySmall!.copyWith(
                       color: balansColor, fontSize: 12.sf(context))),
               AppDimension.verticalSize_4,
               Text(
                 '${apartment.depositSum.toInt().currencyFormat()} ${_appLocalization.sum}',
                 style: Theme.of(context)
                     .textTheme
-                    .headline2!
+                    .displayMedium!
                     .copyWith(color: Colors.white, fontSize: 16.sf(context)),
                 overflow: TextOverflow.ellipsis,
                 maxLines: 1,
@@ -166,7 +164,7 @@ class _InvoiceFlatCardState extends State<InvoiceFlatCard> {
               _appLocalization.top_up_balance.capitalize(),
               style: Theme.of(context)
                   .textTheme
-                  .headline2!
+                  .displayMedium!
                   .copyWith(color: Colors.white, fontSize: 16.sf(context)),
             ),
             const Spacer(),

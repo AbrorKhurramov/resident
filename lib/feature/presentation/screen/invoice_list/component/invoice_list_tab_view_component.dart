@@ -14,9 +14,6 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class InvoiceListTabViewComponent extends StatefulWidget {
 
-
-
-
   static BlocProvider<InvoiceListCubit> initInvoiceTabViewComponent(
    {Key? key,int? status,
      int? type,
@@ -54,10 +51,6 @@ class _InvoiceListTabViewComponentState
   @override
   bool get wantKeepAlive => true;
 
-  @override
-  void initState() {
-    super.initState();
-  }
 
   @override
   void didChangeDependencies() {
@@ -259,7 +252,7 @@ class _InvoiceListTabViewComponentState
           message,
           style: Theme.of(context)
               .textTheme
-              .headline3!
+              .displaySmall!
               .copyWith(color: AppColor.c4000, fontSize: 10.sf(context),
         )),
         const Spacer(),
@@ -282,7 +275,7 @@ class _InvoiceListTabViewComponentState
       '${amount.currencyFormat()} ${_appLocalization.sum}',
       style: Theme.of(context)
           .textTheme
-          .headline1!
+          .displayLarge!
           .copyWith(color: AppColor.c4000, fontSize: 28.sf(context)),
     );
   }
@@ -304,14 +297,14 @@ class _InvoiceListTabViewComponentState
               _appLocalization.invoice_number.capitalize(),
               style: Theme.of(context)
                   .textTheme
-                  .headline3!
+                  .displaySmall!
                   .copyWith(color: AppColor.c3000, fontSize: 10.sf(context)),
             ),
             Text(
               invoice.invoice ?? '',
               style: Theme.of(context)
                   .textTheme
-                  .headline2!
+                  .displayMedium!
                   .copyWith(color: AppColor.c4000, fontSize: 10.sf(context)),
             ),
           ],
@@ -325,14 +318,14 @@ class _InvoiceListTabViewComponentState
               _appLocalization.date_of_issue.capitalize(),
               style: Theme.of(context)
                   .textTheme
-                  .headline3!
+                  .displaySmall!
                   .copyWith(color: AppColor.c3000, fontSize: 10.sf(context)),
             ),
             Text(
     invoice.createdDate!.getDateWithHour(_appLocalization),
               style: Theme.of(context)
                   .textTheme
-                  .headline2!
+                  .displayMedium!
                   .copyWith(color: AppColor.c4000, fontSize: 10.sf(context)),
             ),
           ],

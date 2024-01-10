@@ -58,11 +58,11 @@ class _InvoiceTabListComponentState extends State<InvoiceListTabComponent> {
       FittedBox( child: Text(
           getMonthLabel(widget.monthIndex),
           style: widget.active
-              ? Theme.of(context).textTheme.headline2!.copyWith(
+              ? Theme.of(context).textTheme.displayMedium!.copyWith(
                     color: Colors.black,
                     fontSize: 16.sf(context),
                   )
-              : Theme.of(context).textTheme.headline3!.copyWith(
+              : Theme.of(context).textTheme.displaySmall!.copyWith(
                     color: Colors.black.withOpacity(0.5),
                     fontSize: 15.sf(context),
                   ),
@@ -73,7 +73,6 @@ class _InvoiceTabListComponentState extends State<InvoiceListTabComponent> {
   }
 
   Widget _initYear() {
-    DateTime now = DateTime.now();
     if (widget.active) {
       return Container(
         margin: const EdgeInsets.all(4),
@@ -84,12 +83,11 @@ class _InvoiceTabListComponentState extends State<InvoiceListTabComponent> {
       );
     } else {
       return Text(widget.year.toString(),
-          style: Theme.of(context).textTheme.headline2!.copyWith(
+          style: Theme.of(context).textTheme.displayMedium!.copyWith(
                 color: Colors.black.withOpacity(0.3),
                 fontSize: 16.sf(context),
               ));
     }
-    return AppDimension.defaultSize;
   }
 
   String getMonthLabel(int monthIndex) {

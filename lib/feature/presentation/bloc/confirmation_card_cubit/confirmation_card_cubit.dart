@@ -4,13 +4,12 @@ import 'package:resident/app_package/domain/use_case_package.dart';
 import 'package:resident/feature/presentation/bloc/confirmation_card_cubit/confirmation_card_state.dart';
 import 'package:either_dart/either.dart';
 
-import '../language_cubit/language_cubit.dart';
 
 class ConfirmationCardCubit extends RepositoryCubit<ConfirmationCardState> {
   final ConfirmationCardUseCase confirmationCardUseCase;
 
   ConfirmationCardCubit({required this.confirmationCardUseCase})
-      : super(ConfirmationCardState(
+      : super(const ConfirmationCardState(
           stateStatus: StateStatus.initial,
           smsCode: '',
         ));

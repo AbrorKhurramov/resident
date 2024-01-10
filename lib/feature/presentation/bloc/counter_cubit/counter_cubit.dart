@@ -9,7 +9,7 @@ class CounterCubit extends RepositoryCubit<CounterState> {
   final GetCounterListUseCase getCounterListUseCase;
 
   CounterCubit({required this.getCounterListUseCase})
-      : super(CounterState(stateStatus: StateStatus.initial));
+      : super(const CounterState(stateStatus: StateStatus.initial));
 
   Future<void> getCounterList(String apartmentId) async{
 
@@ -56,4 +56,6 @@ class CounterCubit extends RepositoryCubit<CounterState> {
     responseGas: null,
     responseHotWater: null));
   }
+
+
 }

@@ -3,7 +3,6 @@ import 'package:either_dart/either.dart';
 import 'package:resident/app_package/core_package.dart';
 import 'package:resident/app_package/domain/entity_package.dart';
 
-import '../../../../domain/entity/param/appeal_history_param.dart';
 
 mixin InvoiceRemoteSourceMixin implements BaseRequest {
   Future<Either<Exception, BasePaginationListResponse<Invoice>>> getInvoiceList(

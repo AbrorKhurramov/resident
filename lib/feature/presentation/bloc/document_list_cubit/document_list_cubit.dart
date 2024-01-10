@@ -9,9 +9,9 @@ class DocumentListCubit extends RepositoryCubit<DocumentListState> {
   late final GetDocumentsUseCase _getDocumentsUseCase;
 
   DocumentListCubit(GetDocumentsUseCase appealTypesUseCase)
-      : super(DocumentListState(
+      : super(const DocumentListState(
           stateStatus: StateStatus.initial,
-          sortedDocument: const {},
+          sortedDocument: {},
         )) {
     _getDocumentsUseCase = appealTypesUseCase;
   }

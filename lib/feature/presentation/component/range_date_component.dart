@@ -14,15 +14,15 @@ class RangeDateComponent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      borderRadius: BorderRadius.all(Radius.circular(16)),
+      borderRadius: const BorderRadius.all(Radius.circular(16)),
       onTap: onPressed,
       child: Container(
         width: AppConfig.screenWidth(context),
         decoration: BoxDecoration(
           border: Border.all(width: 1, color: AppColor.c8000),
-          borderRadius: BorderRadius.all(Radius.circular(16)),
+          borderRadius: const BorderRadius.all(Radius.circular(16)),
         ),
-        padding: EdgeInsets.symmetric(vertical: 20, horizontal: 16),
+        padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 16),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.start,
@@ -32,7 +32,7 @@ class RangeDateComponent extends StatelessWidget {
               title,
               style: Theme.of(context)
                   .textTheme
-                  .headline2!
+                  .displayMedium!
                   .copyWith(color: AppColor.c4000, fontSize: 12.sf(context)),
             ),
             AppDimension.verticalSize_8,
@@ -40,7 +40,7 @@ class RangeDateComponent extends StatelessWidget {
               chosenDate ?? '10.12.2021',
               style: Theme.of(context)
                   .textTheme
-                  .headline4!
+                  .headlineMedium!
                   .copyWith(color: AppColor.c3000, fontSize: 17.sf(context)),
             )
           ],

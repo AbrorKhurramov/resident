@@ -1,4 +1,3 @@
-import 'package:resident/app_package/core_package.dart';
 import 'package:resident/app_package/domain/use_case_package.dart';
 
 import 'package:either_dart/either.dart';

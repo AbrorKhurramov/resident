@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:resident/app_package/core_package.dart';
 import 'package:resident/app_package/presentation/bloc_package.dart';
-import 'package:resident/app_package/presentation/bloc_package.dart';
 import 'package:resident/core/extension/size_extension.dart';
 import 'package:resident/feature/presentation/app_route/app_route_name.dart';
 import 'package:resident/feature/presentation/component/app_modal_bottom_sheet.dart';
@@ -80,11 +79,9 @@ class _ServiceMenuComponentState extends State<ServiceMenuComponent> {
               Center(child: ElevatedButton(
                   onPressed: onPressed,
                   style: ElevatedButton.styleFrom(
-                    fixedSize: const Size(64, 64),
+                    foregroundColor: Theme.of(context).primaryColor, fixedSize: const Size(64, 64), backgroundColor: Colors.white,
                     shape:
                     RoundedRectangleBorder(borderRadius: BorderRadius.circular(24)),
-                    primary: Colors.white,
-                    onPrimary: Theme.of(context).primaryColor,
                     elevation: 0,
                   ),
                   child: SvgPicture.asset(iconPath))),
@@ -112,7 +109,7 @@ class _ServiceMenuComponentState extends State<ServiceMenuComponent> {
           label,
           style: Theme.of(context)
               .textTheme
-              .headline2!
+              .displayMedium!
               .copyWith(color: AppColor.c4000, fontSize: 12.sf(context)),
         )
       ],

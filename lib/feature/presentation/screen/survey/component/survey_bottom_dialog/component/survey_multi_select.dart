@@ -28,18 +28,18 @@ class SurveyMultiSelectState extends State<SurveyMultiSelect> {
   @override
   Widget build(BuildContext context) {
     return Visibility(
+        visible: widget
+            .survey.questions[widget.activePosition].variants!.isNotEmpty,
         child: ListView.builder(
           shrinkWrap: true,
-          physics: NeverScrollableScrollPhysics(),
+          physics: const NeverScrollableScrollPhysics(),
           itemCount:
               widget.survey.questions[widget.activePosition].variants!.length,
           itemBuilder: (context, index) {
             return _initCheckBoxItem(
                 widget.survey.questions[widget.activePosition], index);
           },
-        ),
-        visible: widget
-            .survey.questions[widget.activePosition].variants!.isNotEmpty);
+        ));
   }
 
   _initCheckBoxItem(Question question, index) {
@@ -55,10 +55,10 @@ class SurveyMultiSelectState extends State<SurveyMultiSelect> {
     return Theme(
         data: widget.getThemeData(context, isSelected),
         child: Container(
-          margin: EdgeInsets.only(bottom: 16),
+          margin: const EdgeInsets.only(bottom: 16),
           decoration: widget.getContainerBoxDecoration(isSelected),
           child: CheckboxListTile(
-              contentPadding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+              contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
               dense: true,
               value: isSelected,
               activeColor: widget.getRadioActiveColor(widget, isSelected),
@@ -68,7 +68,7 @@ class SurveyMultiSelectState extends State<SurveyMultiSelect> {
                 _onCheckboxClick(question, index, isSelected!);
               },
               title: Padding(
-                padding: EdgeInsets.only(bottom: 8),
+                padding: const EdgeInsets.only(bottom: 8),
                 child: Text(
                   question.variants![index].name.translate(context.read<LanguageCubit>().languageCode()) ?? '',
                   style: widget.getTitleStyle(context, isSelected),

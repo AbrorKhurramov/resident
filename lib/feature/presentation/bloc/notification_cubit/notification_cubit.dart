@@ -1,5 +1,4 @@
 import 'package:firebase_messaging/firebase_messaging.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:resident/app_package/domain/use_case_package.dart';
 import 'package:either_dart/either.dart';
 import 'package:resident/app_package/injection_package.dart';
@@ -20,10 +19,10 @@ class NotificationCubit extends RepositoryCubit<bool> {
 
 
   Future<void> turnOnNotification() async{
-    final FirebaseMessaging _firebaseMessaging = FirebaseMessaging.instance;
-    final firebaseToken = await _firebaseMessaging.getToken();
+    final FirebaseMessaging firebaseMessaging = FirebaseMessaging.instance;
+    final firebaseToken = await firebaseMessaging.getToken();
     print("SUBSCRIBE");
-    _firebaseMessaging.subscribeToTopic('news');
+    firebaseMessaging.subscribeToTopic('news');
    await setUpNotificationUseCase
         .call(SetUpNotificationParams(
       FirebaseNotificationUpdateRequest(
@@ -43,9 +42,9 @@ class NotificationCubit extends RepositoryCubit<bool> {
   Future<void> turnOffNotification() async{
     print("off");
     print("UNSUBSCRIBE");
-    final FirebaseMessaging _firebaseMessaging = FirebaseMessaging.instance;
-    final firebaseToken = await _firebaseMessaging.getToken();
-    _firebaseMessaging.unsubscribeFromTopic('news');
+    final FirebaseMessaging firebaseMessaging = FirebaseMessaging.instance;
+    final firebaseToken = await firebaseMessaging.getToken();
+    firebaseMessaging.unsubscribeFromTopic('news');
    await setUpNotificationUseCase
         .call(SetUpNotificationParams(
         FirebaseNotificationUpdateRequest(

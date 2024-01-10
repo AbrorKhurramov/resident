@@ -64,7 +64,7 @@ class _StoryScreenState extends State<StoryScreen> {
       ),
       body: SafeArea(
         child: Padding(
-          padding: EdgeInsets.all(8),
+          padding: const EdgeInsets.all(8),
           child: BlocConsumer<StoryCubit, StoryState>(
             listener: (context, state) {
               if (state.activeIndex > state.list.length - 1) {
@@ -104,7 +104,7 @@ class _StoryScreenState extends State<StoryScreen> {
                                       context.read<StoryCubit>().changeActiveIndex(details,MediaQuery.of(context).size.width);
                                     },
                                     child: ClipRRect(
-                                      borderRadius: BorderRadius.all(Radius.circular(24)),
+                                      borderRadius: const BorderRadius.all(Radius.circular(24)),
                                       child: ShaderMask(
                                         shaderCallback: (rect) {
                                           return AppColor.newsGradient()
@@ -133,7 +133,7 @@ class _StoryScreenState extends State<StoryScreen> {
                                         state.list[index].name
                                                 ?.translate(context.read<LanguageCubit>().state.languageCode) ??
                                             '',
-                                        style: Theme.of(context).textTheme.headline3!.copyWith(
+                                        style: Theme.of(context).textTheme.displaySmall!.copyWith(
                                               color: Colors.white,
                                               fontSize: 14.sf(context),
                                             ),
@@ -141,7 +141,7 @@ class _StoryScreenState extends State<StoryScreen> {
                                       AppDimension.horizontalSize_8,
                                       Text(
                                         state.list[index].createdDate!.getDifferenceDateString(_appLocalization),
-                                        style: Theme.of(context).textTheme.headline4!.copyWith(
+                                        style: Theme.of(context).textTheme.headlineMedium!.copyWith(
                                               color: Colors.white.withOpacity(0.4),
                                               fontSize: 14.sf(context),
                                             ),
@@ -151,7 +151,7 @@ class _StoryScreenState extends State<StoryScreen> {
                                         onPressed: () {
                                           Navigator.pop(context);
                                         },
-                                        icon: Icon(
+                                        icon: const Icon(
                                           Icons.clear,
                                           color: Colors.white,
                                         ),
@@ -172,7 +172,7 @@ class _StoryScreenState extends State<StoryScreen> {
                                         state.list[index].content!.translate(context.read<LanguageCubit>().languageCode())! ,
                                         style: Theme.of(context)
                                             .textTheme
-                                            .headline1!
+                                            .displayLarge!
                                             .copyWith(color: Colors.white, fontSize: 40.sf(context)),
                                       ),
                                       AppDimension.verticalSize_24,
@@ -180,7 +180,7 @@ class _StoryScreenState extends State<StoryScreen> {
                                         state.list[index].subContent!.translate(context.read<LanguageCubit>().languageCode())! ,
                                         style: Theme.of(context)
                                             .textTheme
-                                            .headline2!
+                                            .displayMedium!
                                             .copyWith(color: Colors.white, fontSize: 18.sf(context)),
                                         maxLines: 3,
                                       ),
@@ -193,7 +193,7 @@ class _StoryScreenState extends State<StoryScreen> {
                       itemCount: state.list.length,
                     ),
                   ),
-                  Positioned(
+                  const Positioned(
                     top: 32,
                     left: 16,
                     right: 16,
@@ -221,10 +221,10 @@ class _StoryScreenState extends State<StoryScreen> {
   }
 
   LinearGradient getCustomGradient() {
-    return LinearGradient(
+    return const LinearGradient(
       colors: [Colors.pink, Colors.blueAccent],
-      begin: const FractionalOffset(0.0, 0.0),
-      end: const FractionalOffset(0.8, 0.0),
+      begin: FractionalOffset(0.0, 0.0),
+      end: FractionalOffset(0.8, 0.0),
       stops: [0.0, 0.6],
       tileMode: TileMode.clamp,
     );

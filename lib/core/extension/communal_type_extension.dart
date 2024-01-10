@@ -20,28 +20,28 @@ extension CommunalTypeExtension on CommunalType {
     }
   }
 
-  String getLabel(AppLocalizations _appLocalization) {
+  String getLabel(AppLocalizations appLocalization) {
     switch (this) {
       case CommunalType.coldWater:
-        return _appLocalization.cold_water;
+        return appLocalization.cold_water;
       case CommunalType.hotWater:
-        return _appLocalization.hot_water;
+        return appLocalization.hot_water;
       case CommunalType.electricity:
-        return _appLocalization.electricity;
+        return appLocalization.electricity;
         case CommunalType.gas:
-        return _appLocalization.gas;
+        return appLocalization.gas;
         case CommunalType.other:
         return "Коммунальные услуги";
       default:
-        return _appLocalization.electricity;
+        return appLocalization.electricity;
     }
   }
 
 
 
-  String getDescription(AppLocalizations _appLocalization) {
+  String getDescription(AppLocalizations appLocalization) {
     if (this == CommunalType.electricity) {
-      return _appLocalization.electricity_description;
+      return appLocalization.electricity_description;
     }
     if(this == CommunalType.other){
       return "К услугам жилого комплекса не относится";

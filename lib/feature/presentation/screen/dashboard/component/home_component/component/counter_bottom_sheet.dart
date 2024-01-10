@@ -96,7 +96,7 @@ class _CounterBottomSheetState extends State<CounterBottomSheet> {
                           .capitalize(),
                       style: Theme.of(context)
                           .textTheme
-                          .headline2!
+                          .displayMedium!
                           .copyWith(fontSize: 17.sf(context), color: AppColor.c4000),
                     ),
                     Text(
@@ -106,7 +106,7 @@ class _CounterBottomSheetState extends State<CounterBottomSheet> {
                             .complexInfo(),
                         style: Theme.of(context)
                             .textTheme
-                            .headline2!
+                            .displayMedium!
                             .copyWith(fontSize: 17.sf(context), color: AppColor.c4000)),
                     Text(
                         context
@@ -117,7 +117,7 @@ class _CounterBottomSheetState extends State<CounterBottomSheet> {
                                 _appLocalization.flat),
                         style: Theme.of(context)
                             .textTheme
-                            .headline2!
+                            .displayMedium!
                             .copyWith(fontSize: 17.sf(context), color: AppColor.c4000)),
                     AppDimension.verticalSize_24,
                     CounterChooserComponent(
@@ -166,7 +166,7 @@ class _CounterBottomSheetState extends State<CounterBottomSheet> {
         children: [
           Text(
             _appLocalization.current_indication.capitalize(),
-            style: Theme.of(context).textTheme.headline2!.copyWith(
+            style: Theme.of(context).textTheme.displayMedium!.copyWith(
                   color: AppColor.c4000,
                   fontSize: 12.sf(context),
                 ),
@@ -182,7 +182,7 @@ class _CounterBottomSheetState extends State<CounterBottomSheet> {
               context.read<CreateInvoiceCubit>().changeReading(changedText);
             },
             maxLines: 1,
-            style: Theme.of(context).textTheme.headline4!.copyWith(
+            style: Theme.of(context).textTheme.headlineMedium!.copyWith(
                   color: AppColor.c3000,
                   fontSize: 17.sf(context),
                 ),
@@ -191,7 +191,7 @@ class _CounterBottomSheetState extends State<CounterBottomSheet> {
                 hintText: _appLocalization.enter_last_indication.capitalize(),
                 hintStyle: Theme.of(context)
                     .textTheme
-                    .headline4!
+                    .headlineMedium!
                     .copyWith(color: AppColor.c3000, fontSize: 17.sf(context))),
           )
         ],
@@ -215,7 +215,7 @@ class ButtonWidget extends StatelessWidget {
         Expanded(
             child: ElevatedButton(
           style: ElevatedButton.styleFrom(
-            primary: AppColor.c60000,
+            backgroundColor: AppColor.c60000,
           ),
           onPressed: () {
             Navigator.pop(context);
@@ -224,7 +224,7 @@ class ButtonWidget extends StatelessWidget {
             _appLocalization.cancel.toUpperCase(),
             style: Theme.of(context)
                 .textTheme
-                .button!
+                .labelLarge!
                 .copyWith(color: Colors.black,fontSize: 14.sf(context)),
           ),
         )),
@@ -250,7 +250,7 @@ class ButtonWidget extends StatelessWidget {
           builder: (context, state) {
             return ElevatedButton(
               style: ElevatedButton.styleFrom(
-                  onSurface: Colors.grey),
+                  disabledForegroundColor: Colors.grey.withOpacity(0.38), disabledBackgroundColor: Colors.grey.withOpacity(0.12)),
               onPressed: state.reading != null &&
                       state.reading!.isNotEmpty
                   ? () {
@@ -269,7 +269,7 @@ class ButtonWidget extends StatelessWidget {
                       _appLocalization.save.toUpperCase(),
                       style: Theme.of(context)
                           .textTheme
-                          .button!
+                          .labelLarge!
                           .copyWith(color: Colors.white,fontSize: 14.sf(context)),
                     ),
             );
@@ -304,7 +304,7 @@ class GoToHistoryScreenWidget extends StatelessWidget {
             _appLocalization.history_indication.capitalize(),
             style: Theme.of(context)
                 .textTheme
-                .headline2!
+                .displayMedium!
                 .copyWith(fontSize: 17.sf(context), color: AppColor.c3000),
           ),
           const Spacer(),

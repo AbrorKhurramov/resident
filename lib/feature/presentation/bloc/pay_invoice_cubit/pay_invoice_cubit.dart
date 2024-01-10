@@ -7,7 +7,7 @@ class PayInvoiceCubit extends RepositoryCubit<PayInvoiceState> {
   final PayInvoiceUseCase payInvoiceUseCase;
 
   PayInvoiceCubit({required this.payInvoiceUseCase})
-      : super(PayInvoiceState(stateStatus: StateStatus.initial));
+      : super(const PayInvoiceState(stateStatus: StateStatus.initial));
 
   void payInvoice(String apartmentId,String invoiceId) {
     emit(state.copyWith(stateStatus: StateStatus.loading));

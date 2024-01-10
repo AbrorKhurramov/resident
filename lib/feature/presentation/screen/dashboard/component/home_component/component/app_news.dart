@@ -37,7 +37,7 @@ class _AppNewsState extends State<AppNews> {
       builder: (context, state) {
         switch (state.stateStatus) {
           case StateStatus.loading:
-            return Center(child: CircularProgressIndicator());
+            return const Center(child: CircularProgressIndicator());
           case StateStatus.initial:
           case StateStatus.success:
             BasePaginationListResponse<Newness> response = state.response!;
@@ -48,8 +48,8 @@ class _AppNewsState extends State<AppNews> {
                 alignment: Alignment.centerLeft,
                 child: ListView.separated(
                     shrinkWrap: true,
-                    physics: BouncingScrollPhysics(),
-                    padding: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+                    physics: const BouncingScrollPhysics(),
+                    padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
                     scrollDirection: Axis.horizontal,
                     itemBuilder: (context, index) {
                       return _initNewItem(response.data[index], index);
@@ -99,7 +99,7 @@ class _AppNewsState extends State<AppNews> {
            name.length>10?"${name.substring(0,10)}...":name,
             style: Theme.of(context)
                 .textTheme
-                .headline3!
+                .displaySmall!
                 .copyWith(color: AppColor.c4000, fontSize: 12.sf(context)),
             overflow: TextOverflow.ellipsis,
             maxLines: 1,

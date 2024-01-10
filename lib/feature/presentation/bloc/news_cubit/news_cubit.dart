@@ -8,7 +8,7 @@ class NewsCubit extends RepositoryCubit<NewsState> {
   late final NewsUseCase _newsUseCase;
 
   NewsCubit(NewsUseCase newsUseCase)
-      : super(NewsState(stateStatus: StateStatus.initial)) {
+      : super(const NewsState(stateStatus: StateStatus.initial)) {
     _newsUseCase = newsUseCase;
   }
 

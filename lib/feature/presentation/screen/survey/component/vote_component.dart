@@ -6,8 +6,8 @@ import 'package:resident/app_package/presentation/bloc_package.dart';
 import 'package:resident/feature/presentation/component/vote_page_view_item.dart';
 
 class VoteComponent extends StatefulWidget {
-   VoteComponent({Key? key,required this.surveyContext}) : super(key: key);
-BuildContext surveyContext;
+   const VoteComponent({Key? key,required this.surveyContext}) : super(key: key);
+ final BuildContext surveyContext;
   @override
   State<StatefulWidget> createState() {
     return _VoteComponentState();
@@ -22,7 +22,7 @@ class _VoteComponentState extends State<VoteComponent> {
     return BlocBuilder<SurveyListCubit, SurveyListState>(
         builder: (context, state) {
       return Container(
-        margin: EdgeInsets.only(top: 20),
+        margin: const EdgeInsets.only(top: 20),
         height: 328,
         child: Column(mainAxisSize: MainAxisSize.max, children: [
           Flexible(
@@ -34,7 +34,7 @@ class _VoteComponentState extends State<VoteComponent> {
                     activePos = pos;
                   });
                 },
-                physics: BouncingScrollPhysics(),
+                physics: const BouncingScrollPhysics(),
                 itemBuilder: (context, pos) {
                   if (state.response!.currentPage + 1 !=
                           state.response!.totalPages &&
@@ -48,10 +48,10 @@ class _VoteComponentState extends State<VoteComponent> {
                     if (state.stateStatus == StateStatus.paginationFailure) {
                       return AppDimension.defaultSize;
                     }
-                    return Center(child: CircularProgressIndicator());
+                    return const Center(child: CircularProgressIndicator());
                   }
                   return Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 20),
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
                       child: VotePageViewItem(vote: state.voteList[pos],surveyContext: widget.surveyContext));
                 },
                 itemCount: state.response != null &&
@@ -64,9 +64,10 @@ class _VoteComponentState extends State<VoteComponent> {
             ),
           ),
           Visibility(
+            visible: state.voteList.length > 1 && state.voteList.length < 12,
             child: Container(
-              margin: EdgeInsets.only(top: 16, left: 16, right: 16),
-              decoration: BoxDecoration(
+              margin: const EdgeInsets.only(top: 16, left: 16, right: 16),
+              decoration: const BoxDecoration(
                   borderRadius: BorderRadius.all(Radius.circular(30)),
                   color: Colors.white),
               height: 32,
@@ -75,7 +76,6 @@ class _VoteComponentState extends State<VoteComponent> {
                 children: _initDotList(activePos, state.voteList.length),
               ),
             ),
-            visible: state.voteList.length > 1 && state.voteList.length < 12,
           ),
         ]),
       );
@@ -96,7 +96,7 @@ class _VoteComponentState extends State<VoteComponent> {
 
   _initDot(bool active) {
     return Padding(
-      padding: EdgeInsets.all(8),
+      padding: const EdgeInsets.all(8),
       child: SvgPicture.asset(
         active
             ? "assets/icons/quiz_page_view_item_active_dot.svg"

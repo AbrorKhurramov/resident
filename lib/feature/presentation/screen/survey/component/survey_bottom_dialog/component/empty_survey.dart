@@ -4,8 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:resident/app_package/core_package.dart';
 
-import '../../../../../../../core/enum/survey_type.dart';
-import '../../../../../../../core/util/app_dimension.dart';
 
 
 
@@ -33,7 +31,7 @@ class EmptyQuestionSurvey extends StatelessWidget {
         AppDimension.verticalSize_24,
         Text(
          label,
-          style: Theme.of(context).textTheme.headline2!.copyWith(color:surveyType==SurveyType.vote? Colors.white:AppColor.c6000, fontSize: 16),
+          style: Theme.of(context).textTheme.displayMedium!.copyWith(color:surveyType==SurveyType.vote? Colors.white:AppColor.c6000, fontSize: 16),
           textAlign: TextAlign.center,
         ),
       ],

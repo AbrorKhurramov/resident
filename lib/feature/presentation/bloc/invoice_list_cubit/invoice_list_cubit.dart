@@ -9,7 +9,7 @@ class InvoiceListCubit extends RepositoryCubit<InvoiceListState> {
 
 
   InvoiceListCubit({required this.invoiceListUseCase})
-      : super(InvoiceListState(stateStatus: StateStatus.initial));
+      : super(const InvoiceListState(stateStatus: StateStatus.initial));
 
   void getInvoiceList(String apartmentId,int? status,int? type, String dateFrom, String dateTo) {
     print("get invoice list");

@@ -17,7 +17,6 @@ import 'package:resident/feature/presentation/screen/not_internet/not_internet_s
 import 'package:resident/injection/injection_container.dart';
 
 import '../../../../main.dart';
-import '../../../../push_notification_service.dart';
 
 Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
   print('Handling a background message ${message.messageId}');
@@ -30,7 +29,7 @@ class DashboardScreen extends StatefulWidget {
         BlocProvider(create: (_) => getIt<NewsCubit>()),
         BlocProvider(create: (_) => getIt<CounterCubit>()),
         BlocProvider(create: (_) => getIt<NotificationCubit>()),
-      ], child: DashboardScreen());
+      ], child: const DashboardScreen());
     });
   }
   const DashboardScreen({Key? key}) : super(key: key);
@@ -182,7 +181,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                         height: 56,
                         child: Padding(
                           padding:
-                              EdgeInsets.symmetric(vertical: 8, horizontal: 32),
+                              const EdgeInsets.symmetric(vertical: 8, horizontal: 32),
                           child: Row(
                             crossAxisAlignment: CrossAxisAlignment.center,
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -229,13 +228,11 @@ class _DashboardScreenState extends State<DashboardScreen> {
             curve: Curves.easeInOut);
       },
       style: ElevatedButton.styleFrom(
-        shape: CircleBorder(),
-        fixedSize: Size(32, 32),
-        primary: Colors.white,
-        elevation: 0,
-        onPrimary: Theme.of(context).primaryColor, // <-- Splash color
+        foregroundColor: Theme.of(context).primaryColor, shape: const CircleBorder(), backgroundColor: Colors.white,
+        fixedSize: const Size(32, 32),
+        elevation: 0, // <-- Splash color
       ),
-      child: Container(
+      child: SizedBox(
         width: 100,
         height: 100,
         child: Stack(

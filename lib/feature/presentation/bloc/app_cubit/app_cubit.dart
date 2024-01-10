@@ -52,9 +52,9 @@ class AppCubit extends RepositoryCubit<AppState> {
   Future<void> turnOffNotification() async{
     debugPrint("off");
     debugPrint("UNSUBSCRIBE");
-    final FirebaseMessaging _firebaseMessaging = FirebaseMessaging.instance;
-    final firebaseToken = await _firebaseMessaging.getToken();
-    _firebaseMessaging.unsubscribeFromTopic('news');
+    final FirebaseMessaging firebaseMessaging = FirebaseMessaging.instance;
+    final firebaseToken = await firebaseMessaging.getToken();
+    firebaseMessaging.unsubscribeFromTopic('news');
     await setUpNotificationUseCase
         .call(SetUpNotificationParams(
         FirebaseNotificationUpdateRequest(
@@ -70,10 +70,10 @@ class AppCubit extends RepositoryCubit<AppState> {
     });
   }
   Future<void> turnOnNotification() async{
-    final FirebaseMessaging _firebaseMessaging = FirebaseMessaging.instance;
-    final firebaseToken = await _firebaseMessaging.getToken();
+    final FirebaseMessaging firebaseMessaging = FirebaseMessaging.instance;
+    final firebaseToken = await firebaseMessaging.getToken();
     debugPrint("SUBSCRIBE");
-    _firebaseMessaging.subscribeToTopic('news');
+    firebaseMessaging.subscribeToTopic('news');
     await setUpNotificationUseCase
         .call(SetUpNotificationParams(
         FirebaseNotificationUpdateRequest(

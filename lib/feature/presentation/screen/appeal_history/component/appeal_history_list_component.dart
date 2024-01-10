@@ -123,7 +123,7 @@ class _AppealHistoryListComponentState extends State<AppealHistoryListComponent>
         child: Text(
           label.getDateWithoutHour(_appLocalization),
           textAlign: TextAlign.center,
-          style: Theme.of(context).textTheme.headline3!.copyWith(
+          style: Theme.of(context).textTheme.displaySmall!.copyWith(
                 fontSize: 12.sf(context),
                 color: AppColor.c3000,
               ),
@@ -173,11 +173,9 @@ class _AppealHistoryListComponentState extends State<AppealHistoryListComponent>
             });
           },
           style: ElevatedButton.styleFrom(
-              padding: EdgeInsets.zero,
+              foregroundColor: Theme.of(context).primaryColor, padding: EdgeInsets.zero, backgroundColor: Colors.white,
               fixedSize: const Size(double.infinity, double.infinity),
-              primary: Colors.white,
               elevation: 0,
-              onPrimary: Theme.of(context).primaryColor,
               shape: const RoundedRectangleBorder(borderRadius: BorderRadiusDirectional.all(Radius.circular(16)))),
           child: Padding(
             padding: const EdgeInsets.all(16),
@@ -201,7 +199,7 @@ class _AppealHistoryListComponentState extends State<AppealHistoryListComponent>
         AppDimension.horizontalSize_8,
         Text(
           appealResponse.appealType.name.translate(context.read<LanguageCubit>().state.languageCode) ?? '',
-          style: Theme.of(context).textTheme.headline3!.copyWith(fontSize: 14.sf(context), color: AppColor.c4000),
+          style: Theme.of(context).textTheme.displaySmall!.copyWith(fontSize: 14.sf(context), color: AppColor.c4000),
         ),
       ],
     );
@@ -219,7 +217,7 @@ class _AppealHistoryListComponentState extends State<AppealHistoryListComponent>
               padding: const EdgeInsets.all(4),
               child: Text(
                 _getAppealStatusLabel(appealResponse.status).toUpperCase(),
-                style: Theme.of(context).textTheme.headline2!.copyWith(
+                style: Theme.of(context).textTheme.displayMedium!.copyWith(
                       fontSize: 10.sf(context),
                       color: Colors.white,
                     ),
@@ -229,7 +227,7 @@ class _AppealHistoryListComponentState extends State<AppealHistoryListComponent>
         const Spacer(),
         Text(
           appealResponse.createdDate.getHourAndMinute(),
-          style: Theme.of(context).textTheme.headline3!.copyWith(
+          style: Theme.of(context).textTheme.displaySmall!.copyWith(
                 fontSize: 16.sf(context),
                 color: AppColor.c3000,
               ),

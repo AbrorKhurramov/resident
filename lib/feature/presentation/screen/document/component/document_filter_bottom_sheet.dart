@@ -8,7 +8,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:resident/feature/presentation/component/range_date_component.dart';
 
 class DocumentFilterBottomSheet extends StatefulWidget {
-  DateTime fromDate;
+   DateTime fromDate;
   DateTime toDate;
    DocumentFilterBottomSheet({Key? key,required this.fromDate,required this.toDate}) : super(key: key);
 
@@ -35,14 +35,14 @@ class DocumentFilterBottomSheetState extends State<DocumentFilterBottomSheet> {
             AppDimension.verticalSize_16,
             Text(
               _appLocalization.filter.capitalize(),
-              style: Theme.of(context).textTheme.headline2!.copyWith(fontSize: 17.sf(context), color: AppColor.c4000),
+              style: Theme.of(context).textTheme.displayMedium!.copyWith(fontSize: 17.sf(context), color: AppColor.c4000),
             ),
             AppDimension.verticalSize_24,
             Align(
               alignment: Alignment.centerLeft,
               child: Text(
                 _appLocalization.date.capitalize(),
-                style: Theme.of(context).textTheme.headline3!.copyWith(fontSize: 14.sf(context), color: AppColor.c3000),
+                style: Theme.of(context).textTheme.displaySmall!.copyWith(fontSize: 14.sf(context), color: AppColor.c3000),
               ),
             ),
             AppDimension.verticalSize_12,
@@ -70,7 +70,7 @@ class DocumentFilterBottomSheetState extends State<DocumentFilterBottomSheet> {
               children: [
                 Expanded(
                   child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(primary: AppColor.c60000, onPrimary: Colors.black),
+                      style: ElevatedButton.styleFrom(foregroundColor: Colors.black, backgroundColor: AppColor.c60000),
                       onPressed: () {
                         setState(() {
                           widget.fromDate = DateTime(DateTime.now().month>6?DateTime.now().year:DateTime.now().year-1, DateTime.now().month-6,1);
