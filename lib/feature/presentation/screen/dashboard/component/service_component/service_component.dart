@@ -10,6 +10,8 @@ import '../../../../bloc/app_cubit/app_cubit.dart';
 import '../../../../bloc/counter_cubit/counter_cubit.dart';
 import '../../../../bloc/news_cubit/news_cubit.dart';
 import '../../../../bloc/profile_cubit/profile_cubit.dart';
+import 'component/service_list_component.dart';
+import 'component/service_notification_component.dart';
 
 class ServiceComponent extends StatefulWidget {
   const ServiceComponent({Key? key}) : super(key: key);
@@ -21,6 +23,7 @@ class ServiceComponent extends StatefulWidget {
 class _ServiceComponentState extends State<ServiceComponent>
     with AutomaticKeepAliveClientMixin {
   late AppLocalizations _appLocalization;
+
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
@@ -35,6 +38,7 @@ class _ServiceComponentState extends State<ServiceComponent>
     return RefreshIndicator(
       onRefresh: () async{
        await context.read<ProfileCubit>().getNotificationsCount(context.read<AppCubit>().getActiveApartment().id);
+       await context.read<ProfileCubit>().getServicesList();
        await context.read<CounterCubit>().getCounterList(context.read<AppCubit>().getActiveApartment().id);
        await context.read<NewsCubit>().getNews(0);
       },
@@ -49,22 +53,22 @@ class _ServiceComponentState extends State<ServiceComponent>
                   ),
                   fit: BoxFit.fill),
             ),
-            child: SafeArea(
+            child: const SafeArea(
               child: Column(
                 mainAxisSize: MainAxisSize.max,
-                children: [
-                  const SizedBox(height: 26),
+                children:  [
+                   SizedBox(height: 26),
                   AppDimension.verticalSize_16,
-                  const ServiceMenuComponent(),
+                   ServiceMenuComponent(),
                   AppDimension.verticalSize_24,
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 20),
-                    child: AppEmptyCard(
-                        path: 'assets/icons/empty_service_card.svg',
-                        description: _appLocalization.empty_service_description),
-                  ),
-                  // ServiceNotificationComponent(),
-                  // ServiceListComponent(),
+                  // Padding(
+                  //   padding: const EdgeInsets.symmetric(horizontal: 20),
+                  //   child: AppEmptyCard(
+                  //       path: 'assets/icons/empty_service_card.svg',
+                  //       description: _appLocalization.empty_service_description),
+                  // ),
+                   ServiceNotificationComponent(),
+                    ServiceListComponent(),
                 ],
               ),
             )),

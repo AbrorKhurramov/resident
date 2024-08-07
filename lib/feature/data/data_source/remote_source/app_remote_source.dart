@@ -8,6 +8,7 @@ import 'package:resident/app_package/domain/entity_package.dart';
 
 import 'package:either_dart/either.dart';
 import 'package:resident/feature/data/data_source/remote_source/mixin/notifications_count_remote_source_mixin.dart';
+import 'package:resident/feature/data/data_source/remote_source/mixin/services_remote_source_mixin.dart';
 import 'package:resident/feature/data/data_source/remote_source/mixin/support_remote_source_mixin.dart';
 
 
@@ -18,6 +19,7 @@ abstract class AppRemoteSource
         CounterRemoteSourceMixin,
         NewsRemoteSourceMixin,
     NotificationsCountRemoteSourceMixin,
+    ServicesRemoteSourceMixin,
     SupportRemoteSourceMixin,
         AppealRemoteSourceMixin,
         PaymentRemoteSourceMixin,
@@ -33,6 +35,7 @@ class AppRemoteSourceImpl
         CardRemoteSourceMixin,
         CounterRemoteSourceMixin,
         NotificationsCountRemoteSourceMixin,
+    ServicesRemoteSourceMixin,
         NewsRemoteSourceMixin,
     SupportRemoteSourceMixin,
         AppealRemoteSourceMixin,

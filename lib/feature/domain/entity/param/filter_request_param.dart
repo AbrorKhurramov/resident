@@ -13,12 +13,18 @@ class FilterRequestParam extends Equatable {
   final String? dateFrom;
   @JsonKey(name: 'date_to')
   final String? dateTo;
+  @JsonKey(name: 'sort_by')
+  final String? sortBy;
+  @JsonKey(name: 'sort_dir')
+  final String? sortDir;
 
   FilterRequestParam({
     required this.page,
     int? size,
     this.dateFrom,
     this.dateTo,
+    this.sortBy,
+    this.sortDir
   }) {
     this.size = size ?? 10;
   }
@@ -33,8 +39,8 @@ class FilterRequestParam extends Equatable {
     Map<String, dynamic> queryParameters = {
       'page': page,
       'size': size,
-      'sort_by': 'createdDate',
-      'sort_dir': 'desc'
+      'sort_by': sortBy??'createdDate',
+      'sort_dir': sortDir??'desc'
     };
 
     if (dateFrom != null) {

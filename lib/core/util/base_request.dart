@@ -55,6 +55,8 @@ dynamic jsonToEntity<T>(Map<String, dynamic> data) {
       return AppealResponse.fromJson(data) as T;
     case AppealType:
       return AppealType.fromJson(data) as T;
+      case MerchantResponse:
+      return MerchantResponse.fromJson(data) as T;
     case ImageFile:
       return ImageFile.fromJson(data) as T;
       case Support:

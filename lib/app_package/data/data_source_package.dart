@@ -2,7 +2,6 @@ export '../../feature/data/data_source/remote_source/app_remote_source.dart';
 export '../../feature/data/data_source/remote_source/mixin/appeal_remote_source_mixin.dart';
 export '../../feature/data/data_source/remote_source/mixin/auth_remote_source_mixin.dart';
 export '../../feature/data/data_source/remote_source/mixin/news_remote_source_mixin.dart';
-export '../../feature/data/data_source/remote_source/mixin/appeal_remote_source_mixin.dart';
 export '../../feature/data/data_source/remote_source/mixin/card_remote_source_mixin.dart';
 export '../../feature/data/data_source/remote_source/mixin/counter_remote_source_mixin.dart';
 export '../../feature/data/data_source/remote_source/mixin/invoice_remote_source_mixin.dart';

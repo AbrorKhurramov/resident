@@ -12,6 +12,8 @@ FilterRequestParam _$FilterRequestParamFromJson(Map<String, dynamic> json) =>
       size: json['size'] as int?,
       dateFrom: json['date_from'] as String?,
       dateTo: json['date_to'] as String?,
+      sortBy: json['sort_by'] as String?,
+      sortDir: json['sort_dir'] as String?,
     );
 
 Map<String, dynamic> _$FilterRequestParamToJson(FilterRequestParam instance) =>
@@ -20,4 +22,6 @@ Map<String, dynamic> _$FilterRequestParamToJson(FilterRequestParam instance) =>
       'size': instance.size,
       'date_from': instance.dateFrom,
       'date_to': instance.dateTo,
+      'sort_by': instance.sortBy,
+      'sort_dir': instance.sortDir,
     };

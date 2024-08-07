@@ -16,6 +16,7 @@ export '../../feature/domain/entity/response/apartment.dart';
 export '../../feature/domain/entity/response/auth_response.dart';
 export '../../feature/domain/entity/response/bloc.dart';
 export '../../feature/domain/entity/response/company.dart';
+export '../../feature/domain/entity/response/merchant.dart';
 export '../../feature/domain/entity/response/counter.dart';
 export '../../feature/domain/entity/response/complex.dart';
 export '../../feature/domain/entity/response/entrance.dart';

@@ -1,8 +1,10 @@
 import 'package:either_dart/either.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:flutter/foundation.dart';
 import 'package:resident/app_package/core_package.dart';
 import 'package:resident/app_package/domain/entity_package.dart';
 import 'package:resident/app_package/domain/use_case_package.dart';
+import 'package:resident/feature/domain/use_case/service_use_case/get_services_list_use_case.dart';
 import 'package:resident/feature/presentation/bloc/profile_cubit/profile_state.dart';
 
 import '../../../domain/use_case/notification_use_case/notifications_count_use_case.dart';
@@ -13,6 +15,7 @@ class ProfileCubit extends RepositoryCubit<ProfileState> {
   late final InsertUserUseCase _insertUserUseCase;
   late final UpdateProfileUseCase _updateProfileUseCase;
   late final NotificationsCountUseCase _notificationsCountUseCase;
+  late final GetServicesListUseCase _getServicesListUseCase;
 
   User? user;
   BaseResponse<void>? response;
@@ -23,10 +26,12 @@ class ProfileCubit extends RepositoryCubit<ProfileState> {
     required InsertUserUseCase insertUserUseCase,
     required UpdateProfileUseCase updateProfileUseCase,
     required NotificationsCountUseCase notificationsCountUseCase,
+    required GetServicesListUseCase getServicesListUseCase,
   }) : super(const ProfileState(stateStatus: StateStatus.initial,firebaseNotificationState: true)) {
     _getProfileUseCase = getProfileUseCase;
     _insertUserUseCase = insertUserUseCase;
     _getNotificationUseCase = getNotificationUseCase;
+    _getServicesListUseCase = getServicesListUseCase;
     _updateProfileUseCase = updateProfileUseCase;
     _notificationsCountUseCase = notificationsCountUseCase;
   }
@@ -94,6 +99,33 @@ class ProfileCubit extends RepositoryCubit<ProfileState> {
           ));}
     );
   }
+
+  Future<void> getServicesList() async {
+
+    emit(state.copyWith(stateStatus: StateStatus.loading));
+     _getServicesListUseCase
+        .call(GetServicesListUseCaseParams(
+        FilterRequestParam(page: 0,size: 10,sortBy: "id",sortDir: "asc"), cancelToken))
+        .fold(
+          (left) {
+            print("LEFT serviceList");
+            print(left.toString());
+
+            if(left is CancelFailure) return;
+            emit(state.copyWith(
+            stateStatus: StateStatus.failure,failure: left));
+      },
+          (right) {
+            debugPrint("SERVICE DATA");
+            debugPrint(right.data.toString());
+            emit(state.copyWith(
+          stateStatus: StateStatus.success,
+          servicesList: right.data,
+          ));}
+    );
+  }
+
+
 
   Future<void> updateProfile(String firstName, String lastName,
       String phoneNumber, String? photoId) async {

@@ -55,7 +55,9 @@ class _DashboardScreenState extends State<DashboardScreen> {
 
     context.read<ProfileCubit>().getNotificationsCount(context.read<AppCubit>().getActiveApartment().id);
     context.read<ProfileCubit>().getProfile();
-   // context.read<ProfileCubit>().getFirebaseNotificationState();
+    context.read<ProfileCubit>().getServicesList();
+
+    // context.read<ProfileCubit>().getFirebaseNotificationState();
 
     _controller = PageController(
         initialPage: context.read<DashboardCubit>().state, keepPage: true);

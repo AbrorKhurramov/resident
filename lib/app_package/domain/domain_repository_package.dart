@@ -13,3 +13,6 @@ export '../../feature/domain/repository/document_repository/document_repository.
 export '../../feature/domain/repository/notification_repository/notification_repository.dart';
 export '../../feature/domain/repository/by_biometrics_permission_repository/by_biometrics_permission_repository.dart';
 export '../../feature/domain/repository/support_repository/support_repository.dart';
+export '../../feature/domain/repository/service_repository/service_repository.dart';
+export '../../feature/domain/repository/notification_repository/notifications_count_repository.dart';
+

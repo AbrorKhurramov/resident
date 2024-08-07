@@ -14,6 +14,7 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:resident/feature/domain/use_case/appeal_use_case/appeal_history_by_id_use_case.dart';
 import 'package:resident/feature/domain/use_case/auth_use_case/force_update_use_case.dart';
 import 'package:resident/feature/domain/use_case/notification_use_case/notifications_count_use_case.dart';
+import 'package:resident/feature/domain/use_case/service_use_case/get_services_list_use_case.dart';
 import 'package:resident/feature/presentation/bloc/splash_cubit/splash_cubit.dart';
 import 'package:resident/injection/params/notification_param.dart';
 import 'package:resident/injection/params/permission_param.dart';
@@ -137,6 +138,7 @@ Future<void> init(String sysLang) async {
     getIt.registerFactory<ProfileCubit>(() => ProfileCubit(
         getProfileUseCase: getIt<GetProfileUseCase>(),
         insertUserUseCase: getIt<InsertUserUseCase>(),
+        getServicesListUseCase: getIt<GetServicesListUseCase>(),
         getNotificationUseCase: getIt<GetNotificationUseCase>(),
         notificationsCountUseCase: getIt<NotificationsCountUseCase>(),
         updateProfileUseCase: getIt<UpdateProfileUseCase>()));
@@ -181,6 +183,8 @@ Future<void> init(String sysLang) async {
         () => ForceUpdateUseCase(getIt<AppRepositoryImpl>()));
     getIt.registerLazySingleton<NotificationsCountUseCase>(
         () => NotificationsCountUseCase(getIt<AppRepositoryImpl>()));
+    getIt.registerLazySingleton<GetServicesListUseCase>(
+        () => GetServicesListUseCase(getIt<AppRepositoryImpl>()));
     getIt.registerLazySingleton<AppealTypesUseCase>(
         () => AppealTypesUseCase(getIt<AppRepositoryImpl>()));
     getIt.registerLazySingleton<ChangeLanguageUseCase>(
